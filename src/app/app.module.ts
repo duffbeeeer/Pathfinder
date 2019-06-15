@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -8,13 +7,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './_helpers';
+import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationModule } from './navigation/navigation.module';
 
 @NgModule({
   imports: [
       BrowserModule,
       ReactiveFormsModule,
       HttpClientModule,
-      AppRoutingModule
+      AppRoutingModule,
+      NavigationModule
   ],
   declarations: [
       AppComponent,

@@ -1,16 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
   styleUrls: ['./maps.component.scss']
 })
-export class MapsComponent {
+export class MapsComponent implements OnInit {
     title: 'pathfinder';
-    lat: 53.562858564077864;
-    lng: 9.988160133361816;
+    lat: number;
+    lng: number;
 
     isActive: boolean;
+
+    constructor() {
+
+    }
+
+    ngOnInit(): void {
+
+      this.getUserLocation();
+
+    }
+
+    private getUserLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+        });
+      }
+    }
  }
 
 

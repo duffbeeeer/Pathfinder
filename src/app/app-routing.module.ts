@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
+import { MapsComponent } from './maps/maps.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
       path: 'home',
       component: HomeComponent
+  },
+  {
+      path: 'maps',
+      component: MapsComponent
   },
 
   // otherwise redirect to home

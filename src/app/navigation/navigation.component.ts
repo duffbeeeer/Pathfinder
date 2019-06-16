@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent {
+
+  @Output()
+  isMapsActive: EventEmitter<any> = new EventEmitter();
 
   constructor(
         private router: Router,

@@ -7,8 +7,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './_helpers';
-import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationModule } from './navigation/navigation.module';
+import { MapsModule } from './maps/maps.module';
+import { AugmentedModule } from './augmented/augmented.module';
+import { ScoreModule } from './score/score.module';
 
 @NgModule({
   imports: [
@@ -16,7 +18,10 @@ import { NavigationModule } from './navigation/navigation.module';
       ReactiveFormsModule,
       HttpClientModule,
       AppRoutingModule,
-      NavigationModule
+      NavigationModule,
+      MapsModule,
+      AugmentedModule,
+      ScoreModule
   ],
   declarations: [
       AppComponent,

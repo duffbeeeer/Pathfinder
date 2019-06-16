@@ -2,6 +2,7 @@
 import { first } from 'rxjs/operators';
 import { UserService } from '../_services';
 import { User } from '../_models';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,6 +10,9 @@ import { User } from '../_models';
 })
 
 export class HomeComponent {
+
+    isMapsActive$: Observable<boolean>;
+
     users: User[] = [];
 
     constructor(private userService: UserService) { }

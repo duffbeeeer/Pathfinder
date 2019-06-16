@@ -4,7 +4,23 @@
 .white-icon {
   color: white;
 }
-.container{
-  margin: 0;
+.img-height{
+  max-height: 5vw;
+  
+}
+.my-container{
+  margin: 0 auto;
+  width: 100%;
 }
 
+.my-row{
+  border: 3px solid red;
+  height: 5vw;
+}
+
+.my-col{
+  border: 3px dotted blue;
+}
+body{
+  margin: 30px;
+}

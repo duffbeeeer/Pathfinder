@@ -10,9 +10,10 @@ import { Observable } from 'rxjs';
 })
 
 export class HomeComponent {
-
     isMapsActive$: Observable<boolean>;
-
+    isArActive$: Observable<boolean>;
+    isScoreActive: Observable<boolean>;
+    
     users: User[] = [];
 
     constructor(private userService: UserService) { }

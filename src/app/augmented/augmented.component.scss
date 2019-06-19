@@ -1,0 +1,11 @@
+.webcamContainer{
+    background-color: grey;
+}
+webcam{
+    background-color: black;
+}
+@media(orientation:landscape){
+    webcam{
+        background-color: green;
+    }
+}

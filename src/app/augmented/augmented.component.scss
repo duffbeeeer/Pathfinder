@@ -1,11 +1,15 @@
-.webcamContainer{
-    background-color: grey;
+.webcamContainer {
+  background-color: grey;
 }
-webcam{
-    background-color: black;
+webcam {
+  background-color: black;
 }
-@media(orientation:landscape){
-    webcam{
-        background-color: green;
-    }
+// @media(orientation:landscape){
+//     webcam{
+//         background-color: green;
+//     }
+// }
+a-scene {
+  position: fixed;
+  top: 60px;
 }

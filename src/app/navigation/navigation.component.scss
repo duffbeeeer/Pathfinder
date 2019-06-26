@@ -1,26 +1,31 @@
-.color-theme{
+.color-theme {
   background-color: black;
+  height: 60px;
+  width: 100%;
+  margin: 0;
 }
 .white-icon {
   color: white;
 }
-.img-height{
-  max-height: 5vw;
-  
+.img-haw {
+  width: 122px;
+  height: 29px;
+  padding:0;
 }
-.my-container{
+.img-muc {
+  margin: 2px;
+  padding:0;
+  width: 141px;
+  height: 48px;
+}
+.my-container {
   margin: 0 auto;
   width: 100%;
 }
-
-.my-row{
-  border: 3px solid red;
-  height: 5vw;
+.no-pad{
+  padding:0;
 }
-
-.my-col{
-  border: 3px dotted blue;
-}
-body{
-  margin: 30px;
+.right-pad{
+  padding-right: 5px;
+  padding-left: 0px;
 }

@@ -1,26 +1,35 @@
-﻿import { Component } from '@angular/core';
-import { first } from 'rxjs/operators';
-import { UserService } from '../_services';
-import { User } from '../_models';
-import { Observable } from 'rxjs';
+﻿import { Component, OnInit } from '@angular/core';
+import { ViewModel, View, initialView } from '../shared/active-view.model';
 
 
 @Component({
   templateUrl: 'home.component.html'
 })
 
-export class HomeComponent {
-    isMapsActive$: Observable<boolean>;
-    isArActive$: Observable<boolean>;
-    isScoreActive: Observable<boolean>;
-    
-    users: User[] = [];
+export class HomeComponent implements OnInit {
 
-    constructor(private userService: UserService) { }
+    view = View;
+    currentView: ViewModel;
 
-    // ngOnInit() {
-    //     this.userService.getAll().pipe(first()).subscribe(users => {
-    //         this.users = users;
-    //     });
-    // }
+    constructor() { }
+
+    ngOnInit(): void {
+        this.currentView = initialView;
+    }
+
+    onActivateMaps() {
+        this.currentView.activeView = this.view.MapsComponent;
+    }
+
+    onActivateAugmented() {
+        this.currentView.activeView = this.view.AugmentedComponent;
+    }
+
+    get isMapsActive() {
+        return this.currentView.activeView === this.view.MapsComponent;
+    }
+
+    get isAugmentedActive() {
+        return this.currentView.activeView === this.view.AugmentedComponent;
+    }
 }

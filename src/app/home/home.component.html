@@ -1,5 +1,5 @@
-﻿<app-navigation></app-navigation>
-<app-maps *ngIf="false"></app-maps>
-<app-augmented *ngIf="true"></app-augmented>
+﻿<app-navigation activateMaps=onActivateMaps() activateAugmented=onActivateAugmented()></app-navigation>
+<app-maps *ngIf="isMapsActive"></app-maps>
+<app-augmented *ngIf="isAugmentedActive"></app-augmented>
 <app-score *ngIf="false"></app-score>
 

@@ -1,21 +1,53 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { Router } from '@angular/router';
+import { ViewModel, View, initialView } from '../shared/active-view.model';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
+
+  view = View;
+
+  currentView: ViewModel;
 
   @Output()
-  isMapsActive: EventEmitter<any> = new EventEmitter();
+  activateMaps: EventEmitter<any> = new EventEmitter();
+
+  @Output()
+  activateAugmented: EventEmitter<any> = new EventEmitter();
 
   constructor(
         private router: Router,
-        private authenticationService: AuthenticationService
-  ) { }
+        private authenticationService: AuthenticationService,
+  ) {}
+
+   ngOnInit(): void {
+     this.currentView = initialView;
+   }
+
+  onActivateMaps() {
+    this.activateMaps.emit();
+  }
+
+  onActivateAugmented() {
+    this.activateAugmented.emit();
+  }
+
+  switchView() {
+    if (this.currentView.activeView === this.view.MapsComponent) {
+      this.currentView.activeView = this.view.AugmentedComponent;
+      this.onActivateAugmented();
+      console.log('switching to augmented');
+    } else {
+      this.currentView.activeView = this.view.MapsComponent;
+      this.onActivateMaps();
+      console.log('switching to maps');
+    }
+  }
 
   logout() {
     this.authenticationService.logout();

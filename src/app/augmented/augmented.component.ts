@@ -1,7 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Subject, Observable } from 'rxjs';
-
+require('aframe-event-set-component');
+declare var require: any;
 @Component({
   selector: 'app-augmented',
   templateUrl: './augmented.component.html',
@@ -13,14 +14,13 @@ export class AugmentedComponent implements OnInit {
   public screenWidth: number;
   public screenHeight: number;
   public multipleWebcamsAvailable = false;
+  public newPosition = "0.002 0.002 0.002";
   constructor() { }
 
   ngOnInit() {
     WebcamUtil.getAvailableVideoInputs()
       .then((mediaDevices: MediaDeviceInfo[]) => {
         this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
-        console.log(WebcamUtil.getAvailableVideoInputs);
-        this.showNextWebcam(true);
       });
     this.getScreenSize;
     this.screenWidth = window.innerWidth;
@@ -42,6 +42,10 @@ export class AugmentedComponent implements OnInit {
     console.log("height: " + this.screenHeight + " width: " + this.screenWidth);
   }
 
+  public randomPosition(): string {
+    console.log("yay");
+    return "_event: mouseup; position: 0.003 0.003 0.003"
+  }
   public get nextWebcamObservable(): Observable<boolean | string> {
     return this.nextWebcam.asObservable();
   }

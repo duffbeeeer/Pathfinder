@@ -9,17 +9,17 @@ export class MapsComponent implements OnInit {
     title: 'pathfinder';
     lat: number;
     lng: number;
-
-    isActive: boolean;
+    waypoints: any;
+    origin: any;
+    destination = {lat: 53.569143, lng: 10.033014};
+    travelMode = 'TRANSIT';
 
     constructor() {
 
     }
 
     ngOnInit(): void {
-
-      this.getUserLocation();
-
+          this.getUserLocation();
     }
 
     private getUserLocation() {
@@ -27,6 +27,8 @@ export class MapsComponent implements OnInit {
         navigator.geolocation.getCurrentPosition(position => {
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
+          this.origin = {lat: this.lat, lng: this.lng};
+          console.log(this.origin.lat);
         });
       }
     }

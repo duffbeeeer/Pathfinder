@@ -8,7 +8,7 @@ import { AgmDirectionModule } from 'agm-direction';
   imports: [
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC76G02b0O-c2AJhsX9nmcn06_0clEcNUM'
+      apiKey: 'AIzaSyBoL1fpHu6eozEg-4rvIT2JYrZPT4h5h18'
     }),
     AgmDirectionModule
   ],

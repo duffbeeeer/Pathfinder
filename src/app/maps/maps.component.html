@@ -1,4 +1,6 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [styles]="styles">
+  <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode" ></agm-direction>
+  <div *ngFor="let marker of markers; ">
+    <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]="iconUrl"></agm-marker>
+  </div>
 </agm-map>

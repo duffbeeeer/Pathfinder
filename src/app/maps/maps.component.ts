@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mapStyles } from '../../assets/maps.style';
 
 @Component({
   selector: 'app-maps',
@@ -10,16 +11,31 @@ export class MapsComponent implements OnInit {
     lat: number;
     lng: number;
     waypoints: any;
-    origin: any;
-    destination = {lat: 53.569143, lng: 10.033014};
+    // origin: any;
+    origin = {lat: 53.569143, lng: 10.033014};
+    destination = {lat: 53.562699, lng: 9.987803};
     travelMode = 'TRANSIT';
 
-    constructor() {
+    styles = mapStyles;
 
+
+    markers = [
+      {lat: 53.562087, lng: 9.988706},
+      {lat: 53.560658, lng: 9.989211},
+      {lat: 53.559628, lng: 9.989305},
+      {lat: 53.566846, lng: 10.031384},
+    ];
+
+    iconUrl = {
+              url: 'http://torage.github.io/Pathfinder/assets/images/pathfinder-icon.png',
+              scaledSize: {height: 70, width: 70}
+            };
+
+    constructor() {
     }
 
     ngOnInit(): void {
-          this.getUserLocation();
+          // this.getUserLocation();
     }
 
     private getUserLocation() {
@@ -32,7 +48,7 @@ export class MapsComponent implements OnInit {
         });
       }
     }
- }
+}
 
 
 

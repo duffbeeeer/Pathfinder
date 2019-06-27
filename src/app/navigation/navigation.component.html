@@ -1,16 +1,23 @@
 <div class="my-container">
 <div class="color-theme row justify-content-around align align-items-center">
-    <div class="col-7 no-pad">
-      <button
-        mat-icon-button
-        aria-label="Example icon-button with a menu" (click)="switchView()">
-        <mat-icon class="white-icon">more_vert</mat-icon>
-      </button>
-
+    <div class="col-5 no-pad">
       <img class="img-fluid img-muc" src="../../Pathfinder/assets/images/MuC2019.png" />
+    </div>
+    <div class="col-2 text-center">
+      <button *ngIf="isMapsActive"
+        mat-icon-button
+         aria-label="Example icon-button with a menu" (click)="switchView()">
+        <mat-icon class="white-icon">map</mat-icon>
+      </button>
+      <button *ngIf="!isMapsActive"
+        mat-icon-button
+         aria-label="Example icon-button with a menu" (click)="switchView()">
+        <mat-icon class="red-icon">videocam</mat-icon>
+      </button>
     </div>
     <div class="col-5 text-right right-pad">
       <img class="img-fluid img-haw" src="../../Pathfinder/assets/images/haw-logo.png" />
     </div>
   </div>
 </div>
+

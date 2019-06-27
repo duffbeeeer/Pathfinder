@@ -53,4 +53,8 @@ export class NavigationComponent implements OnInit {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
+
+  get isMapsActive() {
+    return this.currentView.activeView === this.view.MapsComponent;
+  }
 }

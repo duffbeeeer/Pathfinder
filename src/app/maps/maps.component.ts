@@ -20,9 +20,10 @@ export class MapsComponent implements OnInit {
 
 
     markers = [
-      {lat: 53.562087, lng: 9.988706},
-      {lat: 53.560658, lng: 9.989211},
-      {lat: 53.559628, lng: 9.989305},
+      {lat: 53.562136, lng: 9.988778},
+      {lat: 53.560588, lng: 9.990415},
+      {lat: 53.559102, lng: 9.989839},
+      {lat: 53.565019, lng: 10.033581},
       {lat: 53.566846, lng: 10.031384},
     ];
 

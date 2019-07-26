@@ -1,5 +1,14 @@
-<div class="text-center colortheme footer fixed-bottom">
-  <p>
-      <a href="https://muc2019.mensch-und-computer.de/" target="_top">MuC 2019 Hamburg</a>
-  </p>
+<div class="col-12 colortheme footer fixed-bottom">
+  <div class="col-6 left-footer text-left">
+    <p>
+        <a href="https://muc2019.mensch-und-computer.de/" target="_top">MuC 2019 Hamburg</a>
+    </p>
+  </div>
+  <div class="col-6 right-footer text-right">
+      <button mat-button [matMenuTriggerFor]="menu">Torage: 4242424 Pts</button>
+      <mat-menu #menu="matMenu">
+        <app-score-detail-view [players]="players"></app-score-detail-view>
+      </mat-menu>
+  </div>
 </div>
+

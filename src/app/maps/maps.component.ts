@@ -39,7 +39,7 @@ export class MapsComponent implements OnInit {
   ngOnInit(): void {
     // this.getUserLocation();
     this.screenWidth = window.innerWidth;
-    this.screenHeight = window.innerHeight - 90;
+    this.screenHeight = window.innerHeight -60;
   }
 
   

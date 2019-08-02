@@ -11,6 +11,7 @@ import { NavigationModule } from './navigation/navigation.module';
 import { MapsModule } from './maps/maps.module';
 import { AugmentedModule } from './augmented/augmented.module';
 import { ScoreModule } from './score/score.module';
+import { GeolocationService } from './shared/geolocation.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ScoreModule } from './score/score.module';
       LoginComponent
   ],
   providers: [
+      { provide: GeolocationService, useClass: GeolocationService },
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

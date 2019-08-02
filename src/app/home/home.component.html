@@ -1,5 +1,5 @@
 ﻿<app-navigation activateMaps=onActivateMaps() activateAugmented=onActivateAugmented()></app-navigation>
-<app-maps *ngIf="isMapsActive"></app-maps>
+<app-maps *ngIf="isMapsActive" [currentPosition]="currentPosition$ | async"></app-maps>
 <app-augmented *ngIf="isAugmentedActive"></app-augmented>
 <app-score></app-score>
 

@@ -52,9 +52,9 @@ export class MapsComponent implements OnInit {
     this.screenHeight = window.innerHeight - 60;
   }
 
-  ngOnDestroy() {
-    this.updateSubscription.unsubscribe();
-}
+  // ngOnDestroy() {
+  //   this.updateSubscription.unsubscribe();
+  // }
 
   ngOnChanges() {
     if (this.currentPosition)  {

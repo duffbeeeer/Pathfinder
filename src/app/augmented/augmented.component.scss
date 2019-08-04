@@ -1,15 +1,11 @@
-.webcamContainer {
-  background-color: grey;
+#videoStream {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
 }
-webcam {
-  background-color: black;
-}
-// @media(orientation:landscape){
-//     webcam{
-//         background-color: green;
-//     }
-// }
-a-scene {
-  position: fixed;
-  top: 120px;
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
 }

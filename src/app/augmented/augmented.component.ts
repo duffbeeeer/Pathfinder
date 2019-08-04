@@ -3,7 +3,8 @@ import { WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { Subject, Observable } from 'rxjs';
 import { element } from '@angular/core/src/render3';
 import { PositionModel } from '../shared/ar-view.model'
-require('aframe-event-set-component');
+
+// require('aframe-event-set-component');
 declare var require: any;
 @Component({
   selector: 'app-augmented',
@@ -12,13 +13,12 @@ declare var require: any;
 })
 export class AugmentedComponent implements OnInit, AfterViewInit {
   private nextWebcam: Subject<boolean | string> = new Subject<boolean | string>();
-  private deviceId: string;
-  private screenWidth: number;
-  private screenHeight: number;
-  private multipleWebcamsAvailable = false;
+  public  screenWidth: number;
+  public screenHeight: number;
   private aframe = (window as any).AFRAME;
   private positions: PositionModel[];
   private rngIndex;
+  private videoStream;
   @ViewChild('coinBlock') coinBlock: ElementRef;
   @ViewChild('cursor') cursor: ElementRef;
   
@@ -39,14 +39,10 @@ export class AugmentedComponent implements OnInit, AfterViewInit {
     console.log(this.coinBlock)
   }
   ngOnInit() {
-    // console.log(this.aframed);
-    // console.log(this.coinBlock.nativeElement)
-    WebcamUtil.getAvailableVideoInputs()
-      .then((mediaDevices: MediaDeviceInfo[]) => {
-        this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
-      });
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 90;
+    // this.videoStream = document.getElementById("videoStream");
+    // this.videoStream.src = navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: "environment" } } }).then( (id) => console.log(id));
     console.log("Screen Width: " + this.screenWidth + " Screen Height: " + this.screenHeight);
     
     
@@ -62,6 +58,36 @@ export class AugmentedComponent implements OnInit, AfterViewInit {
     //     });
     //   }
     // });
+    // navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: "environment" } } }).then((value)=>console.log(value));
+    // console.log(navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: "environment" } } }));
+    
+    
+    // navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: "environment" } } })
+    // .then((test)=> {
+    //   let stream:any = document.getElementById("videoStream")
+    //   stream.src = test.id;
+    //   console.log(test.id);
+    //   console.log(stream);
+    //   console.log(stream.src);
+    // })
+    // .catch((damn)=>
+    // console.dir(damn));
+
+    if (navigator.mediaDevices.getUserMedia) {
+      let video: any = document.getElementById("videoStream");
+      navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { exact: "environment" } } })
+        .then(function (stream) {
+          video.srcObject = stream;
+          video.play();
+          console.log("video");
+          console.log(video.srcObject);
+        })
+        .catch(function (err0r) {
+          console.log("Something went wrong!");
+          console.log(err0r);
+        });
+    }
+    
     this.aframe.registerComponent('cursor-listener',{
       init: () => {
         console.log(this.coinBlock);
@@ -96,33 +122,5 @@ export class AugmentedComponent implements OnInit, AfterViewInit {
     
     this.coinBlock.nativeElement.object3D.position.set(newPosition.x, newPosition.y, newPosition.z);
   }
-
-
-  public handleInitError(error: WebcamInitError): void {
-    if (error.mediaStreamError && error.mediaStreamError.name === "NotAllowedError") {
-      console.warn("Camera access was not allowed by user!");
-    }
-  }
-
-
-  public randomPosition(): string {
-    console.log("yay");
-    return "_event: mouseup; position: 0.003 0.003 0.003"
-  }
-  public get nextWebcamObservable(): Observable<boolean | string> {
-    return this.nextWebcam.asObservable();
-  }
-
-  public showNextWebcam(directionOrDeviceId: boolean | string): void {
-    // true => move forward through devices
-    // false => move backwards through devices
-    // string => move to device with given deviceId
-    console.log(directionOrDeviceId + "-.-");
-    this.nextWebcam.next(directionOrDeviceId);
-  }
-
-  public cameraWasSwitched(deviceId: string): void {
-    console.log('active device: ' + deviceId);
-    this.deviceId = deviceId;
-  }
+ 
 }

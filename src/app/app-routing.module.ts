@@ -4,6 +4,7 @@ import { HomeComponent } from './home';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
 import { MapsComponent } from './maps/maps.component';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
       path: 'maps',
       component: MapsComponent
+  },
+  {
+     path: 'register',
+     component: RegistrationComponent
   },
 
   // otherwise redirect to home

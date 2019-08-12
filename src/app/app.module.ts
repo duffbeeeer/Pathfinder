@@ -12,6 +12,7 @@ import { MapsModule } from './maps/maps.module';
 import { AugmentedModule } from './augmented/augmented.module';
 import { ScoreModule } from './score/score.module';
 import { GeolocationService } from './shared/geolocation.service';
+import { RegistrationComponent } from './login/registration/registration.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { GeolocationService } from './shared/geolocation.service';
   declarations: [
       AppComponent,
       HomeComponent,
-      LoginComponent
+      LoginComponent,
+      RegistrationComponent
   ],
   providers: [
       { provide: GeolocationService, useClass: GeolocationService },

@@ -1,24 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
+import { LocalPosition } from '../shared/geolocation.service';
+import { Subscription, interval } from 'rxjs';
+
 
 @Component({
   selector: 'app-maps',
   templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.scss']
+  styleUrls: ['./maps.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class MapsComponent implements OnInit {
+
+  @Input()
+  currentPosition: Position;
+
   title: 'pathfinder';
+
   lat: number;
   lng: number;
   screenWidth: number;
   screenHeight: number;
   waypoints: any;
   // origin: any;
-  origin = { lat: 53.569143, lng: 10.033014 };
+  origin: LocalPosition;
   destination = { lat: 53.562699, lng: 9.987803 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
-
+  private updateSubscription: Subscription;
 
   markers = [
     { lat: 53.562136, lng: 9.988778 },
@@ -33,27 +43,43 @@ export class MapsComponent implements OnInit {
     scaledSize: { height: 32, width: 25 }
   };
 
-  constructor() {
-  }
-
   ngOnInit(): void {
-    // this.getUserLocation();
+    // this.updateSubscription = interval(1000).subscribe(
+    //   (val) => { this.updateStats();
+
+    // });
     this.screenWidth = window.innerWidth;
-    this.screenHeight = window.innerHeight -60;
+    this.screenHeight = window.innerHeight - 60;
   }
 
+  // ngOnDestroy() {
+  //   this.updateSubscription.unsubscribe();
+  // }
 
-  private getUserLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-        this.origin = { lat: this.lat, lng: this.lng };
-        console.log(this.origin.lat);
-      });
+  ngOnChanges() {
+    if (this.currentPosition)  {
+      this.origin = {lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude};
+      console.log('obs pos ' + this.currentPosition.coords.latitude);
     }
   }
+
+  private updateStats() {
+    console.log('I am doing something every second');
+
+  }
 }
+
+  // private getUserLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(position => {
+  //       this.lat = position.coords.latitude;
+  //       this.lng = position.coords.longitude;
+  //       this.origin = { lat: this.lat, lng: this.lng };
+  //       console.log(this.origin.lat);
+  //     });
+  //   }
+  // }
+
 
 
 

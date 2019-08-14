@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
@@ -11,6 +11,9 @@ import { NavigationModule } from './navigation/navigation.module';
 import { MapsModule } from './maps/maps.module';
 import { AugmentedModule } from './augmented/augmented.module';
 import { ScoreModule } from './score/score.module';
+import { GeolocationService } from './shared/geolocation.service';
+import { RegistrationComponent } from './login/registration/registration.component';
+import { SuccessfulRegistrationComponent } from './login/successful-registration/successful-registration.component';
 
 @NgModule({
   imports: [
@@ -21,14 +24,18 @@ import { ScoreModule } from './score/score.module';
       NavigationModule,
       MapsModule,
       AugmentedModule,
-      ScoreModule
+      ScoreModule,
+      FormsModule
   ],
   declarations: [
       AppComponent,
       HomeComponent,
-      LoginComponent
+      LoginComponent,
+      RegistrationComponent,
+      SuccessfulRegistrationComponent
   ],
   providers: [
+      { provide: GeolocationService, useClass: GeolocationService },
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
       { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

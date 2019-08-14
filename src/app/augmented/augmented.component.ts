@@ -70,10 +70,10 @@ export class AugmentedComponent implements OnInit {
       });
     }
   
-  ngAfterViewInit(){
+    ngAfterViewChecked(){
     this.videoRef = document.getElementById('video');
     this.videoRef.style.transform ="scaleY(1.2)";
-    console.log(this.videoRef);
+    // console.log(this.videoRef);
   }
   
   public rngPosition(): PositionModel{

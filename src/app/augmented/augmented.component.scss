@@ -1,11 +1,6 @@
-#videoStream {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-}
-#container {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
+.cam{
+	z-index: -500;
+	position: absolute;
+	top: 60px;
+	
 }

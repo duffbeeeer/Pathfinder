@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { AugmentedComponent } from './augmented.component';
 import { WebcamModule } from 'ngx-webcam';
 import { AframePipeModule } from 'angular-aframe-pipe';
+import { WebCamModule } from 'ack-angular-webcam';
 
 @NgModule({
   declarations: [AugmentedComponent],
   imports: [
     CommonModule,
     WebcamModule,
-    AframePipeModule
+    AframePipeModule,
+    WebCamModule
   ],
   exports: [AugmentedComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

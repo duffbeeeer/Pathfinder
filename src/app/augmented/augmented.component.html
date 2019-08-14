@@ -1,3 +1,7 @@
+<div class="orientation text-center fixed-top" *ngIf=landscape>
+  <h5> landscape mode is not supported.</h5>
+  <h6>please rotate your device</h6>
+</div>
 <ack-webcam class="fixed-top cam" #webcam
             [options] = "options"
 ></ack-webcam>
@@ -7,26 +11,26 @@
 <a-scene #scene embedded vr-mode-ui="enabled: false" [ngStyle]="{'width': screenWidth+'px', 'height': screenHeight+'px'}">  
   <a-entity camera look-controls look-controls="touchEnabled: false">
     <a-entity #cursor
-    cursor="fuse: false"
-    position="0 0.07 -0.3"
-    raycaster="direction: 0 0.25 -1"
-    geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017"
-    material="color: #00ffff; shader: flat">
+      cursor="fuse: false"
+      position="0 0.07 -0.3"
+      raycaster="direction: 0 0.25 -1"
+      geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017"
+      material="color: #00ffff; shader: flat">
+    </a-entity>
   </a-entity>
-</a-entity>
 
-<a-entity #coinBlock  [attr.position]="{x: 0, y: 1, z: 0} | aframe" cursor-listener>
-  <a-gltf-model class="collidable" 
-  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-  src="../../Pathfinder/assets/models/CoinBlock.gltf.glb"  
-  position="0 0 1"
-  scale="0.002 0.002 0.002">
-  </a-gltf-model>
-</a-entity>
+  <a-entity #coinBlock  [attr.position]="{x: 0, y: 1, z: 0} | aframe" cursor-listener>
+    <a-gltf-model class="collidable" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+    src="../../Pathfinder/assets/models/CoinBlock.gltf.glb"  
+    position="0 0 1"
+    scale="0.002 0.002 0.002">
+    </a-gltf-model>
+  </a-entity>
 
-<!-- Lighting -->
-<a-entity light="color: #ffffff; intensity: 1" position="-1 1 0"></a-entity>
-<a-entity light="color: #ffffff; intensity: 1" position="1 1 0"></a-entity>
-<a-entity light="color: #ffffff; intensity: 1" position="0 -1 2"></a-entity>
-<a-entity light="color: #ffffff; intensity: 1" position="0 -1 -2"></a-entity>
+  <!-- Lighting -->
+  <a-entity light="color: #ffffff; intensity: 1" position="-1 1 0"></a-entity>
+  <a-entity light="color: #ffffff; intensity: 1" position="1 1 0"></a-entity>
+  <a-entity light="color: #ffffff; intensity: 1" position="0 -1 2"></a-entity>
+  <a-entity light="color: #ffffff; intensity: 1" position="0 -1 -2"></a-entity>
 </a-scene>

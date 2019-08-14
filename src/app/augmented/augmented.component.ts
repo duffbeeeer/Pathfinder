@@ -1,6 +1,5 @@
-import { Component, OnInit, HostListener, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked  } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked  } from '@angular/core';
 import { PositionModel } from '../shared/ar-view.model'
-import { WebCamComponent } from 'ack-angular-webcam';
 
 @Component({
   selector: 'app-augmented',
@@ -8,19 +7,20 @@ import { WebCamComponent } from 'ack-angular-webcam';
   styleUrls: ['./augmented.component.scss']
 })
 
-export class AugmentedComponent implements OnInit {
-  //ACK
-  private base64;
+export class AugmentedComponent implements OnInit, AfterViewChecked {
   public screenWidth: number;
   public screenHeight: number;
+  public landscape:boolean;
+
   private aframe = (window as any).AFRAME;
   private positions: PositionModel[];
   private rngIndex: number;
+  private videoRef;
+  
   @ViewChild('coinBlock') coinBlock: ElementRef;
   @ViewChild('cursor') cursor: ElementRef;
-  private videoRef;
-
-
+  @ViewChild('scene') sceneRef: ElementRef;
+  
 
   options = {
     video    : {
@@ -70,14 +70,13 @@ export class AugmentedComponent implements OnInit {
       });
     }
   
-    ngAfterViewChecked(){
+  ngAfterViewChecked(){
     this.videoRef = document.getElementById('video');
-    this.videoRef.style.transform ="scaleY(1.2)";
-    // console.log(this.videoRef);
+    this.videoRef.style.transform = "scaleY(1.2)";
+    window.innerWidth>window.innerHeight? this.landscape = true : this.landscape = false;
   }
   
   public rngPosition(): PositionModel{
-    console.log(this.positions.length)
     this.rngIndex = Math.floor((Math.random() * this.positions.length));
     return this.positions[this.rngIndex];
   }

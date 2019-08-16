@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../_models';
@@ -7,6 +7,9 @@ import { User } from '../_models';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+
+    loading: boolean;
+    error: any;
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
@@ -15,24 +18,33 @@ export class AuthenticationService {
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
+
+
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>(`http://localhost:8080/login`, { username, password })
-            .pipe(map(user => {
+        const httpOptions = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+        return this.http.post<User>(`http://localhost:8080/login`, { username, password }, {headers: httpOptions, observe: 'response'})
+            .subscribe(user => {
+                console.log(user);
                 // login successful if there's a jwt token in the response
-                const userToken = user.response.get('Authorization');
+                const userToken = user.headers.get('Authorization');
                 if (user && userToken) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     console.log(userToken);
                     localStorage.setItem('currentUser', userToken);
-                    this.currentUserSubject.next(user);
+                    this.currentUserSubject.next(user.body);
                 }
 
                 return user;
-            }));
+            },
+            error => {
+              this.error = error;
+              this.loading = false;
+          });
     }
 
     register(username: string, password: string) {

@@ -23,10 +23,11 @@ export class AuthenticationService {
         return this.http.post<any>(`http://localhost:8080/login`, { username, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
-                if (user && user.token) {
+                const userToken = user.response.get('Authorization');
+                if (user && userToken) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    console.log(user.token);
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    console.log(userToken);
+                    localStorage.setItem('currentUser', userToken);
                     this.currentUserSubject.next(user);
                 }
 
@@ -36,7 +37,7 @@ export class AuthenticationService {
 
     register(username: string, password: string) {
         console.log('register method'+username+' '+password);
-      return this.http.post<any>('http://localhost:8080/user/sign-up', {username, password})
+        return this.http.post<any>('http://localhost:8080/user/sign-up', {username, password})
           .pipe(map(user => {
             console.log(user);
             return user;

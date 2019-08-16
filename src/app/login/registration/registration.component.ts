@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
     }
     console.log(this.f.username.value+this.f.password.value)
     this.loading = true;
-        this.authenticationService.register(this.f.username.value, this.f.password.value)
+    this.authenticationService.register(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
                 data => {

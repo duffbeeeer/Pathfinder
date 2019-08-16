@@ -20,7 +20,7 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        return this.http.post<any>(`/users/authenticate`, { username, password })
+        return this.http.post<any>(`http://localhost:8080/login`, { username, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
@@ -35,9 +35,11 @@ export class AuthenticationService {
     }
 
     register(username: string, password: string) {
-      return this.http.post<any>('', {username, password})
+        console.log('register method'+username+' '+password);
+      return this.http.post<any>('http://localhost:8080/user/sign-up', {username, password})
           .pipe(map(user => {
             console.log(user);
+            return user;
           }));
     }
 

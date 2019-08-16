@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MustMatch } from '../../shared/must-match.validator';
 import { AuthenticationService } from '../../_services';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-registration',
@@ -45,8 +46,18 @@ export class RegistrationComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    this.authenticationService.register(this.f.username.value, this.f.password.value);
+    console.log(this.f.username.value+this.f.password.value)
+    this.loading = true;
+        this.authenticationService.register(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.error = error;
+                    this.loading = false;
+                });
 
-    this.router.navigate([this.returnUrl]);
   }
 }

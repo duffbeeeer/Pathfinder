@@ -4,6 +4,14 @@
 	top: 60px;
 }
 
+.ascene{
+	z-index: 100;
+}
+.ui{
+	z-index: 200;
+	position:absolute;
+	top:60px;
+}
 .orientation{
 	color: beige;
 	background-color: black;

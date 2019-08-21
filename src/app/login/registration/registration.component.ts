@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
-    console.log(this.f.username.value+this.f.password.value)
+    console.log(this.f.username.value + this.f.password.value);
     this.loading = true;
     this.authenticationService.register(this.f.username.value, this.f.password.value)
             .pipe(first())
@@ -58,6 +58,5 @@ export class RegistrationComponent implements OnInit {
                     this.error = error;
                     this.loading = false;
                 });
-
   }
 }

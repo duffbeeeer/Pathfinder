@@ -14,6 +14,7 @@ import { ScoreModule } from './score/score.module';
 import { GeolocationService } from './shared/geolocation.service';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SuccessfulRegistrationComponent } from './login/successful-registration/successful-registration.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 @NgModule({
   imports: [
@@ -26,6 +27,14 @@ import { SuccessfulRegistrationComponent } from './login/successful-registration
       AugmentedModule,
       ScoreModule,
       FormsModule
+      // JwtModule.forRoot({
+      //   config: {
+      //     tokenGetter: function  tokenGetter() {
+      //          return     localStorage.getItem('currentUser'); },
+      //     whitelistedDomains: ['localhost:4200'],
+      //     blacklistedRoutes: ['']
+      //   }
+      // })
   ],
   declarations: [
       AppComponent,

@@ -10,12 +10,12 @@ import { SuccessfulRegistrationComponent } from './login/successful-registration
 const routes: Routes = [
   {
       path: '',
-      component: LoginComponent
-  },
-  {
-      path: 'home',
       component: HomeComponent,
       canActivate: [AuthGuard]
+  },
+  {
+      path: 'login',
+      component: LoginComponent
   },
   {
       path: 'maps',
@@ -31,7 +31,7 @@ const routes: Routes = [
   },
 
   // otherwise redirect to home
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({

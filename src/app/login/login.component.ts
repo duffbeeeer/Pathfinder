@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
-        private router: Router,
         private authenticationService: AuthenticationService
     ) { }
 
@@ -42,7 +41,6 @@ export class LoginComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-        this.router.navigate([this.returnUrl]);
 
         // stop here if form is invalid
         if (this.loginForm.invalid) {
@@ -51,6 +49,15 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value);
+        // .pipe(first())
+        //     .subscribe(
+        //         data => {
+        //             this.router.navigate([this.returnUrl]);
+        //         },
+        //         error => {
+        //             this.error = error;
+        //             this.loading = false;
+        //         });
 
     }
 }

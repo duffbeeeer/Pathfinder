@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, OnChanges, HostListener  } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener  } from '@angular/core';
 import { PositionModel } from '../shared/ar-view.model'
 
 @Component({
@@ -7,7 +7,7 @@ import { PositionModel } from '../shared/ar-view.model'
   styleUrls: ['./augmented.component.scss']
 })
 
-export class AugmentedComponent implements OnInit, AfterViewChecked, OnChanges {
+export class AugmentedComponent implements OnInit, AfterViewChecked {
   public screenWidth: number;
   public screenHeight: number;
   public landscape:boolean;
@@ -88,14 +88,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked, OnChanges {
 
     startTimer(time: number) {
       this.timeLeft = time;
-      setInterval(() => {
-        if(this.timeLeft >= 0) {
-          console.log(this.timeLeft)
-          this.timeLeft-=0.1;
-          this.timerRef.nativeElement.children[0].setAttribute("value", "Time: " + this.timeLeft);
-        } else {
-          this.timeLeft = 0;
-        }
+      this.timer = setInterval(() => {
+          this.timeLeft > 0.1 ? this.timeLeft -= 0.1 : this.timeLeft = 0;
+          this.timerRef.nativeElement.children[0].setAttribute("value", "Time: " + this.timeLeft.toFixed(1));
       },100)
     }
 

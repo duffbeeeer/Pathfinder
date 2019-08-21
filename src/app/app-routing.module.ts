@@ -4,20 +4,30 @@ import { HomeComponent } from './home';
 import { AuthGuard } from './_guards';
 import { LoginComponent } from './login';
 import { MapsComponent } from './maps/maps.component';
+import { RegistrationComponent } from './login/registration/registration.component';
+import { SuccessfulRegistrationComponent } from './login/successful-registration/successful-registration.component';
 
 const routes: Routes = [
   {
       path: '',
       component: LoginComponent
-      // canActivate: [AuthGuard]
   },
   {
       path: 'home',
-      component: HomeComponent
+      component: HomeComponent,
+      canActivate: [AuthGuard]
   },
   {
       path: 'maps',
       component: MapsComponent
+  },
+  {
+     path: 'register',
+     component: RegistrationComponent
+  },
+  {
+     path: 'success',
+     component: SuccessfulRegistrationComponent
   },
 
   // otherwise redirect to home

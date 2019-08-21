@@ -1,64 +1,36 @@
-<webcam class="text-center" (initError)="handleInitError($event)" [width]="screenWidth" [height]="screenHeight"
-  [switchCamera]="nextWebcamObservable" allowSwitchCamera="false">
-</webcam>
-<a-scene #AFRAME embedded vr-mode-ui="enabled: false" [ngStyle]="{'width': screenWidth+'px', 'height': screenHeight-60+'px'}">
-  <!-- <a-camera wasd-controls-enabled="false" >
-    <a-cursor material="color: #00ffff" position="0 0.07 -0.3" scale=" 0.4 0.4 0.4"></a-cursor>
-  </a-camera> -->
-  
+<div class="orientation text-center fixed-top" *ngIf=landscape>
+  <h5> landscape mode is not supported.</h5>
+  <h6>please rotate your device</h6>
+</div>
+<ack-webcam class="fixed-top cam" #webcam
+            [options] = "options"
+></ack-webcam>
+<!-- <div class="fixed-top" style="width: 100px;height: 100px;background-color: brown;top:60px;z-index: -101;"></div>
+<div class="fixed-top" style="width: 50px;height: 50px;background-color: green;top:60px;z-index: -5; transform: scaleX(10)"></div> -->
+<!-- Augmented Environment -->
+<a-scene #scene embedded vr-mode-ui="enabled: false" [ngStyle]="{'width': screenWidth+'px', 'height': screenHeight+'px'}">  
   <a-entity camera look-controls look-controls="touchEnabled: false">
     <a-entity #cursor
-              cursor="fuse: false"
-              position="0 0.07 -0.3"
-              raycaster="direction: 0 0.25 -1"
-              geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017"
-              material="color: #00ffff; shader: flat">
+      cursor="fuse: false"
+      position="0 0.07 -0.3"
+      raycaster="direction: 0 0.25 -1"
+      geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017"
+      material="color: #00ffff; shader: flat">
     </a-entity>
   </a-entity>
-  
-  <!-- <a-entity id="box" cursor-listener geometry="primitive: box" material="color: blue"></a-entity> -->
-  
 
-
-  
-  <a-entity class="collidable"#coinBlock  [attr.position]="{x: 0, y: height, z: 0} | aframe" cursor-listener>
-    <a-gltf-model
-      src="../../assets/models/CoinBlock.gltf.glb"  
-      position="0 0 -1"
-      scale="0.002 0.002 0.002"
-      >
+  <a-entity #coinBlock  [attr.position]="{x: 0, y: 1, z: 0} | aframe" cursor-listener>
+    <a-gltf-model class="collidable" 
+    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+    src="../../Pathfinder/assets/models/CoinBlock.gltf.glb"  
+    position="0 0 1"
+    scale="0.002 0.002 0.002">
     </a-gltf-model>
   </a-entity>
 
-
+  <!-- Lighting -->
   <a-entity light="color: #ffffff; intensity: 1" position="-1 1 0"></a-entity>
   <a-entity light="color: #ffffff; intensity: 1" position="1 1 0"></a-entity>
   <a-entity light="color: #ffffff; intensity: 1" position="0 -1 2"></a-entity>
   <a-entity light="color: #ffffff; intensity: 1" position="0 -1 -2"></a-entity>
-  <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box> -->
 </a-scene>
-<!-- <a-scene>
-    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"
-           event-set__enter="_event: mouseenter; color: #8FF7FF"
-           event-set__leave="_event: mouseleave; color: #4CC3D9"></a-box>
-    
-    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"
-              event-set__down="_event: mousedown; scale: 1.2 1.2 1.2"
-              event-set__up="_event: mouseup; scale: 1 1 1"
-              event-set__leave="_event: mouseleave; scale: 1 1 1"></a-sphere>
-    
-    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
-                event-set__enter="_event: mouseenter; _target: #cylinderText; visible: true"
-                event-set__leave="_event: mouseleave; _target: #cylinderText; visible: false">
-      <a-text id="cylinderText" value="This is a cylinder" align="center" color="#FFF" visible="false" position="0 -0.55 0.55"
-              geometry="primitive: plane; width: 1.75" material="color: #333"></a-text>
-    </a-cylinder>
-    
-    
-l      
-    <a-camera>
-      <a-cursor></a-cursor>
-    </a-camera>
-    
-  </a-scene> -->
-  

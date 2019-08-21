@@ -1,15 +1,15 @@
-.webcamContainer {
-  background-color: grey;
+.cam{
+	z-index: -500;
+	position: absolute;
+	top: 60px;
 }
-webcam {
-  background-color: black;
-}
-// @media(orientation:landscape){
-//     webcam{
-//         background-color: green;
-//     }
-// }
-a-scene {
-  position: fixed;
-  top: 120px;
+
+.orientation{
+	color: beige;
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	top: 60px;
+	vertical-align: middle;
+	z-index: 9999;
 }

@@ -28,19 +28,34 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     window.innerWidth>window.innerHeight? this.landscape = true : this.landscape = false;
-  }
-  options = {
-    video    : {
-        advanced: [{
-          facingMode: "environment"
-        }]
-      },
-      audio    : false,
-      width    : window.innerWidth,
-      height   : window.innerHeight,
-      aspectRatio: window.innerWidth/window.innerHeight
-      
+    if(window.innerWidth<window.innerHeight){
+      this.screenWidth = window.innerWidth;
+      this.screenHeight = window.innerHeight;
+      this.options = {
+        video    : {
+          advanced: [{
+            facingMode: "environment"
+          }]
+        },
+        audio    : false,
+        width    : window.innerWidth,
+        height   : window.innerHeight,
+        aspectRatio: window.innerWidth/window.innerHeight  
+      }
     }
+  }
+
+  private options = {
+    video    : {
+      advanced: [{
+        facingMode: "environment"
+      }]
+    },
+    audio    : false,
+    width    : window.innerWidth,
+    height   : window.innerHeight,
+    aspectRatio: window.innerWidth/window.innerHeight  
+  }
     
     constructor(private hostElement:ViewContainerRef) { 
       this.landscape

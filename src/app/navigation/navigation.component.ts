@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { Router } from '@angular/router';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
@@ -10,8 +10,9 @@ import { ViewModel, View, initialView } from '../shared/active-view.model';
 })
 export class NavigationComponent implements OnInit {
 
+  screenWidth: number;
+  screenHeight: number;
   view = View;
-
   currentView: ViewModel;
 
   @Output()
@@ -21,13 +22,15 @@ export class NavigationComponent implements OnInit {
   activateAugmented: EventEmitter<any> = new EventEmitter();
 
   constructor(
-        private router: Router,
-        private authenticationService: AuthenticationService,
-  ) {}
+    private router: Router,
+    private authenticationService: AuthenticationService,
+  ) { }
 
-   ngOnInit(): void {
-     this.currentView = initialView;
-   }
+  ngOnInit(): void {
+    this.currentView = initialView;
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = 60;
+  }
 
   onActivateMaps() {
     this.activateMaps.emit();
@@ -52,6 +55,12 @@ export class NavigationComponent implements OnInit {
   logout() {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = 60;
   }
 
   get isMapsActive() {

@@ -58,7 +58,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
     
     constructor(private hostElement:ViewContainerRef) { 
-      this.landscape
       this.positions = [
         {x:0, y:0 ,z:0},
         {x:0.2, y:0 ,z:0},
@@ -71,6 +70,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     
     
     ngOnInit() {
+      window.innerWidth>window.innerHeight? this.landscape = true : this.landscape = false;
       this.screenWidth = window.innerWidth;
       this.screenHeight = window.innerHeight - 90;
       

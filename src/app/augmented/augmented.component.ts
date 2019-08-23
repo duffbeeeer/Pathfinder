@@ -45,7 +45,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  private options = {
+  options = {
     video    : {
       advanced: [{
         facingMode: "environment"
@@ -105,7 +105,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
       this.timeLeft = time;
       this.timer = setInterval(() => {
           this.timeLeft > 0.1 ? this.timeLeft -= 0.1 : this.timeLeft = 0;
-          this.timerRef.nativeElement.children[0].setAttribute("value", "Time: " + this.timeLeft.toFixed(1));
+          // this.timerRef.nativeElement.children[0].setAttribute("value", "Time: " + this.timeLeft.toFixed(1));
+          this.timerRef.nativeElement.textContent = "Time: " + this.timeLeft.toFixed(1);
       },100)
     }
 

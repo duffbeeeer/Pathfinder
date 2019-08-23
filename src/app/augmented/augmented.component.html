@@ -3,48 +3,42 @@
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
+<!-- UI Overlay -->
+<div class="fixed-top" style="top:60px" *ngIf=!landscape>
+  <div class="row">
+    <div class="text-left col-5 align-items-center" style="background-color: transparent">
+      <h5 #timer style="padding-left:20px;color: red;background-color:black">Time: 29,99</h5>
+    </div>
+    <div class="col-2"></div>
+    <div class="text-center col-5" style="width:50vw; background-color: transparent">
+      <h5> landscape mode is not supported.</h5>
+    </div>
+  </div>
+</div>
 <!-- UI overlay -->
 
 <!-- Webcam -->
-<ack-webcam class="fixed-top cam" #webcam
-            [options] = "options"
-></ack-webcam>
+<ack-webcam class="fixed-top cam" #webcam [options]="options"></ack-webcam>
 
 <!-- Augmented Environment -->
-<a-scene 
-#scene 
-embedded 
-vr-mode-ui="enabled: false" 
-[ngStyle]="{'width': screenWidth+'px', 'height': screenHeight+'px'}">  
-  <a-entity 
-  camera
-  look-controls="touchEnabled: false">
-    <a-entity 
-      #cursor
-      cursor="fuse: false"
-      position="0 0.07 -0.3"
-      raycaster="direction: 0 0.25 -1; objects: [clickable]"
-      geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017"
-      material="color: #00ffff; shader: flat">
+<a-scene #scene embedded vr-mode-ui="enabled: false"
+  [ngStyle]="{'width': screenWidth+'px', 'height': screenHeight+'px'}">
+  <a-entity camera look-controls="touchEnabled: false">
+    <a-entity #cursor cursor="fuse: false" position="0 0.07 -0.3" raycaster="direction: 0 0.25 -1; objects: [clickable]"
+      geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.017" material="color: #00ffff; shader: flat">
     </a-entity>
     <a-entity #score>
-          <a-text  value="Score: " position="-0.1 0.18 -0.3" color="#00ffff" width="0.5" anchor="left"></a-text>
+      <a-text value="Score: " position="-0.1 0.18 -0.3" color="#00ffff" width="0.5" anchor="left"></a-text>
     </a-entity>
-    <a-entity #timer>
-          <a-text value="Time: " position="-0.1 0.20 -0.3" color="#00ffff" width="0.5" anchor="left"></a-text>
+    <a-entity >
+      <a-text value="Time: " position="-0.1 0.20 -0.3" color="#00ffff" width="0.5" anchor="left"></a-text>
     </a-entity>
-    
+
   </a-entity>
 
-  <a-entity 
-  #coinBlock
-  [attr.position]="{x: 0, y: 1, z: 0} | aframe">
-    <a-gltf-model class="collidable"
-    clickable
-    animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-    src="../../Pathfinder/assets/models/CoinBlock.gltf.glb"  
-    position="0 0 1"
-    scale="0.002 0.002 0.002">
+  <a-entity #coinBlock [attr.position]="{x: 0, y: 1, z: 0} | aframe">
+    <a-gltf-model class="collidable" clickable animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+      src="../../Pathfinder/assets/models/CoinBlock.gltf.glb" position="0 0 1" scale="0.002 0.002 0.002">
     </a-gltf-model>
   </a-entity>
 

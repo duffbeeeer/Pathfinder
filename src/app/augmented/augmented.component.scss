@@ -1,23 +1,24 @@
-.cam{
-	z-index: -500;
-	position: absolute;
-	top: 60px;
+.cam {
+  z-index: -500;
+  position: absolute;
+  top: 60px;
 }
 
-.ascene{
-	z-index: 100;
+.ascene {
+  z-index: 100;
 }
-.ui{
-	z-index: 200;
-	position:absolute;
-	top:60px;
+.ui {
+  z-index: 9999;
+  position: absolute;
+  top: 60px;
 }
-.orientation{
-	color: beige;
-	background-color: black;
-	width: 100vw;
-	height: 100vh;
-	top: 60px;
-	vertical-align: middle;
-	z-index: 9999;
+
+.orientation {
+  color: red;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  top: 60px;
+  vertical-align: middle;
+  z-index: 9999;
 }

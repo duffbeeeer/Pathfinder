@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/
 import { AuthenticationService } from '../_services';
 import { Router } from '@angular/router';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
+import { PointOfInterest } from '../_models/score.model';
 
 @Component({
   selector: 'app-navigation',

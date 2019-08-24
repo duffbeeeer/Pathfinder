@@ -40,7 +40,7 @@ export class MapsComponent implements OnInit {
   ];
 
   iconUrl = {
-    url: 'http://torage.github.io/Pathfinder/assets/images/pathfinder-icon.png',
+    url: '../../assets/images/pathfinder-icon.png',
     scaledSize: { height: 32, width: 25 }
   };
 

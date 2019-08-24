@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
     view = View;
     currentView: ViewModel;
     currentPosition$: Observable<Position>;
-    // poiList$: Observable<PointOfInterest[]>;
-    highScore$: Observable<Highscore[]>;
+    poiList$: Observable<PointOfInterest[]>;
+    // highScore$: Observable<Highscore[]>;
 
     constructor(
       private geolocationService: GeolocationService,
@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
       this.currentPosition$ = this.geolocationService.getCurrentPosition();
       this.currentPosition$.subscribe(x => console.log(x));
       // this.poiList$ = this.scoreService.getPoiList();
-      // this.poiList$ = this.scoreService.getUserPoiList();
-      this.highScore$ = this.scoreService.getHighscoreList();
-      console.log(this.highScore$);
+      this.poiList$ = this.scoreService.getUserPoiList();
+      // this.highScore$ = this.scoreService.getHighscoreList();
+      // console.log(this.highScore$);
     }
 
     ngOnInit(): void {

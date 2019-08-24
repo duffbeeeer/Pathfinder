@@ -1,36 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Player, Players } from '../shared/player-model';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Highscore } from '../_models/score.model';
+import { Observable } from 'rxjs';
+import { ScoreService } from '../_services/score.service';
 
 @Component({
   selector: 'app-score',
   templateUrl: './score.component.html',
-  styleUrls: ['./score.component.scss']
+  styleUrls: ['./score.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ScoreComponent {
-  players: Player[] = [
-      {
-        username: 'torage',
-        score: 4523
-      },
-      {
-        username: 'torage1',
-        score: 45232
-      },
-      {
-        username: 'torage2',
-        score: 453435
-      },
-      {
-        username: 'torage3',
-        score: 454435
-      },
-      {
-        username: 'torage4',
-        score: 453435
-      }
-    ];
+export class ScoreComponent implements OnInit {
 
-    get playerArray() {
-      return this.players;
+    scoreList$: Observable<Highscore[]>;
+
+    constructor(private scoreService: ScoreService) {
+    }
+
+    ngOnInit(): void {
+      this.scoreList$ = this.scoreService.getHighscoreList();
+    }
+
+    updateScore() {
+      console.log('updating');
+      this.scoreList$ = this.scoreService.getHighscoreList();
     }
 }

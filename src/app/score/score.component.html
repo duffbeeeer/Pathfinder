@@ -5,9 +5,9 @@
     </p>
   </div>
   <div class="col-6 right-footer text-right">
-      <button mat-button [matMenuTriggerFor]="menu">Torage: 4242424 Pts</button>
+      <button mat-button [matMenuTriggerFor]="menu" (click)="updateScore()">Torage: 4242424 Pts</button>
       <mat-menu #menu="matMenu">
-        <app-score-detail-view [players]="players"></app-score-detail-view>
+        <app-score-detail-view [scoreList]="scoreList$ | async"></app-score-detail-view>
       </mat-menu>
   </div>
 </div>

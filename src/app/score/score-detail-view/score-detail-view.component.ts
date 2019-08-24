@@ -1,15 +1,16 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Player, Players } from '../../shared/player-model';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Highscore } from '../../_models/score.model';
 
 @Component({
   selector: 'app-score-detail-view',
   templateUrl: './score-detail-view.component.html',
-  styleUrls: ['./score-detail-view.component.scss']
+  styleUrls: ['./score-detail-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScoreDetailViewComponent {
 
   @Input()
-  players: Player[];
+  scoreList: Highscore[];
 
   // constructor() {
   //   console.log(this.players);

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, first } from 'rxjs/operators';
 import { PointOfInterest, Achievement, Highscore } from '../_models/score.model';
 import { Observable } from 'rxjs';
 
@@ -70,22 +70,29 @@ import { Observable } from 'rxjs';
       }));
   }
 
-  completePoi(id: string, value: number): Observable<PointOfInterest> {
-    return this.http.post<PointOfInterest>(
-      `http://localhost:8080/user/pointsofinterest/${id}/complete/${value}`, {id, value}, {observe: 'response'})
-      .pipe(map(response => {
-          if (response) {
-            let pointOfInterest: PointOfInterest;
-            pointOfInterest = {
-              id: response.body.id,
-              lat: response.body.lat,
-              lng: response.body.lng,
-              active: response.body.active
-            };
-            return pointOfInterest;
-          }
-          return null;
-      }));
+  completePoi(id: string, value: number) {
+    console.log('id+value' + id + value );
+    return this.http.post<PointOfInterest[]>(`http://localhost:8080/user/pointsofinterest/${id}/complete/${value}`, {observe: 'response'})
+      .pipe(first())
+      .subscribe(res => {
+          console.log(res);
+      });
+      // .pipe(map(response => {
+      //     console.log(response);
+      //     // if (response) {
+      //     //   let pointOfInterest: PointOfInterest[];
+      //     //   pointOfInterest = {
+      //     //     id: response.id,
+      //     //     lat: response.lat,
+      //     //     lng: response.lng,
+      //     //     active: response.active
+      //     //   };
+      //     //   return pointOfInterest;
+      //     // }
+      //     console.log('NULL');
+      //     return null;
+      // })
+
   }
 
   addMultiplePoi(locations: Position[]) {

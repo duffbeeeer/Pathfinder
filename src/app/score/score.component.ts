@@ -9,12 +9,8 @@ import { Player, Players } from '../shared/player-model';
 export class ScoreComponent {
   players: Player[] = [
       {
-        username: 'torage',
-        score: 4523
-      },
-      {
         username: 'torage1',
-        score: 45232
+        score: 4523
       },
       {
         username: 'torage2',
@@ -26,6 +22,30 @@ export class ScoreComponent {
       },
       {
         username: 'torage4',
+        score: 453435
+      },
+      {
+        username: 'torage5',
+        score: 45232
+      },
+      {
+        username: 'torage6',
+        score: 453435
+      },
+      {
+        username: 'torage7',
+        score: 454435
+      },
+      {
+        username: 'torage8',
+        score: 453435
+      },
+      {
+        username: 'torage9',
+        score: 45232
+      },
+      {
+        username: 'torage10',
         score: 453435
       }
     ];

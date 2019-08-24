@@ -11,7 +11,7 @@ import { NavigationModule } from './navigation/navigation.module';
 import { MapsModule } from './maps/maps.module';
 import { AugmentedModule } from './augmented/augmented.module';
 import { ScoreModule } from './score/score.module';
-import { GeolocationService } from './shared/geolocation.service';
+import { GeolocationService } from './_services/geolocation.service';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { SuccessfulRegistrationComponent } from './login/successful-registration/successful-registration.component';
 

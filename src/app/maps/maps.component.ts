@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
-import { LocalPosition } from '../shared/geolocation.service';
+import { LocalPosition } from '../_services/geolocation.service';
 import { Subscription, interval } from 'rxjs';
 
 

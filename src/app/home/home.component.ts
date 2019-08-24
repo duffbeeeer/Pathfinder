@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
 import { Observable } from 'rxjs';
-import { GeolocationService } from '../shared/geolocation.service';
+import { GeolocationService } from '../_services/geolocation.service';
 
 
 @Component({

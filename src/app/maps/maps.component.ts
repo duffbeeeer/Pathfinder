@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
 import { LocalPosition } from '../_services/geolocation.service';
 import { Subscription, interval } from 'rxjs';
@@ -17,6 +17,7 @@ export class MapsComponent implements OnInit {
   currentPosition: Position;
 
   title: 'pathfinder';
+  landscape: boolean;
 
   lat: number;
   lng: number;
@@ -39,7 +40,7 @@ export class MapsComponent implements OnInit {
   ];
 
   iconUrl = {
-    url: 'http://torage.github.io/Pathfinder/assets/images/pathfinder-icon.png',
+    url: '../../assets/images/pathfinder-icon.png',
     scaledSize: { height: 32, width: 25 }
   };
 
@@ -50,15 +51,23 @@ export class MapsComponent implements OnInit {
     // });
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
+    window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    }
+  
   // ngOnDestroy() {
   //   this.updateSubscription.unsubscribe();
   // }
 
   ngOnChanges() {
-    if (this.currentPosition)  {
-      this.origin = {lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude};
+    if (this.currentPosition) {
+      this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       console.log('obs pos ' + this.currentPosition.coords.latitude);
     }
   }

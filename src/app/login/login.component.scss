@@ -3,10 +3,16 @@
   background-color: black;
 }
 
-.btn-login {
-  float: left;
+.form-btn {
+  width:40%
 }
 
 .btn-register {
   float: right;
 }
+.h-divider{
+  margin-top:2vh;
+  height:1px;
+  width:100%;
+  border-top:1px solid gray;
+ }

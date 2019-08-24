@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../_services';
 import { Router } from '@angular/router';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
+import { PointOfInterest } from '../_models/score.model';
 
 @Component({
   selector: 'app-navigation',

@@ -41,7 +41,7 @@ export class MapsComponent implements OnInit {
 
   iconUrl = {
     url: '../../assets/images/pathfinder-icon.png',
-    scaledSize: { height: 32, width: 25 }
+    // scaledSize: { height: 32, width: 25 }
   };
 
   ngOnInit(): void {
@@ -68,7 +68,7 @@ export class MapsComponent implements OnInit {
   ngOnChanges() {
     if (this.currentPosition) {
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
-      console.log('obs pos ' + this.currentPosition.coords.latitude);
+      // console.log('obs pos ' + this.currentPosition.coords.latitude);
     }
   }
 

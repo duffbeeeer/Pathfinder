@@ -21,7 +21,7 @@
 </div>
 
 <!-- Webcam -->
-<ack-webcam class="fixed-top cam" #webcam [options]="options"></ack-webcam>
+<ack-webcam class="fixed-top cam" #webcam [options]="options" (catch)   = "onCamError($event)"></ack-webcam>
 
 <!-- Augmented Environment -->
 <a-scene #scene embedded vr-mode-ui="enabled: false"

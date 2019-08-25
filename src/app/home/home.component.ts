@@ -12,41 +12,57 @@ import { PointOfInterest, Highscore } from '../_models/score.model';
 
 export class HomeComponent implements OnInit {
 
-    view = View;
-    currentView: ViewModel;
-    currentPosition$: Observable<Position>;
-    poiList$: Observable<PointOfInterest[]>;
-    // highScore$: Observable<Highscore[]>;
+  view = View;
+  currentView: ViewModel;
+  currentPosition$: Observable<Position>;
+  poiList$: Observable<PointOfInterest[]>;
+  highScoreList$: Observable<Highscore[]>;
+  userScore$: Observable<Highscore>;
 
-    constructor(
-      private geolocationService: GeolocationService,
-      private scoreService: ScoreService
-    ) {
-      this.currentPosition$ = this.geolocationService.getCurrentPosition();
-      this.currentPosition$.subscribe(x => console.log(x));
-      // this.poiList$ = this.scoreService.getPoiList();
-      this.poiList$ = this.scoreService.getUserPoiList();
-      // this.highScore$ = this.scoreService.getHighscoreList();
-      // console.log(this.highScore$);
-    }
+  constructor(
+    private geolocationService: GeolocationService,
+    private scoreService: ScoreService
+  ) {
+    // get current position
+    this.currentPosition$ = this.geolocationService.getCurrentPosition();
+    this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
-    ngOnInit(): void {
-        this.currentView = initialView;
-    }
+    //get userspecific Point of interest-list
+    this.poiList$ = this.scoreService.getUserPoiList();
+    this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
-    onActivateMaps() {
-        this.currentView.activeView = this.view.MapsComponent;
-    }
+    // get Highscore List
+    this.highScoreList$ = this.scoreService.getHighscoreList();
+    this.highScoreList$.forEach(res => {
+      res.map(res => {
+        res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
+        console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
+      })
+    });
+    //get Userscore
+    this.userScore$ = this.scoreService.getHighscore();
+  }
 
-    onActivateAugmented() {
-        this.currentView.activeView = this.view.AugmentedComponent;
-    }
+  ngOnInit(): void {
+    this.currentView = initialView;
+  }
 
-    get isMapsActive() {
-        return this.currentView.activeView === this.view.MapsComponent;
-    }
+  onActivateMaps() {
+    this.currentView.activeView = this.view.MapsComponent;
+    this.userScore$.forEach(res => {
+      console.log(res);
+    })
+  }
 
-    get isAugmentedActive() {
-        return this.currentView.activeView === this.view.AugmentedComponent;
-    }
+  onActivateAugmented() {
+    this.currentView.activeView = this.view.AugmentedComponent;
+  }
+
+  get isMapsActive() {
+    return this.currentView.activeView === this.view.MapsComponent;
+  }
+
+  get isAugmentedActive() {
+    return this.currentView.activeView === this.view.AugmentedComponent;
+  }
 }

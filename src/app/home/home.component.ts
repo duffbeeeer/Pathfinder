@@ -3,7 +3,7 @@ import { ViewModel, View, initialView } from '../shared/active-view.model';
 import { Observable } from 'rxjs';
 import { GeolocationService } from '../_services/geolocation.service';
 import { ScoreService } from '../_services/score.service';
-import { PointOfInterest, Highscore } from '../_models/score.model';
+import { PointOfInterest, Highscore, SimplePointOfInterest } from '../_models/score.model';
 
 
 @Component({
@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
   view = View;
   currentView: ViewModel;
   currentPosition$: Observable<Position>;
+  addPois$: Observable<any>;
+
+
   poiList$: Observable<PointOfInterest[]>;
   highScoreList$: Observable<Highscore[]>;
   userScore$: Observable<Highscore>;
@@ -41,6 +44,14 @@ export class HomeComponent implements OnInit {
     });
     //get Userscore
     this.userScore$ = this.scoreService.getHighscore();
+    this.userScore$.forEach(res => {
+      console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
+    });
+
+    // add points of interest
+    // this.addPois$ = scoreService.addMultiplePoi([{lat:777, lng:654}] );
+    // console.log(this.addPois$.forEach(res=>res))
+
   }
 
   ngOnInit(): void {
@@ -49,9 +60,6 @@ export class HomeComponent implements OnInit {
 
   onActivateMaps() {
     this.currentView.activeView = this.view.MapsComponent;
-    this.userScore$.forEach(res => {
-      console.log(res);
-    })
   }
 
   onActivateAugmented() {

@@ -1,14 +1,14 @@
 <!-- Orientation Message -->
 <div class="orientation text-center fixed-top" *ngIf=landscape>
     <div>
-        <button class="btn btn-primary" (click)="firePoi()">FIRE</button>
+        <button class="btn btn-primary" (click)="addScore()">FIRE</button>
       </div>
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
 
 <!-- UI Overlay -->
-<div class="fixed-top" style="top:60px" *ngIf=!landscape>
+<div class="fixed-top" style="top:60px">
   <div class="row">
     <div class="text-left col-5 align-items-center" style="background-color: transparent">
       <h5 #timer style="padding-left:20px;color: #156EB0;background-color:black">Time: 30,0s</h5>

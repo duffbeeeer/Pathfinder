@@ -1,5 +1,4 @@
 ﻿<app-navigation activateMaps=onActivateMaps() activateAugmented=onActivateAugmented()></app-navigation>
-<div style="color: red" *ngFor=" let score of poiList$ | async ">{{score.id}}{{score.active}}</div>
 <app-maps *ngIf="isMapsActive" [currentPosition]="currentPosition$ | async"></app-maps>
 <app-augmented *ngIf="isAugmentedActive"></app-augmented>
 <app-score></app-score>

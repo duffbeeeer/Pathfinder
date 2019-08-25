@@ -77,8 +77,12 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   ngOnInit() {
-    // document.documentElement.requestFullscreen();
-    // window.screen.orientation.lock('portrait');
+    console.log(this.coinBlock);
+    console.log(this.cursor);
+    console.log(this.sceneRef);
+    console.log(this.scoreRef);
+    console.log(this.timerRef);
+    console.log('################################################');
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 90;
@@ -113,12 +117,13 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   startTimer(time: number) {
     if (this.landscape === false) {
       this.timeLeft = time;
-      if(this.timerRef!=undefined){
+      if (this.timerRef != undefined) {
 
         this.timer = setInterval(() => {
           this.timeLeft > 0.1 ? this.timeLeft -= 0.1 : this.timeLeft = 0;
-          this.timerRef.nativeElement.children[0].setAttribute("value", "Time: " + this.timeLeft.toFixed(1));
           this.timerRef.nativeElement.textContent = 'Time: ' + this.timeLeft.toFixed(1);
+          this.timeLeft == 0 ? this.addScore() : console.log(this.timeLeft.toFixed(1));
+
         }, 100);
       }
     }
@@ -139,9 +144,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     console.log('No Webcam found.');
   }
 
-  firePoi() {
-    this.auth.login('kyatar ', 'kyatar');
-    this.scoreService.completePoi('5d5d1fb2fd641d3e24c9d938', 137);
-    console.log('FIRED');
+  addScore() {
+    clearInterval(this.timer)
+    this.auth.login('kyatar1', 'kyatar1');
+    // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
+    this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a', 9999);
   }
 }

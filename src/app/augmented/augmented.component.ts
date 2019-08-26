@@ -4,7 +4,7 @@ import { ScoreService } from '../_services/score.service';
 import { AuthenticationService } from '../_services';
 import { Observable } from 'rxjs';
 import { Highscore } from '../_models/score.model';
-
+import { ScoreComponent } from '../score/score.component';
 @Component({
   selector: 'app-augmented',
   templateUrl: './augmented.component.html',
@@ -13,24 +13,25 @@ import { Highscore } from '../_models/score.model';
 
 export class AugmentedComponent implements OnInit, AfterViewChecked {
 
-  public screenWidth: number;
-  public screenHeight: number;
+  public timer;
+  public videoRef;
+
   public landscape: boolean;
+  public isRunning: boolean;
+  public isCompleted: boolean;
+
+  public overallScore: number;
+  public screenHeight: number;
+  public screenWidth: number;
+  public rngIndex: number;
+  public timeLeft: number;
+  public points: number
+
+  public positions: PositionModel[];
+  public newPosition: PositionModel;
   public highscore$: Observable<Highscore>;
-  private timer;
-  private score: number;
-  private timeLeft: number;
-  private positions: PositionModel[];
-  private rngIndex: number;
-  private videoRef;
 
-  @ViewChild('coinBlock') coinBlock: ElementRef;
-  @ViewChild('cursor') cursor: ElementRef;
-  @ViewChild('scene') sceneRef: ElementRef;
-  @ViewChild('score') scoreRef: ElementRef;
-  @ViewChild('timer') timerRef: ElementRef;
-
-  options = {
+  public options = {
     video: {
       advanced: [{
         facingMode: 'environment'
@@ -40,8 +41,15 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     width: window.innerWidth,
     height: window.innerHeight,
     aspectRatio: window.innerWidth / window.innerHeight
-
   };
+
+  @ViewChild('coinBlock') coinBlock: ElementRef;
+  @ViewChild('cursor') cursor: ElementRef;
+  @ViewChild('scene') sceneRef: ElementRef;
+  @ViewChild('score') scoreRef: ElementRef;
+  @ViewChild('timer') timerRef: ElementRef;
+
+
 
   constructor(private hostElement: ViewContainerRef, private scoreService: ScoreService, private auth: AuthenticationService) {
     this.positions = [
@@ -53,6 +61,35 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
       { x: 1, y: 0, z: 0 },
     ];
     this.highscore$ = scoreService.getHighscore();
+  }
+
+  ngOnInit() {
+    window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight - 90;
+    this.isCompleted = false;
+    this.isRunning = false;
+    this.overallScore = 0;
+
+    this.coinBlock.nativeElement.addEventListener('click', (evt) => {
+      this.onHit();
+      // console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+
+    this.coinBlock.nativeElement.addEventListener('mouseenter', () => {
+      this.cursor.nativeElement.setAttribute('material', 'color', '#FF000F');
+    });
+
+    this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
+      this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
+    });
+    this.startTimer(30);
+  }
+
+  ngAfterViewChecked() {
+    this.videoRef = document.getElementById('video');
+    this.videoRef.style.transform = 'scaleY(1.2)';
+
   }
 
   @HostListener('window:resize', ['$event'])
@@ -75,79 +112,52 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     }
   }
 
-
-  ngOnInit() {
-    console.log(this.coinBlock);
-    console.log(this.cursor);
-    console.log(this.sceneRef);
-    console.log(this.scoreRef);
-    console.log(this.timerRef);
-    console.log('################################################');
-    window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
-    this.screenWidth = window.innerWidth;
-    this.screenHeight = window.innerHeight - 90;
-
-    this.score = 0;
-
-    this.coinBlock.nativeElement.addEventListener('click', (evt) => {
-      this.onHit(this.rngPosition());
-      console.log('I was clicked at: ', evt.detail.intersection.point);
-
-      console.log(this.scoreRef.nativeElement.children[0].attributes.value);
-      this.scoreRef.nativeElement.children[0].setAttribute('value', 'Score: ' + this.score);
-    });
-
-    this.coinBlock.nativeElement.addEventListener('mouseenter', () => {
-      this.cursor.nativeElement.setAttribute('material', 'color', '#FF000F');
-    });
-
-    this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
-      this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
-    });
-    this.startTimer(30);
-  }
-
-  ngAfterViewChecked() {
-    this.videoRef = document.getElementById('video');
-    this.videoRef.style.transform = 'scaleY(1.2)';
-
-  }
-
-
   startTimer(time: number) {
-    if (this.landscape === false) {
+    // if (this.landscape === false) {
+    if (true) {
+      !this.isRunning ? this.isRunning = true : null;
       this.timeLeft = time;
       if (this.timerRef != undefined) {
-
+        this.points = this.timeLeft * 100;
         this.timer = setInterval(() => {
-          this.timeLeft > 0.1 ? this.timeLeft -= 0.1 : this.timeLeft = 0;
-          this.timerRef.nativeElement.textContent = 'Time: ' + this.timeLeft.toFixed(1);
-          this.timeLeft == 0 ? this.addScore() : console.log(this.timeLeft.toFixed(1));
-
-        }, 100);
+          this.timeLeft > 0.01 ? this.timeLeft -= 0.01 : this.timeLeft = 0;
+          this.timeLeft > 0.01 ? this.points -= 1 : null;
+          this.timerRef.nativeElement.textContent = 'Time: ' + this.timeLeft.toFixed(2);
+          if (this.timeLeft == 0) {
+            this.addScore();
+            this.isRunning = false;
+            this.isCompleted = true;
+          }
+        }, 10);
       }
     }
   }
 
-  public rngPosition(): PositionModel {
-    this.rngIndex = Math.floor((Math.random() * this.positions.length));
-    return this.positions[this.rngIndex];
+  public rngPosition() {
+
   }
 
-  public onHit(newPosition: PositionModel) {
-    this.coinBlock.nativeElement.object3D.position.set(newPosition.x, newPosition.y, newPosition.z);
-    this.score += 1;
-    this.scoreRef.nativeElement.textContent = 'Score: ' + this.score;
+  public onHit() {
+    if (this.isRunning) {
+      this.scoreRef.nativeElement.textContent = 'Score: ' + this.overallScore;
+      this.rngIndex = Math.floor((Math.random() * this.positions.length));
+      this.newPosition = this.positions[this.rngIndex];
+      this.coinBlock.nativeElement.object3D.position.set(this.newPosition.x, this.newPosition.y, this.newPosition.z);
+      this.overallScore += this.points;
+      this.scoreRef.nativeElement.textContent = 'Score: ' + this.overallScore;
+    }
+  }
+
+
+  addScore() {
+    clearInterval(this.timer)
+    // this.auth.login('kyatar1', 'kyatar1');
+    // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
+    this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a', this.overallScore);
   }
 
   onCamError(err) {
     console.log('No Webcam found.');
   }
 
-  addScore() {
-    clearInterval(this.timer)
-    this.auth.login('kyatar1', 'kyatar1');
-    // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
-    this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a', 9999);
-  }
 }

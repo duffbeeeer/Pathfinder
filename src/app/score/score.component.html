@@ -7,7 +7,7 @@
   <div class="col-6 right-footer text-right">
       <button mat-button style="color: #156EB0; background-color: black;border-color: black"
       [matMenuTriggerFor]="menu"
-      (click)="updateScore()">Torage: 4242424 Pts</button>
+      (click)="updateScore()">#{{position}} {{username}}: {{userScore}} Pts</button>
       <mat-menu #menu="matMenu">
         <app-score-detail-view [scoreList]="scoreList$ | async"></app-score-detail-view>
       </mat-menu>

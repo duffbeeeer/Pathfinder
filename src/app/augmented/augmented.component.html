@@ -1,12 +1,14 @@
 <!-- Orientation Message -->
-<div class="orientation text-center fixed-top" *ngIf=landscape>
-    <div>
-        <button class="btn btn-primary" (click)="addScore()">FIRE</button>
-      </div>
+<div class="orientation text-center fixed-top" *ngIf=false>
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
 
+<!-- Score -->
+<div class="orientation text-center fixed-top" *ngIf=isCompleted>
+    <h5>Scorescreen</h5>
+    <h6>You earned {{overallScore}}</h6>
+  </div>
 <!-- UI Overlay -->
 <div class="fixed-top" style="top:60px">
   <div class="row">
@@ -34,7 +36,7 @@
 
   <a-entity #coinBlock [attr.position]="{x: 0, y: 1, z: 0} | aframe">
     <a-gltf-model class="collidable" clickable animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
-      src="../../assets/models/CoinBlock.gltf.glb" position="0 0 1" scale="0.002 0.002 0.002">
+      src="../../Pathfinder/assets/models/CoinBlock.gltf.glb" position="0 0 1" scale="0.002 0.002 0.002">
     </a-gltf-model>
   </a-entity>
 

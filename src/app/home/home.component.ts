@@ -29,34 +29,31 @@ export class HomeComponent implements OnInit {
   ) {
     // get current position
     this.currentPosition$ = this.geolocationService.getCurrentPosition();
-    this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+    // this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
     //get userspecific Point of interest-list
     this.poiUserList$ = this.scoreService.getUserPoiList();
-    this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
+    // this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
     
     //get Point of interest-list
     this.poiList$ = this.scoreService.getPoiList();
-    this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
+    // this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
     // get Highscore List
     this.highScoreList$ = this.scoreService.getHighscoreList();
     this.highScoreList$.forEach(res => {
       res.map(res => {
-        res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
-        console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
+        // res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
+        // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
       })
     });
 
     //get Userscore
     this.userScore$ = this.scoreService.getHighscore();
     this.userScore$.forEach(res => {
-      console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
+      // console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
+      // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n')
     });
-
-    // add points of interest
-    // this.addPois$ = scoreService.addMultiplePoi([{lat:777, lng:654}] );
-    // console.log(this.addPois$.forEach(res=>res))
 
   }
 

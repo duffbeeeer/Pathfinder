@@ -48,7 +48,7 @@ import { Observable } from 'rxjs';
   getPoiList(): Observable<PointOfInterest[]> {
     return this.http.get<PointOfInterest[]>('http://localhost:8080/pointsofinterest/all', { observe: 'response' })
       .pipe(map(response => {
-        console.log(response);
+        // console.log(response);
         if (response) {
           let pointOfInterestList: PointOfInterest[];
           pointOfInterestList = Object.values(response.body);

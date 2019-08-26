@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   addPois$: Observable<any>;
 
 
+  poiUserList$: Observable<PointOfInterest[]>;
   poiList$: Observable<PointOfInterest[]>;
   highScoreList$: Observable<Highscore[]>;
   userScore$: Observable<Highscore>;
@@ -31,7 +32,11 @@ export class HomeComponent implements OnInit {
     this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
     //get userspecific Point of interest-list
-    this.poiList$ = this.scoreService.getUserPoiList();
+    this.poiUserList$ = this.scoreService.getUserPoiList();
+    this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
+    
+    //get Point of interest-list
+    this.poiList$ = this.scoreService.getPoiList();
     this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
     // get Highscore List
@@ -42,6 +47,7 @@ export class HomeComponent implements OnInit {
         console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
       })
     });
+
     //get Userscore
     this.userScore$ = this.scoreService.getHighscore();
     this.userScore$.forEach(res => {

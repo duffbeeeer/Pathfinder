@@ -1,16 +1,17 @@
 .cam {
-  z-index: -500;
+  z-index: -100;
   position: absolute;
   top: 60px;
 }
 
+.container.custom-container {
+  padding: 0;
+  margin: 0;
+  top:20vh;
+  z-index: 0;
+}
 .ascene {
   z-index: 100;
-}
-.ui {
-  z-index: 9999;
-  position: absolute;
-  top: 60px;
 }
 
 .orientation {
@@ -20,5 +21,31 @@
   height: 100vh;
   top: 60px;
   vertical-align: middle;
-  z-index: 9999;
+  z-index: 200;
+  position: absolute;
+}
+.center{
+  z-index: 300;
+  height: 100vh;
+  top: 40vh;
+  max-height: 60vh
+}
+
+
+.my-flex-container {
+  height: 100px;
+  width: 100vw;
+  margin-bottom: 0;
+}
+.my-flex-item {
+  background-color: black;
+  border: 2px solid #156EB0;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px; 
+}
+
+.dynamicFont{
+  color:beige;
 }

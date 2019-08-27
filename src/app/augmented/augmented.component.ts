@@ -4,7 +4,9 @@ import { ScoreService } from '../_services/score.service';
 import { AuthenticationService } from '../_services';
 import { Observable } from 'rxjs';
 import { Highscore } from '../_models/score.model';
-import { ScoreComponent } from '../score/score.component';
+import { ViewModel, View, initialView } from '../shared/active-view.model';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-augmented',
   templateUrl: './augmented.component.html',
@@ -15,7 +17,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   public timer;
   public videoRef;
+  public view;
 
+  public currentView: ViewModel;
   public landscape: boolean;
   public isRunning: boolean;
   public isCompleted: boolean;
@@ -26,6 +30,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   public rngIndex: number;
   public timeLeft: number;
   public points: number
+  public dynamicFontColor: string;
 
   public positions: PositionModel[];
   public newPosition: PositionModel;
@@ -48,10 +53,15 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @ViewChild('scene') sceneRef: ElementRef;
   @ViewChild('score') scoreRef: ElementRef;
   @ViewChild('timer') timerRef: ElementRef;
+  @ViewChild('backToMaps') backBtnRef: ElementRef;
 
 
 
-  constructor(private hostElement: ViewContainerRef, private scoreService: ScoreService, private auth: AuthenticationService) {
+  constructor(
+    private hostElement: ViewContainerRef,
+    private scoreService: ScoreService,
+    private auth: AuthenticationService,
+    private router: Router) {
     this.positions = [
       { x: 0, y: 0, z: 0 },
       { x: 0.2, y: 0, z: 0 },
@@ -64,6 +74,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+    console.log(window.innerHeight);
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 90;
@@ -120,9 +131,20 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
       if (this.timerRef != undefined) {
         this.points = this.timeLeft * 100;
         this.timer = setInterval(() => {
-          this.timeLeft > 0.01 ? this.timeLeft -= 0.01 : this.timeLeft = 0;
-          this.timeLeft > 0.01 ? this.points -= 1 : null;
-          this.timerRef.nativeElement.textContent = 'Time: ' + this.timeLeft.toFixed(2);
+          if (this.timeLeft >= 10) {
+            this.timeLeft -= 0.01;
+            this.points -= 1;
+            this.dynamicFontColor='white';
+          } else if (this.timeLeft >= 0.01) {
+            this.timeLeft -= 0.01;
+            this.points -= 1;
+            this.dynamicFontColor='red';
+          } else {
+            this.timeLeft = 0
+          }
+          // this.timeLeft > 0.01 ? this.timeLeft -= 0.01 : this.timeLeft = 0;
+          // this.timeLeft > 0.01 ? this.points -= 1 : null;
+          this.timerRef.nativeElement.textContent = this.timeLeft.toFixed(2);
           if (this.timeLeft == 0) {
             this.addScore();
             this.isRunning = false;
@@ -148,6 +170,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     }
   }
 
+  back() {
+    console.log("TODO: BACK TO MAPS")
+  }
 
   addScore() {
     clearInterval(this.timer)

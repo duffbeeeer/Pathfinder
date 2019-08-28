@@ -14,7 +14,7 @@ import { AgmDirection } from 'agm-direction/src/modules/agm-direction.module';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class MapsComponent implements OnInit, AfterViewInit {
+export class MapsComponent implements OnInit, OnChanges {
 
   @Input()
   currentPosition: Position;
@@ -25,14 +25,14 @@ export class MapsComponent implements OnInit, AfterViewInit {
 
   title: 'pathfinder';
   landscape: boolean;
-
+  dynamicStyling: {};
   lat: number;
   lng: number;
   screenWidth: number;
   screenHeight: number;
   waypoints: any;
   // origin: any;
-  origin: LatLng;
+  origin: LocalPosition;
   destination = { lat: 53.562699, lng: 9.987803 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
@@ -72,11 +72,28 @@ export class MapsComponent implements OnInit, AfterViewInit {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+    this.dynamicStyling = {width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px'};
   }
 
-  ngAfterViewInit() {
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+    }
 
+  // ngOnDestroy() {
+  //   this.updateSubscription.unsubscribe();
+  // }
+
+  ngOnChanges() {
+    if (this.currentPosition) {
+      this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
+      // console.log('obs pos ' + this.currentPosition.coords.latitude);
+    }
   }
+
+
   protected mapReady(map) {
     this.map = map;
     this.map.setCenter({lat: 44.599, lng: 44.490});

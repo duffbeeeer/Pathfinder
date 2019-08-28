@@ -37,15 +37,15 @@ export class HomeComponent implements OnInit {
 
     // get Point of interest-list
     this.poiList$ = this.scoreService.getPoiList();
-    // this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
+    this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
     // get Highscore List
     this.highScoreList$ = this.scoreService.getHighscoreList();
     this.highScoreList$.forEach(res => {
-      res.map(res => {
+      // res.map(res => {
         // res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
         // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
-      });
+      // });
     });
 
     // get Userscore

@@ -3,9 +3,9 @@
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
-<agm-map (mapReady)="mapReady($event)" #agmMap [latitude]="lat" [longitude]="lng" [styles]="styles" [streetViewControl]="false" [zoomControl]="false"
-  [ngStyle]="{'width': screenWidth+'px', 'height': screenHeight+'px'}">
-  <agm-direction #agmDirection [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
+<agm-map class="fixed-top" [latitude]="lat" [longitude]="lng" [styles]="styles" [streetViewControl]="false" [zoomControl]="false"
+  [ngStyle]="dynamicStyling">
+  <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
   <div *ngFor="let marker of markers; ">
     <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]="iconUrl"></agm-marker>
     <agm-circle #agmCircle [latitude]="marker.lat" [longitude]="marker.lng" [radius]="25"></agm-circle>

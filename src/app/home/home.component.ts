@@ -28,14 +28,14 @@ export class HomeComponent implements OnInit {
     private scoreService: ScoreService
   ) {
     // get current position
-    this.currentPosition$ = this.geolocationService.getCurrentPosition();
-    this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+    // this.currentPosition$ = this.geolocationService.getCurrentPosition();
+    // this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
-    //get userspecific Point of interest-list
+    // get userspecific Point of interest-list
     this.poiUserList$ = this.scoreService.getUserPoiList();
     this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
-    
-    //get Point of interest-list
+
+    // get Point of interest-list
     this.poiList$ = this.scoreService.getPoiList();
     this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit {
     this.highScoreList$ = this.scoreService.getHighscoreList();
     this.highScoreList$.forEach(res => {
       res.map(res => {
-        res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
+        res.username === 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
         console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
-      })
+      });
     });
 
-    //get Userscore
+    // get Userscore
     this.userScore$ = this.scoreService.getHighscore();
     this.userScore$.forEach(res => {
       console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
@@ -62,6 +62,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentView = initialView;
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(async (pos) => {
+        this.currentPosition$ = this.geolocationService.getCurrentPosition();
+        this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+
+      });
+    }
   }
 
   onActivateMaps() {

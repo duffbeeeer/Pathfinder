@@ -8,5 +8,6 @@
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
   <div *ngFor="let marker of markers; ">
     <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]="iconUrl"></agm-marker>
+    <agm-circle [latitude]="marker.lat" [longitude]="marker.lng" [radius]="50" [visible]="false"></agm-circle>
   </div>
 </agm-map>

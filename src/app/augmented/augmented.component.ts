@@ -29,7 +29,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   public screenWidth: number;
   public rngIndex: number;
   public timeLeft: number;
-  public points: number
+  public points: number;
   public dynamicFontColor: string;
 
   public positions: PositionModel[];
@@ -73,12 +73,14 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.highscore$ = scoreService.getHighscore();
   }
 
-  
+
   ngOnInit() {
-    alert(this.detectBrowser(navigator.userAgent))
-    window.addEventListener("devicemotion", function (event) {
-      if (!event.rotationRate.alpha || !event.rotationRate.beta || !event.rotationRate.gamma)
-        this.alert('Please check you safari settings');
+    // alert(this.detectBrowser(navigator.userAgent));
+    console.log(this.coinBlock);
+    window.addEventListener('devicemotion', (event) => {
+      if (!event.rotationRate.alpha || !event.rotationRate.beta || !event.rotationRate.gamma) {
+        // alert('Please check you safari settings');
+      }
     });
     console.log(window.innerHeight);
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
@@ -134,8 +136,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     if (true) {
       !this.isRunning ? this.isRunning = true : null;
       this.timeLeft = time;
-      if (this.timerRef != undefined) {
-        this.points = this.timeLeft * 100;
+      if (this.timerRef !== undefined) {
+        this.points = 3000 + this.timeLeft * 100;
         this.timer = setInterval(() => {
           if (this.timeLeft >= 10) {
             this.timeLeft -= 0.01;
@@ -146,12 +148,12 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
             this.points -= 1;
             this.dynamicFontColor = 'red';
           } else {
-            this.timeLeft = 0
+            this.timeLeft = 0;
           }
           // this.timeLeft > 0.01 ? this.timeLeft -= 0.01 : this.timeLeft = 0;
           // this.timeLeft > 0.01 ? this.points -= 1 : null;
           this.timerRef.nativeElement.textContent = this.timeLeft.toFixed(2);
-          if (this.timeLeft == 0) {
+          if (this.timeLeft === 0) {
             this.addScore();
             this.isRunning = false;
             this.isCompleted = true;
@@ -162,30 +164,36 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
 
-  detectBrowser(userAgent){
-    var chrome  = /.*(Chrome\/).*(Safari\/).*/g;
-    var firefox = /.*(Firefox\/).*/g;
-    var safari  = /.*(Version\/).*(Safari\/).*/g;
-    var opera   = /.*(Chrome\/).*(Safari\/).*(OPR\/).*/g;
-    var edge   = /.*(Chrome\/).*(Safari\/).*(Edge\/).*/g;
-    var ie      = /.*(Trident\/7).*(rv:).*/g;
-    
-    if(opera.exec(userAgent))
-      return "Opera";
-    if(edge.exec(userAgent))
-      return "Edge";
-    if(chrome.exec(userAgent))
-      return "Chrome";
-    if(safari.exec(userAgent))
-      return "Safari";
-    if(firefox.exec(userAgent))
-      return "Firefox";
-    if(ie.exec(userAgent))
-      return "Internet Explorer";
-  
-    return "not supported";
+  detectBrowser(userAgent) {
+    const chrome = /.*(Chrome\/).*(Safari\/).*/g;
+    const firefox = /.*(Firefox\/).*/g;
+    const safari = /.*(Version\/).*(Safari\/).*/g;
+    const opera = /.*(Chrome\/).*(Safari\/).*(OPR\/).*/g;
+    const edge = /.*(Chrome\/).*(Safari\/).*(Edge\/).*/g;
+    const ie = /.*(Trident\/7).*(rv:).*/g;
+
+    if (opera.exec(userAgent)) {
+      return 'Opera';
+    }
+    if (edge.exec(userAgent)) {
+      return 'Edge';
+    }
+    if (chrome.exec(userAgent)) {
+      return 'Chrome';
+    }
+    if (safari.exec(userAgent)) {
+      return 'Safari';
+    }
+    if (firefox.exec(userAgent)) {
+      return 'Firefox';
+    }
+    if (ie.exec(userAgent)) {
+      return 'Internet Explorer';
+    }
+
+    return 'not supported';
   }
-  
+
   public rngPosition() {
 
   }
@@ -201,14 +209,14 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
   back() {
-    console.log("TODO: BACK TO MAPS")
+    console.log('TODO: BACK TO MAPS');
   }
 
   addScore() {
-    clearInterval(this.timer)
+    clearInterval(this.timer);
     // this.auth.login('kyatar1', 'kyatar1');
     // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
-    this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a', this.overallScore);
+    this.scoreService.completePoi('5d61516af7efa9152eb05aab', this.overallScore);
   }
 
   onCamError(err) {

@@ -48,7 +48,7 @@ import { Observable } from 'rxjs';
   getPoiList(): Observable<PointOfInterest[]> {
     return this.http.get<PointOfInterest[]>('http://localhost:8080/pointsofinterest/all', { observe: 'response' })
       .pipe(map(response => {
-        // console.log(response);
+        console.log(response);
         if (response) {
           let pointOfInterestList: PointOfInterest[];
           pointOfInterestList = Object.values(response.body);
@@ -80,7 +80,8 @@ import { Observable } from 'rxjs';
   }
 
   // addMultiplePoi(locations: SimplePointOfInterest[]) {
-  //   return this.http.post<SimplePointOfInterest[]>('http://localhost:8080/pointsofinterest/add?password=brilliant', locations, { observe: 'response' })
+  //   return this.http.post<SimplePointOfInterest[]>
+  // ('http://localhost:8080/pointsofinterest/add?password=brilliant', locations, { observe: 'response' })
   //     .pipe(map(response => {
   //       if (response) {
   //         return response;
@@ -92,7 +93,7 @@ import { Observable } from 'rxjs';
   addMultiplePoi([{ lat, lng }]) {
     return this.http.post<any>('http://localhost:8080/pointsofinterest/add?password=brilliant', { lat, lng })
       .pipe(map(res => {
-        console.log(res)
+        console.log(res);
         return res;
       }));
   }

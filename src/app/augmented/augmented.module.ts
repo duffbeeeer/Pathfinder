@@ -9,7 +9,7 @@ import { WebCamModule } from 'ack-angular-webcam';
   imports: [
     CommonModule,
     AframePipeModule,
-    WebCamModule
+    WebCamModule,
   ],
   exports: [AugmentedComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

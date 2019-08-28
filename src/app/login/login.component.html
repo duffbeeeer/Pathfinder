@@ -1,16 +1,21 @@
-﻿<!-- <div class="alert alert-info">
-    Username: test<br />
-    Password: test
-</div> -->
-<div class="jumbotron color-theme">
+﻿<div class="jumbotron color-theme">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6 offset-3" style="margin-bottom: 5vh">
+      <div class="col-6 offset-3">
         <img class="img-fluid" style="height:142;width:421px" src="../../assets/images/pathfinder-logo.png">
         <img class="img-fluid" src="../../assets/images/MuC2019.png">
-        <div class="h-divider"></div>
+        <div class="row" style="margin-top: 10vh">
+            <div class="col">
+              <hr>
+            </div>
+            <div class="col-auto">Login</div>
+            <div class="col">
+              <hr>
+            </div>
+          </div>
       </div>
     </div>
+
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group col-6 offset-3">
         <label for="username" class="color-theme">Playername</label>
@@ -26,6 +31,7 @@
           [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
         <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
           <div *ngIf="!!f.password.errors.required">Password is required</div>
+
         </div>
       </div>
       <div class="form-group">
@@ -37,7 +43,7 @@
         <div class="row">
           <div class="col-12 text-center">
             <button class="btn btn-primary form-btn" [routerLink]="['/register']"
-              routerLinkActive="router-link-active">Register Player</button>
+              routerLinkActive="router-link-active">Register</button>
           </div>
         </div>
         <img *ngIf="loading" class="pl-2"

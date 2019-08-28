@@ -74,6 +74,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+    window.addEventListener("devicemotion", function (event) {
+      if (!event.rotationRate.alpha || !event.rotationRate.beta || !event.rotationRate.gamma)
+        this.alert('gyro present');
+    });
     console.log(window.innerHeight);
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenWidth = window.innerWidth;
@@ -134,11 +138,11 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
           if (this.timeLeft >= 10) {
             this.timeLeft -= 0.01;
             this.points -= 1;
-            this.dynamicFontColor='white';
+            this.dynamicFontColor = 'white';
           } else if (this.timeLeft >= 0.01) {
             this.timeLeft -= 0.01;
             this.points -= 1;
-            this.dynamicFontColor='red';
+            this.dynamicFontColor = 'red';
           } else {
             this.timeLeft = 0
           }
@@ -161,12 +165,11 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   public onHit() {
     if (this.isRunning) {
-      this.scoreRef.nativeElement.textContent = 'Score: ' + this.overallScore;
       this.rngIndex = Math.floor((Math.random() * this.positions.length));
       this.newPosition = this.positions[this.rngIndex];
       this.coinBlock.nativeElement.object3D.position.set(this.newPosition.x, this.newPosition.y, this.newPosition.z);
       this.overallScore += this.points;
-      this.scoreRef.nativeElement.textContent = 'Score: ' + this.overallScore;
+      this.scoreRef.nativeElement.textContent = ' ' + this.overallScore;
     }
   }
 

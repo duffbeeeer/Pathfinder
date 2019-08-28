@@ -15,9 +15,7 @@ export class ScoreComponent implements OnInit {
   scoreList$: Observable<Highscore[]>;
   userStats$: Observable<Highscore>;
 
-  username: string;
-  userScore: number;
-  position: number;
+  userScore: Highscore;
 
   @ViewChild('userScore') userScoreBtn: ElementRef;
 
@@ -33,12 +31,18 @@ export class ScoreComponent implements OnInit {
   }
 
   updateScore() {
-    this.userStats$.forEach(res => {
-      this.username = res.username;
-      this.userScore = res.score;
-      this.position = res.position;
-    });
-    this.scoreList$ = this.scoreService.getHighscoreList()
-    this.userScoreBtn.nativeElement.innerText = '#' + this.position + ' ' + this.username + '   ' +'SCORE: '+ this.userScore;
+      this.userStats$.forEach(res => {
+        if ( this.userScore) {
+          this.userScore.username = res.username;
+          this.userScore.score = res.score;
+          this.userScore.position = res.position;
+
+        }
+      });
+      this.scoreList$ = this.scoreService.getHighscoreList();
+      if ( this.userScore) {
+        const text = '#' + this.userScore.position + ' ' + this.userScore.username + '   ' + 'SCORE: ' + this.userScore;
+        this.userScoreBtn.nativeElement.innerText = text;
+      }
   }
 }

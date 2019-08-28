@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MapsComponent } from './maps.component';
-import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper, CircleManager } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { AgmDirectionModule } from 'agm-direction';
     MapsComponent
   ],
   providers: [
-    GoogleMapsAPIWrapper,
+    GoogleMapsAPIWrapper, CircleManager
 ]
 })
 export class MapsModule { }

@@ -4,7 +4,6 @@ import { LocalPosition } from '../_services/geolocation.service';
 import { Subscription, interval } from 'rxjs';
 import { AgmCircle, CircleManager, GoogleMapsAPIWrapper, LatLng } from '@agm/core';
 import { google, Circle } from '@agm/core/services/google-maps-types';
-import { runInThisContext } from 'vm';
 
 
 @Component({

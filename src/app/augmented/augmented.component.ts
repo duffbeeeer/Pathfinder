@@ -73,10 +73,12 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.highscore$ = scoreService.getHighscore();
   }
 
+  
   ngOnInit() {
+    alert(this.detectBrowser(navigator.userAgent))
     window.addEventListener("devicemotion", function (event) {
       if (!event.rotationRate.alpha || !event.rotationRate.beta || !event.rotationRate.gamma)
-        this.alert('gyro present');
+        this.alert('Please check you safari settings');
     });
     console.log(window.innerHeight);
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
@@ -159,6 +161,31 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     }
   }
 
+
+  detectBrowser(userAgent){
+    var chrome  = /.*(Chrome\/).*(Safari\/).*/g;
+    var firefox = /.*(Firefox\/).*/g;
+    var safari  = /.*(Version\/).*(Safari\/).*/g;
+    var opera   = /.*(Chrome\/).*(Safari\/).*(OPR\/).*/g;
+    var edge   = /.*(Chrome\/).*(Safari\/).*(Edge\/).*/g;
+    var ie      = /.*(Trident\/7).*(rv:).*/g;
+    
+    if(opera.exec(userAgent))
+      return "Opera";
+    if(edge.exec(userAgent))
+      return "Edge";
+    if(chrome.exec(userAgent))
+      return "Chrome";
+    if(safari.exec(userAgent))
+      return "Safari";
+    if(firefox.exec(userAgent))
+      return "Firefox";
+    if(ie.exec(userAgent))
+      return "Internet Explorer";
+  
+    return "not supported";
+  }
+  
   public rngPosition() {
 
   }

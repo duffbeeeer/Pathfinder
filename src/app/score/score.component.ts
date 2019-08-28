@@ -39,6 +39,6 @@ export class ScoreComponent implements OnInit {
       this.position = res.position;
     });
     this.scoreList$ = this.scoreService.getHighscoreList()
-    this.userScoreBtn.nativeElement.innerText = '#' + this.position + ' ' + this.username + ': ' + this.userScore + 'Pts';
+    this.userScoreBtn.nativeElement.innerText = '#' + this.position + ' ' + this.username + '   ' +'SCORE: '+ this.userScore;
   }
 }

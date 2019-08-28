@@ -7,11 +7,11 @@
 .container.custom-container {
   padding: 0;
   margin: 0;
-  top:20vh;
-  z-index: 0;
+  top: 60px;
+  z-index: 100;
 }
 .ascene {
-  z-index: 100;
+  z-index: 0;
 }
 
 .orientation {
@@ -24,28 +24,39 @@
   z-index: 200;
   position: absolute;
 }
-.center{
+.center {
   z-index: 300;
   height: 100vh;
   top: 40vh;
-  max-height: 60vh
+  max-height: 60vh;
 }
-
 
 .my-flex-container {
-  height: 100px;
+  background: rgba(0, 0, 0, 0.5);
+  height: 40px;
   width: 100vw;
-  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
 }
 .my-flex-item {
-  background-color: black;
-  border: 2px solid #156EB0;
-  height: 30px;
+  background-color: transparent;
+  height: 40px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 1px; 
+  padding-top: 1px;
+  
 }
 
-.dynamicFont{
-  color:beige;
+.dynamicFont {
+  color: beige;
+}
+.ui-time {
+  margin-top: 8px;
+  margin-left: 10vw;
+  color: white;
+}
+.ui-score {
+  margin-top: 8px;
+  margin-right: 10vw;
+  color: white;
 }

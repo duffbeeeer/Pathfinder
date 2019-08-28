@@ -15,12 +15,12 @@
 
 <!-- UI Overlay -->
 <div class="custom-container container fixed-top">
-  <div class="d-flex flex-row justify-content-between my-flex-container" style="margin: 0;padding: 0">
+  <div class="d-flex flex-row justify-content-center my-flex-container">
     <div class=" my-flex-item">
-      <h5  style="color: #156EB0">Time: <span  #timer [ngStyle]="{'color': dynamicFontColor}"></span></h5>
+      <h5 class="ui-time">TIME: <span #timer [ngStyle]="{'color': dynamicFontColor}"></span></h5>
     </div>
     <div class=" my-flex-item">
-      <h5 #score style="color: #156EB0">Score:</h5>
+      <h5 class="ui-score">SCORE:<span #score></span></h5>
     </div>
   </div>
 </div>

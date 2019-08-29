@@ -55,6 +55,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @ViewChild('timer') timerRef: ElementRef;
   @ViewChild('backToMaps') backBtnRef: ElementRef;
 
+  videoDevices: MediaDeviceInfo[];
 
 
   constructor(
@@ -75,6 +76,14 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   ngOnInit() {
+    if (MediaDeviceInfo) {
+      console.log('yay');
+      console.log(MediaDeviceInfo);
+    }
+    if (!MediaDeviceInfo) {
+      console.log('noope');
+      console.log(MediaDeviceInfo);
+    }
     // alert(this.detectBrowser(navigator.userAgent));
     console.log(this.coinBlock);
     window.addEventListener('devicemotion', (event) => {

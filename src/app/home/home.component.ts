@@ -7,7 +7,7 @@ import { PointOfInterest, Highscore, SimplePointOfInterest } from '../_models/sc
 
 
 @Component({
-  templateUrl: 'home.component.html'
+  templateUrl: './home.component.html'
 })
 
 export class HomeComponent implements OnInit {

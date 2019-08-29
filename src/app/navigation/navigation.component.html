@@ -5,11 +5,11 @@
         <img class="img-fluid img-muc" src="../../assets/images/MuC2019.png" />
       </a>
     </div>
-    <div class="col-2 text-center">
-      <button *ngIf="isMapsActive" mat-icon-button aria-label="Example icon-button with a menu" (click)="switchView()">
+    <div class="col-2 text-center no-pad">
+      <button *ngIf="isMapsActive" mat-icon-button (click)="switchView()">
         <mat-icon class="white-icon">map</mat-icon>
       </button>
-      <button *ngIf="!isMapsActive" mat-icon-button aria-label="Example icon-button with a menu" (click)="switchView()">
+      <button *ngIf="!isMapsActive" mat-icon-button (click)="switchView()">
         <mat-icon class="red-icon">videocam</mat-icon>
       </button>
     </div>

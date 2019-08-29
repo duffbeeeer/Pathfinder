@@ -14,35 +14,45 @@ export class ScoreComponent implements OnInit {
 
   scoreList$: Observable<Highscore[]>;
   userStats$: Observable<Highscore>;
-
   userScore: Highscore;
+  scoreList: boolean;
 
-  @ViewChild('userScore') userScoreBtn: ElementRef;
+  @ViewChild('userPosition') userPositionRef: ElementRef;
+  @ViewChild('userName') userNameRef: ElementRef;
+  @ViewChild('userScoreLbl') userScoreLblRef: ElementRef;
+  @ViewChild('userScoreValue') userScoreValueRef: ElementRef;
 
-  constructor(private scoreService: ScoreService) { }
-
-  ngOnInit(): void {
+  constructor(private scoreService: ScoreService) {
     this.scoreList$ = this.scoreService.getHighscoreList();
     this.userStats$ = this.scoreService.getHighscore();
+    this.userScore = { username: '', position: 0, score: 0 };
+  }
+
+  ngOnInit(): void {
+    this.scoreList = false;
     this.updateScore();
     setInterval(() => {
       this.updateScore();
-    }, 1000);
+    }, 3000);
   }
 
   updateScore() {
-      this.userStats$.forEach(res => {
-        if ( this.userScore) {
-          this.userScore.username = res.username;
-          this.userScore.score = res.score;
-          this.userScore.position = res.position;
+    this.userStats$.forEach(res => {
+      this.userScore.username = res.username;
+      this.userScore.score = res.score;
+      this.userScore.position = res.position;
+    });
+    this.scoreList$ = this.scoreService.getHighscoreList();
+    this.userPositionRef.nativeElement.innerText = '#' + this.userScore.position;
+    this.userNameRef.nativeElement.innerText = this.userScore.username;
+    this.userScoreLblRef.nativeElement.innerText = 'SCORE: ';
+    this.userScoreValueRef.nativeElement.innerText = this.userScore.score;
+  }
 
-        }
-      });
-      this.scoreList$ = this.scoreService.getHighscoreList();
-      if ( this.userScore) {
-        const text = '#' + this.userScore.position + ' ' + this.userScore.username + '   ' + 'SCORE: ' + this.userScore;
-        this.userScoreBtn.nativeElement.innerText = text;
-      }
+  onClick() {
+    if (!this.scoreList) {
+      this.updateScore();
+    }
+    this.scoreList = !this.scoreList;
   }
 }

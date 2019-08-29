@@ -6,21 +6,45 @@
   height: 30px;
   padding: 0;
 }
-p {
-  margin: 0;
-  background-color: black;
-}
+
 a:link {
-  color:white;
+  color: white;
 }
-a:visited{
+a:visited {
   color: white;
 }
 
-.left-footer {
-  float: left;
+.blue {
+  color: #156eb0;
 }
-
-.right-footer {
-  float: right;
+.white {
+  color: white;
+}
+.hor-space {
+  margin-left: 5px;
+  margin-right: 20px;
+}
+.thick {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.scoreButton {
+  background-color: black;
+  border-color: black;
+}
+.opa {
+  opacity: 0.9;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.table td,
+th,
+thead,
+tbody {
+  border: 2px solid black;
+  text-align: center;
+}
+table.table-bordered > thead > tr > th,
+td {
+  border: 2px solid black;
 }

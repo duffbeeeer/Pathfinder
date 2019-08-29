@@ -144,8 +144,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
   startTimer(time: number) {
-    // if (this.landscape === false) {
-    if (true) {
+    if (this.landscape === false) {
+    // if (true) {
       if (!this.isRunning) {
         this.isRunning = !this.isRunning;
       }

@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScoreComponent } from './score.component';
-import { ScoreCompactViewComponent } from './score-compact-view/score-compact-view.component';
-import { ScoreDetailViewComponent } from './score-detail-view/score-detail-view.component';
 import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-  declarations: [ScoreComponent, ScoreCompactViewComponent, ScoreDetailViewComponent],
+  declarations: [ScoreComponent],
   imports: [
     CommonModule, MatMenuModule
   ],
-  exports: [ScoreComponent, ScoreCompactViewComponent, ScoreDetailViewComponent]
+  exports: [ScoreComponent]
 })
 export class ScoreModule { }

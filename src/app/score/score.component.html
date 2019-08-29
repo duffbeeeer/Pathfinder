@@ -6,25 +6,24 @@
       <span #userScoreLbl class="blue thick"></span>
       <span #userScoreValue class="white thick"></span>
     </button>
-    <mat-menu #menu="matMenu">
-      <app-score-detail-view [scoreList]="scoreList$ | async"></app-score-detail-view>
-    </mat-menu>
   </div>
 </div>
 
 <div *ngIf="scoreList" #tablecontainer style="bottom: 30px;position: absolute" class="col-12 fixed-bottom opa">
   <table class="table table-dark table-bordered table-sm" style="margin:0">
     <thead>
-      <tr>
+      <tr (click)="onClick()">
         <th scope="col">#</th>
         <th style="border-collapse: black" scope="col">Name</th>
-        <th scope="col">Reward</th>
+        <th scope="col">Score</th>
+        <th scope="col">Prize</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let player of scoreList$ | async">
+      <tr (click)="onClick()" *ngFor="let player of scoreList$ | async">
         <th scope="row">{{player.position}}</th>
         <td>{{player.username}}</td>
+        <td>{{player.score}}</td>
         <td><img class="img-fluid" style="height:20px;width: 20px" src="../../assets/images/reward.png"></td>
       </tr>
     </tbody>

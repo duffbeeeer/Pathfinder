@@ -3,7 +3,7 @@ import { ViewModel, View, initialView } from '../shared/active-view.model';
 import { Observable } from 'rxjs';
 import { GeolocationService } from '../_services/geolocation.service';
 import { ScoreService } from '../_services/score.service';
-import { PointOfInterest, Highscore, SimplePointOfInterest } from '../_models/score.model';
+import { PointOfInterest, Highscore } from '../_models/score.model';
 
 
 @Component({
@@ -11,6 +11,12 @@ import { PointOfInterest, Highscore, SimplePointOfInterest } from '../_models/sc
 })
 
 export class HomeComponent implements OnInit {
+
+  public dummy: PointOfInterest = {
+    id: '5d58e2e64f24ca11280a3e8a', lat: 123, lng: 123,
+    active: true
+  };
+
 
   view = View;
   currentView: ViewModel;
@@ -29,31 +35,32 @@ export class HomeComponent implements OnInit {
   ) {
     // get current position
     // this.currentPosition$ = this.geolocationService.getCurrentPosition();
-    // this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+    // this.currentPosition$.forEach(res =>
+    // console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
     // get userspecific Point of interest-list
-    this.poiUserList$ = this.scoreService.getUserPoiList();
+    // this.poiUserList$ = this.scoreService.getUserPoiList();
     // this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
 
     // get Point of interest-list
-    this.poiList$ = this.scoreService.getPoiList();
-    this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
+    // this.poiList$ = this.scoreService.getPoiList();
+    // this.poiList$.forEach(res => res.map(res => console.log('POI.id: ' + res.id + '\nPOI.isActive: ' + res.active)));
 
     // get Highscore List
-    this.highScoreList$ = this.scoreService.getHighscoreList();
-    this.highScoreList$.forEach(res => {
-      // res.map(res => {
-        // res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
-        // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
-      // });
-    });
+    // this.highScoreList$ = this.scoreService.getHighscoreList();
+    // this.highScoreList$.forEach(res => {
+    // res.map(res => {
+    // res.username == 'rick2' ? console.log('\n\n#' + res.position + ' ' + res.username + ' ' + res.score + 'pts\n\n') : null;
+    // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n');
+    // });
+    // });
 
     // get Userscore
-    this.userScore$ = this.scoreService.getHighscore();
-    this.userScore$.forEach(res => {
-      // console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
-      // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n')
-    });
+    // this.userScore$ = this.scoreService.getHighscore();
+    // this.userScore$.forEach(res => {
+    // console.log('USERSCORE:\nUsername: ' + res.username + '\nScore: ' + res.score + '\nPosition: ' + res.position);
+    // console.log('User.Name: ' + res.username + '\nUser.Score: ' + res.score + '\nUser.Position: ' + res.position + '\n\n')
+    // });
 
   }
 
@@ -62,7 +69,8 @@ export class HomeComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(async (pos) => {
         this.currentPosition$ = this.geolocationService.getCurrentPosition();
-        this.currentPosition$.forEach(res => console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+        this.currentPosition$.forEach(res =>
+          console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
       });
     }
@@ -83,4 +91,5 @@ export class HomeComponent implements OnInit {
   get isAugmentedActive() {
     return this.currentView.activeView === this.view.AugmentedComponent;
   }
+
 }

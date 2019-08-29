@@ -1,7 +1,7 @@
 import { Injectable, SimpleChange } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, first } from 'rxjs/operators';
-import { PointOfInterest, Achievement, Highscore, SimplePointOfInterest } from '../_models/score.model';
+import { PointOfInterest, Achievement, Highscore } from '../_models/score.model';
 import { Observable } from 'rxjs';
 
 @Injectable() export class ScoreService {

@@ -4,10 +4,6 @@ export interface PointOfInterest {
   lng: number;
   active: boolean;
 }
-export interface SimplePointOfInterest{
-  lat: number;
-  lng:number
-}
 
 export interface Achievement {
   id: string;

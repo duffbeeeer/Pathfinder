@@ -12,6 +12,6 @@ import { WebCamModule } from 'ack-angular-webcam';
     WebCamModule,
   ],
   exports: [AugmentedComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AugmentedModule { }

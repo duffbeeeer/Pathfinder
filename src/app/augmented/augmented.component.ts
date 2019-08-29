@@ -1,9 +1,9 @@
-import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener, Input } from '@angular/core';
 import { PositionModel } from '../shared/ar-view.model';
 import { ScoreService } from '../_services/score.service';
 import { AuthenticationService } from '../_services';
 import { Observable } from 'rxjs';
-import { Highscore } from '../_models/score.model';
+import { Highscore, PointOfInterest } from '../_models/score.model';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -15,6 +15,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class AugmentedComponent implements OnInit, AfterViewChecked {
 
+  @Input()
+  public poiId: PointOfInterest;
+
   public timer;
   public videoRef;
   public view;
@@ -23,6 +26,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   public landscape: boolean;
   public isRunning: boolean;
   public isCompleted: boolean;
+  public gyroActive: boolean;
 
   public overallScore: number;
   public screenHeight: number;
@@ -91,7 +95,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
         // alert('Please check you safari settings');
       }
     });
-    console.log(window.innerHeight);
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 90;
@@ -143,7 +146,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   startTimer(time: number) {
     // if (this.landscape === false) {
     if (true) {
-      !this.isRunning ? this.isRunning = true : null;
+      if (!this.isRunning) {
+        this.isRunning = !this.isRunning;
+      }
       this.timeLeft = time;
       if (this.timerRef !== undefined) {
         this.points = 3000 + this.timeLeft * 100;
@@ -159,8 +164,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
           } else {
             this.timeLeft = 0;
           }
-          // this.timeLeft > 0.01 ? this.timeLeft -= 0.01 : this.timeLeft = 0;
-          // this.timeLeft > 0.01 ? this.points -= 1 : null;
           this.timerRef.nativeElement.textContent = this.timeLeft.toFixed(2);
           if (this.timeLeft === 0) {
             this.addScore();
@@ -225,7 +228,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     clearInterval(this.timer);
     // this.auth.login('kyatar1', 'kyatar1');
     // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
-    this.scoreService.completePoi('5d61516af7efa9152eb05aab', this.overallScore);
+    this.scoreService.completePoi(this.poiId.id, this.overallScore);
   }
 
   onCamError(err) {

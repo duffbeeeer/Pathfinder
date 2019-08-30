@@ -60,6 +60,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @ViewChild('backToMaps') backBtnRef: ElementRef;
 
   videoDevices: MediaDeviceInfo[];
+  videoDevice: MediaDeviceInfo;
 
 
   constructor(
@@ -114,7 +115,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: -3, y: -0.5, z: 1.5 },
     //   { x: -4, y: 0.5, z: 1.5 },
     // ];
-    this.videoDevices = [{ deviceId: null, groupId: null, kind: null, label: null, toJSON: null }];
+    this.videoDevice = new MediaDeviceInfo();
+    this.videoDevices = [this.videoDevice];
+
     this.positions = [
       {
         x: this.rngValue(0, 4),

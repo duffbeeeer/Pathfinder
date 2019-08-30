@@ -20,14 +20,14 @@ export class AuthenticationService {
   public isAuthenticated() {
     const token = localStorage.getItem('currentUser');
     console.log('JWTTOKEN ' + token);
-if (token) {
+    if (token) {
       return true;
     }
     return false;
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`http://http://51.68.189.176/login`, { username, password }, { observe: 'response' })
+    return this.http.post<any>(`http://51.68.189.176/login`, { username, password }, { observe: 'response' })
       .pipe(first())
       .subscribe(user => {
         console.log('httpResponse', user);
@@ -49,7 +49,7 @@ if (token) {
 
   register(username: string, password: string) {
     console.log('register method' + username + ' ' + password);
-    return this.http.post<any>('http://http://51.68.189.176/user/sign-up', { username, password })
+    return this.http.post<any>('http://51.68.189.176/user/sign-up', { username, password })
       .pipe(map(user => {
         this.userUsername = username;
         this.userPassword = password;

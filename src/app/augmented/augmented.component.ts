@@ -114,6 +114,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: -3, y: -0.5, z: 1.5 },
     //   { x: -4, y: 0.5, z: 1.5 },
     // ];
+    this.videoDevices = [{ deviceId: null, groupId: null, kind: null, label: null, toJSON: null }];
     this.positions = [
       {
         x: this.rngValue(0, 4),

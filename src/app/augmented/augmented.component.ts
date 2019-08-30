@@ -67,13 +67,59 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     private scoreService: ScoreService,
     private auth: AuthenticationService,
     private router: Router) {
+    // this.positions = [
+    //   { x: 0, y: 0, z: 0 },
+    //   { x: 0.2, y: 0, z: 0 },
+    //   { x: 0.4, y: 0, z: 0 },
+    //   { x: 0.6, y: 0, z: 0 },
+    //   { x: 0.8, y: 0, z: 0 },
+    //   { x: 1, y: 0, z: 0 },
+    // ];
+
+    //dist 3
+    // this.positions = [
+    //   { x: 4, y: 3, z: 3 },
+    //   { x: 3, y: -3, z: 3 },
+    //   { x: 2, y: 3, z: 3 },
+    //   { x: 1, y: -3, z: 3 },
+    //   { x: 0., y: 3, z: 3 },
+    //   { x: -1, y: -3, z: 3 },
+    //   { x: -2, y: 3, z: 3 },
+    //   { x: -3, y: -3, z: 3 },
+    //   { x: -4, y: 3, z: 3 },
+    // ];
+
+    //dist 2
+    // this.positions = [
+    //   { x: 4, y: 3, z: 2 },
+    //   { x: 3, y: -3, z: 2 },
+    //   { x: 2, y: 3, z: 2 },
+    //   { x: 1, y: -3, z: 2 },
+    //   { x: 0., y: 3, z: 2 },
+    //   { x: -1, y: -3, z: 2 },
+    //   { x: -2, y: 3, z: 2 },
+    //   { x: -3, y: -3, z: 2 },
+    //   { x: -4, y: 3, z: 2 },
+    // ];
+
+    //dist 1.5
+    // this.positions = [
+    //   { x: 4, y: 0.5, z: 1.5 },
+    //   { x: 3, y: -0.5, z: 1.5 },
+    //   { x: 2, y: 0.5, z: 1.5 },
+    //   { x: 1, y: -0.5, z: 1.5 },
+    //   { x: 0, y: 0.5, z: 1.5 },
+    //   { x: -1, y: -0.5, z: 1.5 },
+    //   { x: -2, y: 0.5, z: 1.5 },
+    //   { x: -3, y: -0.5, z: 1.5 },
+    //   { x: -4, y: 0.5, z: 1.5 },
+    // ];
     this.positions = [
-      { x: 0, y: 0, z: 0 },
-      { x: 0.2, y: 0, z: 0 },
-      { x: 0.4, y: 0, z: 0 },
-      { x: 0.6, y: 0, z: 0 },
-      { x: 0.8, y: 0, z: 0 },
-      { x: 1, y: 0, z: 0 },
+      {
+        x: this.rngValue(0, 4),
+        y: this.rngValue(0, 0.5),
+        z: 1.5
+      }
     ];
     this.highscore$ = scoreService.getHighscore();
   }
@@ -104,7 +150,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
     this.coinBlock.nativeElement.addEventListener('click', (evt) => {
       this.onHit();
-      // console.log('I was clicked at: ', evt.detail.intersection.point);
+      console.log('I was clicked at: ', evt.detail.intersection.point);
+
     });
 
     this.coinBlock.nativeElement.addEventListener('mouseenter', () => {
@@ -145,7 +192,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   startTimer(time: number) {
     if (this.landscape === false) {
-    // if (true) {
+      // if (true) {
       if (!this.isRunning) {
         this.isRunning = !this.isRunning;
       }
@@ -212,8 +259,17 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   public onHit() {
     if (this.isRunning) {
+      this.positions = [
+        {
+          x: this.rngValue(0, 4),
+          y: this.rngValue(0, 0.5),
+          z: 1.5
+        }
+      ];
       this.rngIndex = Math.floor((Math.random() * this.positions.length));
+      console.log('rngindex', this.rngIndex);
       this.newPosition = this.positions[this.rngIndex];
+      console.log('Coinblock at: ', this.newPosition);
       this.coinBlock.nativeElement.object3D.position.set(this.newPosition.x, this.newPosition.y, this.newPosition.z);
       this.overallScore += this.points;
       this.scoreRef.nativeElement.textContent = ' ' + this.overallScore;
@@ -222,8 +278,16 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   back() {
     console.log('TODO: BACK TO MAPS');
+    console.log('rng index', Math.floor((Math.random() * this.positions.length)));
+    // console.log(this.rngValue(0, 4));
+
   }
 
+  rngValue(from: number, to: number) {
+    let multiplier: number;
+    multiplier = Math.floor(Math.random() * 2) === 1 ? 1 : -1;
+    return ((Math.random() * (from - to) + to) * multiplier);
+  }
   addScore() {
     clearInterval(this.timer);
     // this.auth.login('kyatar1', 'kyatar1');

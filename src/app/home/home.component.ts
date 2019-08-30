@@ -39,8 +39,8 @@ export class HomeComponent implements OnInit {
     // console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
     // get userspecific Point of interest-list
-    // this.poiUserList$ = this.scoreService.getUserPoiList();
-    // this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
+    this.poiUserList$ = this.scoreService.getUserPoiList();
+    this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
 
     // get Point of interest-list
     // this.poiList$ = this.scoreService.getPoiList();

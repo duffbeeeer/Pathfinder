@@ -32,7 +32,7 @@ module.exports = {
         new webpack.DefinePlugin({
             // global app config object
             config: JSON.stringify({
-                apiUrl: 'http://pathfinder.tk:4000'
+                apiUrl: 'localhost:4000'
             })
         })
     ],

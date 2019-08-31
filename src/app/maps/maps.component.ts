@@ -54,7 +54,7 @@ export class MapsComponent implements OnInit, OnChanges {
   ];
 
   iconUrl = {
-    url: '../../assets/images/pathfinder-icon.png',
+    url: '../../Pathfinder/assets/images/pathfinder-icon.png',
     // scaledSize: { height: 32, width: 25 }
   };
 

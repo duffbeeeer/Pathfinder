@@ -3,7 +3,7 @@ import { mapStyles } from '../../assets/maps.style';
 import { LocalPosition } from '../_services/geolocation.service';
 import { Subscription, interval } from 'rxjs';
 import { AgmCircle, CircleManager, GoogleMapsAPIWrapper, LatLng, MapsAPILoader, AgmMap } from '@agm/core';
-import { google, Circle } from '@agm/core/services/google-maps-types';
+import { google, Circle, LatLngBounds } from '@agm/core/services/google-maps-types';
 import { AgmDirection } from 'agm-direction/src/modules/agm-direction.module';
 
 
@@ -14,7 +14,7 @@ import { AgmDirection } from 'agm-direction/src/modules/agm-direction.module';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class MapsComponent implements OnInit, OnChanges {
+export class MapsComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input()
   currentPosition: Position;
@@ -38,11 +38,11 @@ export class MapsComponent implements OnInit, OnChanges {
   styles = mapStyles;
   private updateSubscription: Subscription;
   activateAr: boolean;
-  agmCircle: AgmCircle;
+  // agmCircle: Circle;
 
   @ViewChild('agmDirection') direction: ElementRef;
   @ViewChild('agmMaps') mapshizzle: AgmMap;
-  @ViewChildren('agmCircle') circleshizzle: QueryList<AgmCircle>;
+  @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
 
   markers: LocalPosition[] = [
     { lat: 53.562136, lng: 9.988778 },
@@ -59,16 +59,16 @@ export class MapsComponent implements OnInit, OnChanges {
     // scaledSize: { height: 32, width: 25 }
   };
 
-  constructor(private map: GoogleMapsAPIWrapper) {
-    const circle = this.map.createCircle({center:  {lat: 44.599, lng: 44.490}, radius: 2000});
-    const entry = circle.then( value => value.getBounds());
-    const wtf = entry.then(value  => console.log(value.contains));
+  constructor(private mapsWrapper: GoogleMapsAPIWrapper) {
+
   }
 
 
 
-  ngOnInit(): void {
+   ngOnInit() {
     console.log();
+
+
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
@@ -85,20 +85,17 @@ export class MapsComponent implements OnInit, OnChanges {
   // ngOnDestroy() {
   //   this.updateSubscription.unsubscribe();
   // }
-
+  ngAfterViewInit(): void {
+    const circle = this.circles.toArray();
+    circle[0].getBounds().then(bounds => console.log(bounds));
+  }
   ngOnChanges() {
     if (this.currentPosition) {
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       // console.log('obs pos ' + this.currentPosition.coords.latitude);
     }
   }
-
-
-  protected mapReady(map) {
-    this.map = map;
-    this.map.setCenter({lat: 44.599, lng: 44.490});
-
-  }
 }
+
 
 

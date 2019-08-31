@@ -59,8 +59,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @ViewChild('timer') timerRef: ElementRef;
   @ViewChild('backToMaps') backBtnRef: ElementRef;
 
-  videoDevices: MediaDeviceInfo[];
-  videoDevice: MediaDeviceInfo;
 
 
   constructor(
@@ -115,8 +113,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: -3, y: -0.5, z: 1.5 },
     //   { x: -4, y: 0.5, z: 1.5 },
     // ];
-    this.videoDevice = new MediaDeviceInfo();
-    this.videoDevices = [this.videoDevice];
 
     this.positions = [
       {
@@ -130,14 +126,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   ngOnInit() {
-    if (MediaDeviceInfo) {
-      console.log('yay');
-      console.log(MediaDeviceInfo);
-    }
-    if (!MediaDeviceInfo) {
-      console.log('noope');
-      console.log(MediaDeviceInfo);
-    }
     // alert(this.detectBrowser(navigator.userAgent));
     console.log(this.coinBlock);
     window.addEventListener('devicemotion', (event) => {

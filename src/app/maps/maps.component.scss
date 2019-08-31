@@ -11,3 +11,9 @@ agm-map {
 	vertical-align: middle;
 	z-index: 9999;
 }
+
+.overlay{
+  position: absolute;
+  z-index: 9999;
+  bottom: 40vh;
+}

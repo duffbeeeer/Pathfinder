@@ -12,10 +12,7 @@ import { PointOfInterest, Highscore } from '../_models/score.model';
 
 export class HomeComponent implements OnInit {
 
-  public dummy: PointOfInterest = {
-    id: '5d58e2e64f24ca11280a3e8a', lat: 123, lng: 123,
-    active: true
-  };
+  public poiId: string;
 
 
   view = View;
@@ -34,9 +31,9 @@ export class HomeComponent implements OnInit {
     private scoreService: ScoreService
   ) {
     // get current position
-    // this.currentPosition$ = this.geolocationService.getCurrentPosition();
-    // this.currentPosition$.forEach(res =>
-    // console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+    this.currentPosition$ = this.geolocationService.getCurrentPosition();
+    this.currentPosition$.forEach(res =>
+    console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
 
     // get userspecific Point of interest-list
     this.poiUserList$ = this.scoreService.getUserPoiList();
@@ -80,7 +77,9 @@ export class HomeComponent implements OnInit {
     this.currentView.activeView = this.view.MapsComponent;
   }
 
-  onActivateAugmented() {
+  onActivateAugmented(event: string) {
+    this.poiId = event;
+    console.log(event);
     this.currentView.activeView = this.view.AugmentedComponent;
   }
 

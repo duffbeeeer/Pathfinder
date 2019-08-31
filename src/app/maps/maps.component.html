@@ -3,11 +3,13 @@
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
-<agm-map class="fixed-top" [latitude]="lat" [longitude]="lng" [styles]="styles" [streetViewControl]="false" [zoomControl]="false"
+<agm-map #agmMap class="fixed-top" [latitude]="lat" [longitude]="lng" [styles]="styles" [streetViewControl]="false" [zoomControl]="false"
   [ngStyle]="dynamicStyling">
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
   <div *ngFor="let marker of markers; ">
     <agm-marker [latitude]="marker.lat" [longitude]="marker.lng" [iconUrl]="iconUrl"></agm-marker>
+    <agm-circle #circle [latitude]="marker.lat" [longitude]="marker.lng" [radius]="25"></agm-circle>
   </div>
-  <agm-circle #circle [latitude]="markers[0].lat" [longitude]="markers[0].lng" [radius]="25"></agm-circle>
 </agm-map>
+
+<button (click)="onStartGame()" *ngIf="showArButton" class="btn btn-primary overlay text-center col-2 offset-5">Start GAME</button>

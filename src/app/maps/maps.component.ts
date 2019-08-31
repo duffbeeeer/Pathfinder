@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener, ViewChildren, ElementRef, QueryList, AfterViewInit, ViewChild, Query, OnChanges } from '@angular/core';
+/// <reference types="@types/googlemaps" />
+import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener, ViewChildren, ElementRef, QueryList, AfterViewInit, ViewChild, Query, OnChanges, EventEmitter, Output } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
-import { LocalPosition } from '../_services/geolocation.service';
-import { Subscription, interval } from 'rxjs';
-import { AgmCircle, CircleManager, GoogleMapsAPIWrapper, LatLng, MapsAPILoader, AgmMap } from '@agm/core';
-import { google, Circle, LatLngBounds } from '@agm/core/services/google-maps-types';
-import { AgmDirection } from 'agm-direction/src/modules/agm-direction.module';
+import { LocalPosition, MyPosition } from '../_services/geolocation.service';
+import { Subscription } from 'rxjs';
+import { AgmCircle, AgmMap, MapsAPILoader } from '@agm/core';
+
 
 
 @Component({
@@ -14,14 +14,13 @@ import { AgmDirection } from 'agm-direction/src/modules/agm-direction.module';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class MapsComponent implements OnInit, OnChanges, AfterViewInit {
+export class MapsComponent implements OnInit, OnChanges {
 
   @Input()
   currentPosition: Position;
 
-  // protected map: GoogleMapsAPIWrapper;
-
-
+  @Output()
+  activateAugmented: EventEmitter<string> = new EventEmitter();
 
   title: 'pathfinder';
   landscape: boolean;
@@ -32,42 +31,62 @@ export class MapsComponent implements OnInit, OnChanges, AfterViewInit {
   screenHeight: number;
   waypoints: any;
   // origin: any;
-  origin: LocalPosition;
+  origin: MyPosition = {lat: 53.562699, lng: 9.987803};
   destination = { lat: 53.562699, lng: 9.987803 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
   private updateSubscription: Subscription;
-  activateAr: boolean;
+  showArButton: boolean;
+  activeMarkerId: string;
+
   // agmCircle: Circle;
 
   @ViewChild('agmDirection') direction: ElementRef;
-  @ViewChild('agmMaps') mapshizzle: AgmMap;
+  @ViewChild('agmMap') mapshizzle: AgmMap;
   @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
 
   markers: LocalPosition[] = [
-    { lat: 53.562136, lng: 9.988778 },
-    { lat: 53.560588, lng: 9.990415 },
-    { lat: 53.559102, lng: 9.989839 },
-    { lat: 53.565019, lng: 10.033581 },
-    { lat: 53.566846, lng: 10.031384 },
+    { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
+    { lat: 53.560588, lng: 9.990415, active: true, id: '2' },
+    { lat: 53.559102, lng: 9.989839, active: true, id: '3' },
+    { lat: 53.565019, lng: 10.033581, active: true, id: '4' },
+    { lat: 53.566846, lng: 10.031384, active: true, id: '5' },
   ];
-
-
 
   iconUrl = {
     url: '../../assets/images/pathfinder-icon.png',
     // scaledSize: { height: 32, width: 25 }
   };
 
-  constructor(private mapsWrapper: GoogleMapsAPIWrapper) {
-
+  constructor(private _mapsAPILoader: MapsAPILoader) {
+    this.showArButton = false;
   }
 
+  ngOnChanges() {
+    if (this.currentPosition) {
+      this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
+      console.log(this.currentPosition.timestamp);
+      this._mapsAPILoader.load().then(() => {
+        if (this.currentPosition) {
+          this.showArButton = false;
+          const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
+          console.log(pos.toString());
+          const circles = this.circles.toArray();
+          for (const marker of this.markers) {
+            const circle = new google.maps.Circle({center: {lat: marker.lat, lng: marker.lng }, radius: 25});
+            if (circle.getBounds().contains(pos)) {
+              this.showArButton = true;
+              this.activeMarkerId = marker.id;
+            }
+            console.log(circle.getBounds().contains(pos));
+          }
+        }
+      });
+    }
+  }
 
-
-   ngOnInit() {
-    console.log();
-
+  ngOnInit() {
+    console.log(this.currentPosition);
 
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
@@ -82,18 +101,8 @@ export class MapsComponent implements OnInit, OnChanges, AfterViewInit {
     this.screenWidth = window.innerWidth;
     }
 
-  // ngOnDestroy() {
-  //   this.updateSubscription.unsubscribe();
-  // }
-  ngAfterViewInit(): void {
-    const circle = this.circles.toArray();
-    circle[0].getBounds().then(bounds => console.log(bounds));
-  }
-  ngOnChanges() {
-    if (this.currentPosition) {
-      this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
-      // console.log('obs pos ' + this.currentPosition.coords.latitude);
-    }
+  onStartGame() {
+    this.activateAugmented.emit(this.activeMarkerId);
   }
 }
 

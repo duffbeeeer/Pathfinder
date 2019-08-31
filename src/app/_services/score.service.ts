@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   }
 
   getHighscore(): Observable<Highscore> {
-    return this.http.get<Highscore>('http://51.68.189.176:8080/user/highscore', { observe: 'response' })
+    return this.http.get<Highscore>('http://localhost:8080/user/highscore', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let highScore: Highscore;
@@ -22,7 +22,7 @@ import { Observable } from 'rxjs';
   }
 
   getHighscoreList(): Observable<Highscore[]> {
-    return this.http.get<Highscore[]>(`http://51.68.189.176:8080/highscore/${10}`, { observe: 'response' })
+    return this.http.get<Highscore[]>(`http://localhost:8080/highscore/${10}`, { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let highScore: Highscore[];
@@ -34,7 +34,7 @@ import { Observable } from 'rxjs';
   }
 
   getAchievements(): Observable<Achievement[]> {
-    return this.http.get<Achievement[]>('http://51.68.189.176:8080/user/achievements', { observe: 'response' })
+    return this.http.get<Achievement[]>('http://localhost:8080/user/achievements', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let achievements: Achievement[];
@@ -46,7 +46,7 @@ import { Observable } from 'rxjs';
   }
 
   getPoiList(): Observable<PointOfInterest[]> {
-    return this.http.get<PointOfInterest[]>('http://51.68.189.176:8080/pointsofinterest/all', { observe: 'response' })
+    return this.http.get<PointOfInterest[]>('http://localhost:8080/pointsofinterest/all', { observe: 'response' })
       .pipe(map(response => {
         console.log(response);
         if (response) {
@@ -59,7 +59,7 @@ import { Observable } from 'rxjs';
   }
 
   getUserPoiList(): Observable<PointOfInterest[]> {
-    return this.http.get<PointOfInterest[]>('http://51.68.189.176:8080/user/pointsofinterest', { observe: 'response' })
+    return this.http.get<PointOfInterest[]>('http://localhost:8080/user/pointsofinterest', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let pointOfInterestList: PointOfInterest[];
@@ -73,7 +73,7 @@ import { Observable } from 'rxjs';
 
   completePoi(id: string, value: number) {
     console.log('POI ID: ' + id + '\nScore: ' + value);
-    return this.http.post<PointOfInterest[]>(`http://51.68.189.176:8080/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
+    return this.http.post<PointOfInterest[]>(`http://localhost:8080/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
       .pipe(first())
       .subscribe(res => {
         console.log(res);
@@ -82,7 +82,7 @@ import { Observable } from 'rxjs';
 
   // addMultiplePoi(locations: SimplePointOfInterest[]) {
   //   return this.http.post<SimplePointOfInterest[]>
-  // ('http://51.68.189.176:8080/pointsofinterest/add?password=brilliant', locations, { observe: 'response' })
+  // ('http://localhost:8080/pointsofinterest/add?password=brilliant', locations, { observe: 'response' })
   //     .pipe(map(response => {
   //       if (response) {
   //         return response;
@@ -92,7 +92,7 @@ import { Observable } from 'rxjs';
   // }
 
   addMultiplePoi([{ lat, lng }]) {
-    return this.http.post<any>('http://51.68.189.176:8080/pointsofinterest/add?password=brilliant', { lat, lng })
+    return this.http.post<any>('http://localhost:8080/pointsofinterest/add?password=brilliant', { lat, lng })
       .pipe(map(res => {
         console.log(res);
         return res;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener, Input, EventEmitter, Output } from '@angular/core';
 import { PositionModel } from '../shared/ar-view.model';
 import { ScoreService } from '../_services/score.service';
 import { AuthenticationService } from '../_services';
@@ -16,7 +16,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   @Input()
-  public poiId: PointOfInterest;
+  public poiId: string;
+
+  @Output()
+  activateMaps: EventEmitter<any> = new EventEmitter();
 
   public timer;
   public videoRef;
@@ -75,7 +78,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: 1, y: 0, z: 0 },
     // ];
 
-    //dist 3
+    // dist 3
     // this.positions = [
     //   { x: 4, y: 3, z: 3 },
     //   { x: 3, y: -3, z: 3 },
@@ -88,7 +91,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: -4, y: 3, z: 3 },
     // ];
 
-    //dist 2
+    // dist 2
     // this.positions = [
     //   { x: 4, y: 3, z: 2 },
     //   { x: 3, y: -3, z: 2 },
@@ -101,7 +104,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     //   { x: -4, y: 3, z: 2 },
     // ];
 
-    //dist 1.5
+    // dist 1.5
     // this.positions = [
     //   { x: 4, y: 0.5, z: 1.5 },
     //   { x: 3, y: -0.5, z: 1.5 },
@@ -153,7 +156,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
-    this.startTimer(30);
+    this.startTimer(10);
   }
 
   ngAfterViewChecked() {
@@ -269,10 +272,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
 
   back() {
+    this.activateMaps.emit();
     console.log('TODO: BACK TO MAPS');
     console.log('rng index', Math.floor((Math.random() * this.positions.length)));
     // console.log(this.rngValue(0, 4));
-
   }
 
   rngValue(from: number, to: number) {
@@ -282,9 +285,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
   addScore() {
     clearInterval(this.timer);
+    console.log(this.poiId);
     // this.auth.login('kyatar1', 'kyatar1');
     // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
-    this.scoreService.completePoi(this.poiId.id, this.overallScore);
+    this.scoreService.completePoi(this.poiId, this.overallScore);
   }
 
   onCamError(err) {

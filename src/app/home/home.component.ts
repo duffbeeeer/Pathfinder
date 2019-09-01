@@ -69,7 +69,6 @@ export class HomeComponent implements OnInit {
         this.currentPosition$ = this.geolocationService.getCurrentPosition();
         this.currentPosition$.forEach(res =>
           console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
-
       });
     }
   }

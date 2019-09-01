@@ -80,17 +80,6 @@ import { Observable } from 'rxjs';
       });
   }
 
-  // addMultiplePoi(locations: SimplePointOfInterest[]) {
-  //   return this.http.post<SimplePointOfInterest[]>
-  // ('https://vps723941.ovh.net/pointsofinterest/add?password=brilliant', locations, { observe: 'response' })
-  //     .pipe(map(response => {
-  //       if (response) {
-  //         return response;
-  //       }
-  //       return null;
-  //     }));
-  // }
-
   addMultiplePoi([{ lat, lng }]) {
     return this.http.post<any>('https://vps723941.ovh.net/pointsofinterest/add?password=brilliant', { lat, lng })
       .pipe(map(res => {

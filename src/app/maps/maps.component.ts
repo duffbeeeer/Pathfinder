@@ -21,13 +21,7 @@ export class MapsComponent implements OnInit, OnChanges {
   currentPosition: Position;
 
   @Input()
-  poiUserList: PointOfInterest[] = [
-    { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
-    { lat: 53.560588, lng: 9.990415, active: true, id: '2' },
-    { lat: 53.559102, lng: 9.989839, active: true, id: '3' },
-    { lat: 53.565019, lng: 10.033581, active: true, id: '4' },
-    { lat: 53.566846, lng: 10.031384, active: true, id: '5' },
-  ];
+  poiUserList: PointOfInterest[];
 
   @Output()
   activateAugmented: EventEmitter<string> = new EventEmitter();
@@ -45,7 +39,6 @@ export class MapsComponent implements OnInit, OnChanges {
   destination = { lat: 53.569252, lng: 10.034879 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
-  private updateSubscription: Subscription;
   showArButton: boolean;
   activeMarkerId: string;
 
@@ -75,21 +68,9 @@ export class MapsComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.currentPosition) {
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
-      console.log(this.currentPosition.timestamp);
       this._mapsAPILoader.load().then(() => {
-        if (this.currentPosition) {
-          this.showArButton = false;
-          const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
-          console.log(pos.toString());
-          for (const poi of this.poiUserList) {
-            const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 25});
-            if (circle.getBounds().contains(pos)) {
-              this.showArButton = true;
-              this.activeMarkerId = poi.id;
-            }
-            console.log(circle.getBounds().contains(pos));
-          }
-        }
+         this.matchCircles();
+         this.checkIfDestinationReached();
       });
     }
   }
@@ -113,7 +94,30 @@ export class MapsComponent implements OnInit, OnChanges {
   onStartGame() {
     this.activateAugmented.emit(this.activeMarkerId);
   }
-}
 
+  matchCircles() {
+    if (this.currentPosition) {
+      this.showArButton = false;
+      const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
+      for (const poi of this.poiUserList) {
+        const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 25});
+        if (circle.getBounds().contains(pos)) {
+          this.showArButton = true;
+          this.activeMarkerId = poi.id;
+        }
+      }
+    }
+  }
+
+  checkIfDestinationReached() {
+    if (this.currentPosition) {
+      const dest = new google.maps.LatLng({lat: this.destination.lat, lng: this.destination.lng});
+      const circle = new google.maps.Circle({center: {lat: this.destination.lat, lng: this.destination.lng}, radius: 75});
+      if (circle.getBounds().contains(dest)) {
+        // do something
+      }
+    }
+  }
+}
 
 

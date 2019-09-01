@@ -33,12 +33,6 @@ import { Observable, Observer } from 'rxjs';
 
 }
 
-export interface LocalPosition {
-  id: string;
-  lat: number;
-  lng: number;
-  active: boolean;
-}
 
 export interface MyPosition {
   lat: number;

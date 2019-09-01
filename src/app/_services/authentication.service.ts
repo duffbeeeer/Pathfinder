@@ -27,7 +27,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`http://51.68.189.176:8080/login`, { username, password }, { observe: 'response' })
+    return this.http.post<any>(`https://vps723941.ovh.net/login`, { username, password }, { observe: 'response' })
       .pipe(first())
       .subscribe(user => {
         console.log('httpResponse', user);
@@ -49,7 +49,7 @@ export class AuthenticationService {
 
   register(username: string, password: string) {
     console.log('register method' + username + ' ' + password);
-    return this.http.post<any>('http://51.68.189.176:8080/user/sign-up', { username, password })
+    return this.http.post<any>('https://vps723941.ovh.net/user/sign-up', { username, password })
       .pipe(map(user => {
         this.userUsername = username;
         this.userPassword = password;

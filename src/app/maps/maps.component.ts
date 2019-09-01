@@ -1,9 +1,10 @@
 /// <reference types="@types/googlemaps" />
 import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener, ViewChildren, ElementRef, QueryList, AfterViewInit, ViewChild, Query, OnChanges, EventEmitter, Output } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
-import { LocalPosition, MyPosition } from '../_services/geolocation.service';
+import { MyPosition } from '../_services/geolocation.service';
 import { Subscription } from 'rxjs';
 import { AgmCircle, AgmMap, MapsAPILoader } from '@agm/core';
+import { PointOfInterest } from '../_models/score.model';
 
 
 
@@ -19,6 +20,15 @@ export class MapsComponent implements OnInit, OnChanges {
   @Input()
   currentPosition: Position;
 
+  @Input()
+  poiUserList: PointOfInterest[] = [
+    { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
+    { lat: 53.560588, lng: 9.990415, active: true, id: '2' },
+    { lat: 53.559102, lng: 9.989839, active: true, id: '3' },
+    { lat: 53.565019, lng: 10.033581, active: true, id: '4' },
+    { lat: 53.566846, lng: 10.031384, active: true, id: '5' },
+  ];
+
   @Output()
   activateAugmented: EventEmitter<string> = new EventEmitter();
 
@@ -32,7 +42,7 @@ export class MapsComponent implements OnInit, OnChanges {
   waypoints: any;
   // origin: any;
   origin: MyPosition = {lat: 53.562699, lng: 9.987803};
-  destination = { lat: 53.562699, lng: 9.987803 };
+  destination = { lat: 53.569252, lng: 10.034879 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
   private updateSubscription: Subscription;
@@ -45,7 +55,7 @@ export class MapsComponent implements OnInit, OnChanges {
   @ViewChild('agmMap') mapshizzle: AgmMap;
   @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
 
-  markers: LocalPosition[] = [
+  markers: PointOfInterest[] = [
     { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
     { lat: 53.560588, lng: 9.990415, active: true, id: '2' },
     { lat: 53.559102, lng: 9.989839, active: true, id: '3' },
@@ -54,7 +64,7 @@ export class MapsComponent implements OnInit, OnChanges {
   ];
 
   iconUrl = {
-    url: '../../Pathfinder/assets/images/pathfinder-icon.png',
+    url: '../../assets/images/pathfinder-icon.png',
     // scaledSize: { height: 32, width: 25 }
   };
 
@@ -71,12 +81,11 @@ export class MapsComponent implements OnInit, OnChanges {
           this.showArButton = false;
           const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
           console.log(pos.toString());
-          const circles = this.circles.toArray();
-          for (const marker of this.markers) {
-            const circle = new google.maps.Circle({center: {lat: marker.lat, lng: marker.lng }, radius: 25});
+          for (const poi of this.poiUserList) {
+            const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 25});
             if (circle.getBounds().contains(pos)) {
               this.showArButton = true;
-              this.activeMarkerId = marker.id;
+              this.activeMarkerId = poi.id;
             }
             console.log(circle.getBounds().contains(pos));
           }

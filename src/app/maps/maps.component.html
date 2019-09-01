@@ -6,9 +6,9 @@
 <agm-map #agmMap class="fixed-top" [latitude]="lat" [longitude]="lng" [styles]="styles" [streetViewControl]="false" [zoomControl]="false"
   [ngStyle]="dynamicStyling">
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"></agm-direction>
-  <div *ngFor="let poi  of poiUserList">
-    <agm-marker [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
-    <agm-circle #circle [latitude]="poi.lat" [longitude]="poi.lng" [radius]="25"></agm-circle>
+  <div *ngFor="let poi of poiUserList">
+    <agm-marker *ngIf="poi.active"  [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
+    <agm-circle #circle *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [radius]="25"></agm-circle>
   </div>
 </agm-map>
 

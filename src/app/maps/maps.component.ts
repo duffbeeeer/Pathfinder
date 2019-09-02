@@ -5,6 +5,7 @@ import { MyPosition } from '../_services/geolocation.service';
 import { Subscription } from 'rxjs';
 import { AgmCircle, AgmMap, MapsAPILoader } from '@agm/core';
 import { PointOfInterest } from '../_models/score.model';
+import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
 
 
 
@@ -42,6 +43,9 @@ export class MapsComponent implements OnInit, OnChanges {
   showArButton: boolean;
   activeMarkerId: string;
   renderOptions = {preserveViewport : true};
+  mapCentered = false;
+  mapCenter = { lat: this.mapCentered ? null : this.origin.lat,
+                lng: this.mapCentered ? null : this.origin.lng };
 
   // agmCircle: Circle;
 
@@ -67,6 +71,9 @@ export class MapsComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.currentPosition && this.poiUserList) {
+      if ( !this.mapCentered )  {
+        this.mapCentered = true;
+      }
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       this._mapsAPILoader.load().then(() => {
          this.matchCircles();

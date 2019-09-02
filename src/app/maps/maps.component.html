@@ -3,7 +3,7 @@
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
-<agm-map #agmMap class="fixed-top" [latitude]="origin.lat" [longitude]="origin.lng" [styles]="styles" [zoom]="15" [streetViewControl]="false" [zoomControl]="false"
+<agm-map #agmMap class="fixed-top" [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" [styles]="styles" [zoom]="15" [streetViewControl]="false" [zoomControl]="false"
   [ngStyle]="dynamicStyling">
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode" [renderOptions]="renderOptions"></agm-direction>
   <div *ngFor="let poi of poiUserList">

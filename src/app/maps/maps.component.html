@@ -6,17 +6,17 @@
 <agm-map #agmMap class="fixed-top" [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" [styles]="styles" [zoom]="15" [streetViewControl]="false" [zoomControl]="false"
   [ngStyle]="dynamicStyling">
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode" [renderOptions]="renderOptions"></agm-direction>
-  <div *ngFor="let poi of poiUserList; trackBy: trackByFn">
-    <!-- <agm-marker *ngIf="poi.active"  [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker> -->
+  <div *ngFor="let poi of markers; trackBy: trackByFn;">
+    <agm-marker *ngIf="poi.active"  [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
     <agm-circle #circle *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [radius]="25"></agm-circle>
   </div>
-  <agm-marker *ngIf="poiUserList[0].active"  [latitude]="poiUserList[0].lat" [longitude]="poiUserList[0].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[1].active"  [latitude]="poiUserList[1].lat" [longitude]="poiUserList[1].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[2].active"  [latitude]="poiUserList[2].lat" [longitude]="poiUserList[2].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[3].active"  [latitude]="poiUserList[3].lat" [longitude]="poiUserList[3].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[4].active"  [latitude]="poiUserList[4].lat" [longitude]="poiUserList[4].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[5].active"  [latitude]="poiUserList[5].lat" [longitude]="poiUserList[5].lng" [iconUrl]="iconUrl"></agm-marker>
-  <agm-marker *ngIf="poiUserList[6].active"  [latitude]="poiUserList[6].lat" [longitude]="poiUserList[6].lng" [iconUrl]="iconUrl"></agm-marker>
+  <!-- <agm-marker *ngIf="poiUserList[0]?.active"  [latitude]="poiUserList[0].lat" [longitude]="poiUserList[0].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[1]?.active"  [latitude]="poiUserList[1].lat" [longitude]="poiUserList[1].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[2]?.active"  [latitude]="poiUserList[2].lat" [longitude]="poiUserList[2].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[3]?.active"  [latitude]="poiUserList[3].lat" [longitude]="poiUserList[3].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[4]?.active"  [latitude]="poiUserList[4].lat" [longitude]="poiUserList[4].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[5]?.active"  [latitude]="poiUserList[5].lat" [longitude]="poiUserList[5].lng" [iconUrl]="iconUrl"></agm-marker>
+  <agm-marker *ngIf="poiUserList[6]?.active"  [latitude]="poiUserList[6].lat" [longitude]="poiUserList[6].lng" [iconUrl]="iconUrl"></agm-marker> -->
 </agm-map>
 
 <button (click)="onStartGame()" *ngIf="showArButton" class="btn btn-primary overlay text-center col-2 offset-5">Start GAME</button>

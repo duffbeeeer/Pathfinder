@@ -14,12 +14,10 @@ export class HomeComponent implements OnInit {
 
   public poiId: string;
 
-
   view = View;
   currentView: ViewModel;
   currentPosition$: Observable<Position>;
   addPois$: Observable<any>;
-
 
   poiUserList$: Observable<PointOfInterest[]>;
   poiList$: Observable<PointOfInterest[]>;

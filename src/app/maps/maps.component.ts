@@ -71,6 +71,7 @@ export class MapsComponent implements OnInit, OnChanges {
       if ( !this.mapCentered )  {
         this.mapCentered = true;
       }
+      this.markers = this.poiUserList;
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       this._mapsAPILoader.load().then(() => {
          this.matchCircles();

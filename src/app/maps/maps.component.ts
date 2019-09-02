@@ -26,8 +26,6 @@ export class MapsComponent implements OnInit, OnChanges {
   title: 'pathfinder';
   landscape: boolean;
   dynamicStyling: {};
-  lat: number;
-  lng: number;
   screenWidth: number;
   screenHeight: number;
   waypoints: any;
@@ -42,20 +40,8 @@ export class MapsComponent implements OnInit, OnChanges {
   mapCentered = false;
   mapCenter = { lat: this.mapCentered ? null : this.origin.lat,
                 lng: this.mapCentered ? null : this.origin.lng };
-  loadingMarkers = true;
 
-  // agmCircle: Circle;
-
-  // @ViewChild('agmMap') mapshizzle: AgmMap;
-  // @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
-
-  markers: PointOfInterest[] = [
-    { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
-    { lat: 53.560588, lng: 9.990415, active: true, id: '2' },
-    { lat: 53.559102, lng: 9.989839, active: true, id: '3' },
-    { lat: 53.565019, lng: 10.033581, active: true, id: '4' },
-    { lat: 53.566846, lng: 10.031384, active: true, id: '5' },
-  ];
+  markers: PointOfInterest[];
 
   iconUrl = {
     url: '../../assets/images/pathfinder-icon.png',
@@ -81,7 +67,7 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log(this.currentPosition);
+    // console.log(this.currentPosition);
 
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
@@ -104,13 +90,12 @@ export class MapsComponent implements OnInit, OnChanges {
   this.showArButton = false;
   const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
   for (const poi of this.poiUserList) {
-      console.log(poi);
+      // console.log(poi);
       const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 50});
-      if (circle.getBounds().contains(pos)) {
-        console.log(circle.getCenter().lat(), pos.lat() );
+      if (circle.getBounds().contains(pos) && poi.active ) {
+        // console.log(circle.getCenter().lat(), pos.lat() );
         this.showArButton = true;
         this.activeMarkerId = poi.id;
-        this.loadingMarkers = false;
       }
     }
   }

@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit {
     this.currentView = initialView;
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(async (pos) => {
-        this.poiUserList$ = this.scoreService.getUserPoiList();
         this.currentPosition$ = this.geolocationService.getCurrentPosition();
         this.currentPosition$.forEach(res =>
           console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
@@ -72,6 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
   onActivateMaps() {
+    this.poiUserList$ = this.scoreService.getUserPoiList();
     this.currentView.activeView = this.view.MapsComponent;
   }
 

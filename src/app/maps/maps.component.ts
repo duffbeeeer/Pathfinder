@@ -41,12 +41,12 @@ export class MapsComponent implements OnInit, OnChanges {
   styles = mapStyles;
   showArButton: boolean;
   activeMarkerId: string;
+  renderOptions = {preserveViewport : true};
 
   // agmCircle: Circle;
 
-  @ViewChild('agmDirection') direction: ElementRef;
-  @ViewChild('agmMap') mapshizzle: AgmMap;
-  @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
+  // @ViewChild('agmMap') mapshizzle: AgmMap;
+  // @ViewChildren('circle', { read: AgmCircle }) circles: QueryList<AgmCircle>;
 
   markers: PointOfInterest[] = [
     { lat: 53.562136, lng: 9.988778, active: true, id: '1' },
@@ -66,7 +66,7 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if (this.currentPosition) {
+    if (this.currentPosition && this.poiUserList) {
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       this._mapsAPILoader.load().then(() => {
          this.matchCircles();
@@ -96,15 +96,15 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   matchCircles() {
-    if (this.currentPosition) {
-      this.showArButton = false;
-      const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
-      for (const poi of this.poiUserList) {
-        const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 25});
-        if (circle.getBounds().contains(pos)) {
-          this.showArButton = true;
-          this.activeMarkerId = poi.id;
-        }
+  this.showArButton = false;
+  const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
+  for (const poi of this.poiUserList) {
+      console.log(poi);
+      const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 50});
+      if (circle.getBounds().contains(pos)) {
+        console.log(circle.getCenter().lat(), pos.lat() );
+        this.showArButton = true;
+        this.activeMarkerId = poi.id;
       }
     }
   }

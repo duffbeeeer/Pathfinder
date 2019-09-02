@@ -2,12 +2,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener, ViewChildren, ElementRef, QueryList, AfterViewInit, ViewChild, Query, OnChanges, EventEmitter, Output } from '@angular/core';
 import { mapStyles } from '../../assets/maps.style';
 import { MyPosition } from '../_services/geolocation.service';
-import { Subscription } from 'rxjs';
-import { AgmCircle, AgmMap, MapsAPILoader } from '@agm/core';
+import { MapsAPILoader } from '@agm/core';
 import { PointOfInterest } from '../_models/score.model';
-import { THROW_IF_NOT_FOUND } from '@angular/core/src/di/injector';
-
-
 
 @Component({
   selector: 'app-maps',
@@ -46,6 +42,7 @@ export class MapsComponent implements OnInit, OnChanges {
   mapCentered = false;
   mapCenter = { lat: this.mapCentered ? null : this.origin.lat,
                 lng: this.mapCentered ? null : this.origin.lng };
+  loadingMarkers = true;
 
   // agmCircle: Circle;
 
@@ -112,6 +109,7 @@ export class MapsComponent implements OnInit, OnChanges {
         console.log(circle.getCenter().lat(), pos.lat() );
         this.showArButton = true;
         this.activeMarkerId = poi.id;
+        this.loadingMarkers = false;
       }
     }
   }
@@ -124,6 +122,10 @@ export class MapsComponent implements OnInit, OnChanges {
         // do something
       }
     }
+  }
+
+  trackByFn(index, item) {
+    return item; // or item.id
   }
 }
 

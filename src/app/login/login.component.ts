@@ -1,10 +1,10 @@
 ﻿import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first, catchError } from 'rxjs/operators';
+import { first, catchError, timeout } from 'rxjs/operators';
 import { AuthenticationService } from '../_services';
 
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, interval } from 'rxjs';
 import { HttpEvent, HttpErrorResponse } from '@angular/common/http';
 
 
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     submitted = false;
     returnUrl: string;
-    authFailed: boolean = false;
+    authFailed: boolean;
     error = 'Der Benutzername oder das Passwort ist ungültig';
 
     constructor(
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
-        this.authFailed = true;
+
         this.submitted = true;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
@@ -68,6 +68,10 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['']);
             }
         });
+        setTimeout(() => {
+            this.authFailed = true;
+            console.log(this.authFailed);
+        }, 1000);
     }
 
     errorHandler(error: HttpErrorResponse) {
@@ -77,7 +81,7 @@ export class LoginComponent implements OnInit {
     onGreetings() {
         this.showGreetings = false;
     }
-    
+
 }
 // login(username: string, password: string) {
     //   return this.http.post<any>(`https://vps723941.ovh.net:9090/login`, { username, password }, { observe: 'response' })

@@ -1,55 +1,233 @@
-﻿<div class="jumbotron color-theme">
-  <div class="container-fluid">
+﻿<!-- header -->
+<app-navigation class="layer-1"></app-navigation>
+<!-- maps as background -->
+<app-maps></app-maps>
+<!-- Greetings -->
+<div *ngIf="showGreetings" class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
     <div class="row">
-      <div class="text-center col-6 offset-3">
-        <img class="img-fluid" style="height:142;width:421px" src="../../assets/images/pathfinder-logo.png">
-        <img class="img-fluid" src="../../assets/images/MuC2019.png">
-        <div class="row" style="margin-top: 10vh">
-            <div class="col">
-              <hr>
-            </div>
-            <div class="col-auto">Login</div>
-            <div class="col">
-              <hr>
-            </div>
-          </div>
+      <div class="col-12 text-center">
+        <h1>Moin! Moin!</h1>
       </div>
     </div>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="form-group col-6 offset-3">
-        <label for="username" class="color-theme">Playername</label>
-        <input type="text" formControlName="username" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-        <div *ngIf="submitted && !!f.username.errors" class="invalid-feedback">
-          <div *ngIf="!!f.username.errors.required">Playername is required</div>
-        </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          Mit dieser Web-App finden Sie nicht nur den Weg zur HAW, Sie können auch noch spielerisch <strong>1 von 10
+            Tischtennisschlägern</strong> gewinnen!
+        </p>
       </div>
-      <div class="form-group col-6 offset-3">
-        <label for="password" class="color-theme">Password</label>
-        <input type="password" formControlName="password" class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
-          <div *ngIf="!!f.password.errors.required">Password is required</div>
+    </div>
 
-        </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          An den markierten Stellen auf der Karte sind AR-Würfel platziert – Diese müssen Sie abschießen um ordentlich
+          Punkte zu sammeln. Einfach den Anweisungen auf deinem Screen.
+        </p>
       </div>
-      <div class="form-group">
-        <div class="row" style="margin-bottom: 3vh;margin-top: 5vh">
-          <div class="col-12 text-center">
-            <button [disabled]="loading" class="btn btn-primary form-btn">Login</button>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <button class="btn btn-primary form-btn" [routerLink]="['/register']"
-              routerLinkActive="router-link-active">Register</button>
-          </div>
-        </div>
-        <img *ngIf="loading" class="pl-2"
-          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Apple User? Für den vollen Spielspaß nehmen Sie
+          </small>
+        </p>
       </div>
-      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-    </form>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            bitte eine kleine Einstellung an ihrem Browser vor:
+          </small>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Einstellungen > Safari > Bewegungs- & Ausrichtungszugriff
+          </small>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <button (click)="onGreetings()" class="btn btn-primary text-center lets-go-btn"><strong>LET´S
+            GO!</strong></button>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<!-- login-prompt -->
+<div *ngIf="!showGreetings" class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>WIE HEISSEN SIE?</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          Bitte wählen Sie ihren Spielernamen. Achten Sie darauf, dass er maximal 8 Zeichen hat und nicht anstößig ist.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center testing" style="height: 40vh">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <input type="text" formControlName="username" placeholder="Spielername"
+              class="form-control text-center login-input"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          </div>
+          <div class="form-group col-12">
+            <input type="password" formControlName="password" placeholder="Passwort" class="form-control text-center"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 text-center form-btn-parent">
+                <button class="btn btn-primary form-btn"><strong>LOGIN</strong></button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12  form-btn-parent" style="position: absolute;bottom: 0">
+                <p *ngIf="authFailed" style="color:red">
+                  Benutzername oder Passwort ist falsch
+                </p>
+                <p *ngIf='!authFailed'>
+                  Noch nicht registriert?
+                </p>
+                <button class="btn btn-primary form-btn" [routerLink]="['/register']"
+                  routerLinkActive="router-link-active"><strong>REGISTRIEREN</strong></button>
+              </div>
+            </div>
+          </div>
+          <!-- <div *ngIf="authFailed" class="alert alert-danger">{{error}}</div> -->
+        </form>
+
+      </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-12 text-center">
+          <p>
+            An den markierten Stellen auf der Karte sind AR-Würfel platziert – Diese müssen Sie abschießen um ordentlich
+            Punkte zu sammeln. Einfach den Anweisungen auf deinem Screen.
+          </p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="fineprint">
+            <small>
+              Apple User? Für den vollen Spielspaß nehmen Sie bitte
+            </small>
+          </p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="fineprint">
+            <small>
+              eine kleine Einstellung an ihrem Browser vor:
+            </small>
+          </p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="fineprint">
+            <small>
+              Einstellungen > Safari > Bewegungs- & Ausrichtungszugriff
+            </small>
+          </p>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-12 text-center">
+          <button (click)="onGreetings()" class="btn btn-primary text-center"><strong>LET´S GO!</strong></button>
+        </div>
+      </div> -->
+
+  </div>
+</div>
+
+<!-- footer -->
+<div class="col-12 footer fixed-bottom"></div>
+<!-- <div class="jumbotron color-theme">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="text-center col-6 offset-3">
+          <img class="img-fluid" style="height:142;width:421px" src="../../Pathfinder/assets/images/pathfinder-logo.png">
+          <img class="img-fluid" src="../../Pathfinder/assets/images/MuC2019.png">
+          <div class="row" style="margin-top: 10vh">
+              <div class="col">
+                <hr>
+              </div>
+              <div class="col-auto">Login</div>
+              <div class="col">
+                <hr>
+              </div>
+            </div>
+        </div>
+      </div>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-6 offset-3">
+          <label for="username" class="color-theme">Playername</label>
+          <input type="text" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && !!f.username.errors" class="invalid-feedback">
+            <div *ngIf="!!f.username.errors.required">Playername is required</div>
+          </div>
+        </div>
+        <div class="form-group col-6 offset-3">
+          <label for="password" class="color-theme">Password</label>
+          <input type="password" formControlName="password" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && !!f.password.errors" class="invalid-feedback">
+            <div *ngIf="!!f.password.errors.required">Password is required</div>
+  
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row" style="margin-bottom: 3vh;margin-top: 5vh">
+            <div class="col-12 text-center">
+              <button [disabled]="loading" class="btn btn-primary form-btn">Login</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <button class="btn btn-primary form-btn" [routerLink]="['/register']"
+                routerLinkActive="router-link-active">Register</button>
+            </div>
+          </div>
+          <img *ngIf="loading" class="pl-2"
+            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      </form>
+    </div>
+  </div> -->

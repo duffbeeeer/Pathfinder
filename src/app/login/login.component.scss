@@ -1,16 +1,80 @@
-.color-theme{
+.color-theme {
   color: white;
   background-color: black;
 }
 
 .form-btn {
-  width:40%
+  width: 40%;
 }
 
 .btn-register {
   float: right;
 }
 
-hr{
+hr {
   border-color: beige;
+}
+
+.footer {
+  position: absolute;
+  height: 30px;
+  padding: 0;
+  background-color: black;
+}
+
+.layer-1 {
+  z-index: 9999;
+}
+
+.container.custom-container {
+  position: absolute;
+  bottom: 30px;
+  width: 80vw;
+  left: 10vw;
+  right: 10vw;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.login {
+  height: 60vh;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.text-format {
+  color: white;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 4vh;
+  margin: 0;
+}
+p {
+  font-size: 2vh;
+}
+small {
+  font-size: 1.5vh;
+  line-height: 0vh;
+}
+.lets-go-btn {
+  margin-top: 5vh;
+  width: 20vh;
+}
+.login-input {
+  height: 10;
+}
+.form-btn {
+  width:70%;
+}
+.form-btn-parent {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: auto
+}
+.fineprint {
+  height: 2vh;
+  margin-bottom: 0;
 }

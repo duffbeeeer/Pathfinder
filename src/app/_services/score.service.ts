@@ -1,10 +1,11 @@
 import { Injectable, SimpleChange } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { map, first } from 'rxjs/operators';
 import { PointOfInterest, Achievement, Highscore } from '../_models/score.model';
 import { Observable } from 'rxjs';
 
-@Injectable() export class ScoreService {
+@Injectable()
+export class ScoreService {
 
   constructor(private http: HttpClient) {
   }
@@ -71,12 +72,17 @@ import { Observable } from 'rxjs';
       }));
   }
 
-  completePoi(id: string, value: number) {
+  completePoi(id: string, value: number): Observable<any> {
     console.log('POI ID: ' + id + '\nScore: ' + value);
-    return this.http.post<PointOfInterest[]>(`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
-      .pipe(first())
-      .subscribe(res => {
-        console.log(res);
-      });
+    return this.http.post<PointOfInterest[]>
+      (`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' }).pipe(first());
   }
+  // completePoi(id: string, value: number) {
+  //   console.log('POI ID: ' + id + '\nScore: ' + value);
+  //   return this.http.post<PointOfInterest[]>(`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
+  //     .pipe(first())
+  //     .subscribe(res => {
+  //       console.log(res);
+  //     });
+  // }
 }

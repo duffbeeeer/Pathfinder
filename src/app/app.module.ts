@@ -6,7 +6,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
-import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { JwtInterceptor } from './_helpers';
 import { NavigationModule } from './navigation/navigation.module';
 import { MapsModule } from './maps/maps.module';
 import { AugmentedModule } from './augmented/augmented.module';
@@ -39,7 +39,6 @@ import { ScoreService } from './_services/score.service';
       { provide: GeolocationService, useClass: GeolocationService },
       { provide: ScoreService, useClass: ScoreService },
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-      { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
       // provider used to create fake backend
       // fakeBackendProvider

@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { ViewModel, View, initialView } from '../shared/active-view.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject, Subscribable } from 'rxjs';
 import { GeolocationService } from '../_services/geolocation.service';
 import { ScoreService } from '../_services/score.service';
 import { PointOfInterest, Highscore } from '../_models/score.model';
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   currentView: ViewModel;
   currentPosition$: Observable<Position>;
   addPois$: Observable<any>;
+  completePoi$: Observable<any>;
 
   poiUserList$: Observable<PointOfInterest[]>;
   poiList$: Observable<PointOfInterest[]>;
@@ -28,11 +29,18 @@ export class HomeComponent implements OnInit {
     private geolocationService: GeolocationService,
     private scoreService: ScoreService
   ) {
+    //complete Poi ausgabe
+    // this.completePoi$ = scoreService.completePoi('1', 1000);
+    // this.completePoi$.forEach(res => {
+    //   console.log(res.id);
+    // })
+    
     // get current position
     this.currentPosition$ = this.geolocationService.getCurrentPosition();
     this.poiUserList$ = this.scoreService.getUserPoiList();
-    this.currentPosition$.forEach(res =>
-    console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
+    this.currentPosition$.forEach(res => {
+      console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp)
+    });
 
     // get userspecific Point of interest-list
 

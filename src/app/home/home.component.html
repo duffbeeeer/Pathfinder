@@ -1,4 +1,4 @@
-﻿<app-navigation class="layer-2" activateMaps=onActivateMaps() activateAugmented=onActivateAugmented()></app-navigation>
-<app-maps class="layer-1" *ngIf="isMapsActive" [currentPosition]="currentPosition$ | async" (activateAugmented)="onActivateAugmented($event)" [poiUserList]="poiUserList$ | async"></app-maps>
-<app-augmented class="layer-1" *ngIf="isAugmentedActive" [poiId]=poiId (activateMaps)="onActivateMaps()"></app-augmented>
-<app-score class="layer-2"></app-score>
+﻿<app-navigation  activateMaps=onActivateMaps() activateAugmented=onActivateAugmented()></app-navigation>
+<app-maps  *ngIf="isMapsActive" [currentPosition]="currentPosition$ | async" (activateAugmented)="onActivateAugmented($event)"></app-maps>
+<app-augmented  *ngIf="isAugmentedActive" [poiId]=poiId (activateMaps)="onActivateMaps()"></app-augmented>
+<app-score></app-score>

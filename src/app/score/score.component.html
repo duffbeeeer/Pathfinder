@@ -1,12 +1,20 @@
-<div class="col-12 colortheme footer fixed-bottom">
-  <div class=" text-center">
-    <button mat-button class="scoreButton" (click)=onClick()>
+<div class="container colortheme footer fixed-bottom">
+  <div class="col-12 text-center" (click)="onClick()">
+    <div class="col-4">
+
       <span #userPosition class="blue thick"></span>
       <span #userName class="white thick"></span>
-      <span class="hor-space"><img class="img-fluid" style="height:25px;" src="../../assets/images/fingerprint.png"></span>
+    </div>
+    <div class="col-4">
+
+      <span class="hor-space"><img class="img-fluid" style="height:25px;"
+          src="../../assets/images/fingerprint.png"></span>
+    </div>
+    <div class="col-4">
       <span #userScoreLbl class="blue thick"></span>
       <span #userScoreValue class="white thick"></span>
-    </button>
+
+    </div>
   </div>
 </div>
 

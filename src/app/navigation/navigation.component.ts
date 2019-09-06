@@ -45,7 +45,6 @@ export class NavigationComponent implements OnInit {
 
   onShowInfobox() {
     this.showInfobox = !this.showInfobox;
-    alert('show info: '+ this.showInfobox);
   }
 
   logout() {

@@ -30,16 +30,18 @@ export class MapsComponent implements OnInit, OnChanges {
   screenHeight: number;
   waypoints: any;
   // origin: any;
-  origin: MyPosition = {lat: 53.562699, lng: 9.987803};
+  origin: MyPosition = { lat: 53.562699, lng: 9.987803 };
   destination = { lat: 53.569252, lng: 10.034879 };
   travelMode = 'TRANSIT';
   styles = mapStyles;
   showArButton: boolean;
   activeMarkerId: string;
-  renderOptions = {preserveViewport : true};
+  renderOptions = { preserveViewport: true };
   mapCentered = false;
-  mapCenter = { lat: this.mapCentered ? null : this.origin.lat,
-                lng: this.mapCentered ? null : this.origin.lng };
+  mapCenter = {
+    lat: this.mapCentered ? null : this.origin.lat,
+    lng: this.mapCentered ? null : this.origin.lng
+  };
 
   markers: PointOfInterest[];
 
@@ -48,20 +50,20 @@ export class MapsComponent implements OnInit, OnChanges {
     // scaledSize: { height: 32, width: 25 }
   };
 
-  constructor(private _mapsAPILoader: MapsAPILoader) {
+  constructor(private mapsAPILoader: MapsAPILoader) {
     this.showArButton = false;
   }
 
   ngOnChanges() {
     if (this.currentPosition && this.poiUserList) {
-      if ( !this.mapCentered )  {
+      if (!this.mapCentered) {
         this.mapCentered = true;
       }
       this.markers = this.poiUserList;
       this.origin = { lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude };
       this._mapsAPILoader.load().then(() => {
-         this.matchCircles();
-         this.checkIfDestinationReached();
+        this.matchCircles();
+        this.checkIfDestinationReached();
       });
     }
   }
@@ -72,27 +74,29 @@ export class MapsComponent implements OnInit, OnChanges {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
-    this.dynamicStyling = {width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px'};
+    this.dynamicStyling = { width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px' };
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
+    console.log(this.screenHeight)
+    this.dynamicStyling = { width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px' };
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
-    }
+  }
 
   onStartGame() {
     this.activateAugmented.emit(this.activeMarkerId);
   }
 
   matchCircles() {
-  this.showArButton = false;
-  const pos = new google.maps.LatLng({lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude});
-  for (const poi of this.poiUserList) {
+    this.showArButton = false;
+    const pos = new google.maps.LatLng({ lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude });
+    for (const poi of this.poiUserList) {
       // console.log(poi);
-      const circle = new google.maps.Circle({center: {lat: poi.lat, lng: poi.lng }, radius: 50});
-      if (circle.getBounds().contains(pos) && poi.active ) {
+      const circle = new google.maps.Circle({ center: { lat: poi.lat, lng: poi.lng }, radius: 50 });
+      if (circle.getBounds().contains(pos) && poi.active) {
         // console.log(circle.getCenter().lat(), pos.lat() );
         this.showArButton = true;
         this.activeMarkerId = poi.id;
@@ -102,8 +106,8 @@ export class MapsComponent implements OnInit, OnChanges {
 
   checkIfDestinationReached() {
     if (this.currentPosition) {
-      const dest = new google.maps.LatLng({lat: this.destination.lat, lng: this.destination.lng});
-      const circle = new google.maps.Circle({center: {lat: this.destination.lat, lng: this.destination.lng}, radius: 75});
+      const dest = new google.maps.LatLng({ lat: this.destination.lat, lng: this.destination.lng });
+      const circle = new google.maps.Circle({ center: { lat: this.destination.lat, lng: this.destination.lng }, radius: 75 });
       if (circle.getBounds().contains(dest)) {
         // do something
       }

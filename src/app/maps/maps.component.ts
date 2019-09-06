@@ -50,7 +50,7 @@ export class MapsComponent implements OnInit, OnChanges {
     // scaledSize: { height: 32, width: 25 }
   };
 
-  constructor(private mapsAPILoader: MapsAPILoader) {
+  constructor(private _mapsAPILoader: MapsAPILoader) {
     this.showArButton = false;
   }
 
@@ -79,7 +79,6 @@ export class MapsComponent implements OnInit, OnChanges {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    console.log(this.screenHeight)
     this.dynamicStyling = { width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px' };
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenHeight = window.innerHeight;

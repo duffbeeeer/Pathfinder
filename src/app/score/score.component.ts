@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Highscore } from '../_models/score.model';
 import { Observable } from 'rxjs';
 import { ScoreService } from '../_services/score.service';
@@ -22,7 +22,7 @@ export class ScoreComponent implements OnInit {
   @ViewChild('userScoreLbl') userScoreLblRef: ElementRef;
   @ViewChild('userScoreValue') userScoreValueRef: ElementRef;
 
-  constructor(private scoreService: ScoreService) {
+  constructor(private scoreService: ScoreService, private renderer: Renderer2) {
     this.scoreList$ = this.scoreService.getHighscoreList();
     this.userStats$ = this.scoreService.getHighscore();
     this.userScore = { username: '', position: 0, score: 0 };
@@ -45,6 +45,7 @@ export class ScoreComponent implements OnInit {
     this.scoreList$ = this.scoreService.getHighscoreList();
     this.userPositionRef.nativeElement.innerText = '#' + this.userScore.position;
     this.userNameRef.nativeElement.innerText = this.userScore.username;
+    this.renderer.setStyle(this.userNameRef.nativeElement, 'margin-top', '3px');
     this.userScoreLblRef.nativeElement.innerText = 'SCORE: ';
     this.userScoreValueRef.nativeElement.innerText = this.userScore.score;
   }

@@ -13,3 +13,31 @@
 </agm-map>
 
 <button (click)="onStartGame()" *ngIf="showArButton" class="btn btn-primary overlay text-center col-2 offset-5">Start GAME</button>
+
+<!-- gg well played -->
+<div *ngIf="destinationReached" class="container  custom-container layer-1" (click)="onClick()">
+    <div class="login col-12 text-format ">
+      <div class="row">
+        <div class="col-12 text-center">
+            <img class="img-fluid" style="height:50px;margin-bottom: 15px; "
+            src="../../assets/images/konfetti.png">
+          <h1><strong>SIE HABEN DIE HAW ERREICHT!</strong></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <p>
+            Glückwunsch! jetzt viel Spaß bei MuC 2019 und bis später bei der Siegerehrung.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <p>
+            um 21 Uhr im Forum Finkenau.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+  </div>

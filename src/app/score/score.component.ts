@@ -43,7 +43,7 @@ export class ScoreComponent implements OnInit {
       this.userScore.position = res.position;
     });
     this.scoreList$ = this.scoreService.getHighscoreList();
-    this.userPositionRef.nativeElement.innerText = '#' + this.userScore.position;
+    this.userPositionRef.nativeElement.innerText = '#' + this.userScore.position + ' ';
     this.userNameRef.nativeElement.innerText = this.userScore.username;
     this.renderer.setStyle(this.userNameRef.nativeElement, 'margin-top', '3px');
     this.userScoreLblRef.nativeElement.innerText = 'SCORE: ';

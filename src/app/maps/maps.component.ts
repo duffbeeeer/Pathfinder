@@ -23,6 +23,7 @@ export class MapsComponent implements OnInit, OnChanges {
   @Output()
   activateAugmented: EventEmitter<string> = new EventEmitter();
 
+  destinationReached: boolean;
   title: 'pathfinder';
   landscape: boolean;
   dynamicStyling: {};
@@ -70,7 +71,7 @@ export class MapsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     // console.log(this.currentPosition);
-
+    this.destinationReached = false;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
@@ -108,11 +109,14 @@ export class MapsComponent implements OnInit, OnChanges {
       const dest = new google.maps.LatLng({ lat: this.destination.lat, lng: this.destination.lng });
       const circle = new google.maps.Circle({ center: { lat: this.destination.lat, lng: this.destination.lng }, radius: 75 });
       if (circle.getBounds().contains(dest)) {
-        // do something
+        this.destinationReached = true;
       }
     }
   }
 
+  onClick() {
+    this.destinationReached = !this.destinationReached;
+  }
   trackByFn(index, item) {
     return item; // or item.id
   }

@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit {
   screenHeight: number;
   view = View;
   currentView: ViewModel;
+  showInfobox: boolean;
 
   @Output()
   activateMaps: EventEmitter<any> = new EventEmitter();
@@ -28,6 +29,7 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.showInfobox = false;
     this.currentView = initialView;
     this.screenWidth = window.innerWidth;
     this.screenHeight = 60;
@@ -41,16 +43,9 @@ export class NavigationComponent implements OnInit {
     this.activateAugmented.emit();
   }
 
-  switchView() {
-    if (this.currentView.activeView === this.view.MapsComponent) {
-      this.currentView.activeView = this.view.AugmentedComponent;
-      this.onActivateAugmented();
-      console.log('switching to augmented');
-    } else {
-      this.currentView.activeView = this.view.MapsComponent;
-      this.onActivateMaps();
-      console.log('switching to maps');
-    }
+  onShowInfobox() {
+    this.showInfobox = !this.showInfobox;
+    alert('show info: '+ this.showInfobox);
   }
 
   logout() {

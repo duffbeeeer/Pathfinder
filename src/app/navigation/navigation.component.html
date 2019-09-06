@@ -7,13 +7,10 @@
           <img class="img-fluid img-muc" src="../../assets/images/MuC2019.png" />
         </a>
       </div>
-      <div class="col-2 text-center no-pad">
-        <button *ngIf="isMapsActive" mat-icon-button (click)="switchView()">
-          <mat-icon class="white-icon">map</mat-icon>
-        </button>
-        <button *ngIf="!isMapsActive" mat-icon-button (click)="switchView()">
-          <mat-icon class="red-icon">videocam</mat-icon>
-        </button>
+      <div class="col-2 text-center no-pad" >
+
+        <img class="img-fluid" style="height:30px" src="../../assets/images/i.png" (click)="onShowInfobox()" >
+
       </div>
       <div class="col-5  text-right no-pad">
         <a target="_blank" rel="noopener noreferrer" href="https://www.haw-hamburg.de/">

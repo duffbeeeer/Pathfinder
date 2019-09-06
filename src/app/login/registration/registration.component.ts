@@ -66,7 +66,7 @@ export class RegistrationComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/success']);
         },
         error => {
           this.error = error;
@@ -76,5 +76,6 @@ export class RegistrationComponent implements OnInit {
       this.authFailed = true;
       console.log(this.authFailed);
     }, 1000);
+    this.authenticationService.logout();
   }
 }

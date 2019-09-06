@@ -5,13 +5,40 @@
 </div>
 
 <!-- Score -->
-<div class="orientation text-center fixed-top" *ngIf=isCompleted>
+<!-- <div class="orientation text-center fixed-top" *ngIf=isCompleted>
 </div>
 <div class="center text-center fixed-top" *ngIf=isCompleted>
   <h5>Scorescreen</h5>
   <h6>You earned {{overallScore}}</h6>
   <button (click)="back()" class="btn btn-primary" >Back</button>
-</div>
+</div> -->
+<div *ngIf="isCompleted" #tablecontainer class="container  custom-container-2 layer-1" (click)="back()">
+    <div class="login col-12 text-format ">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1><strong>WOW! DAS WAR GUT!</strong></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center">
+          <p>
+            Jetzt dran bleiben und mehr Punkte sammeln, um <strong>1 von 10 Tischtennisschlägern</strong> zu sichern!
+          </p>
+        </div>
+      </div>
+      <table class="table table-sm" style="margin:0">
+       
+        <tbody>
+          <tr (click)="back()" *ngFor="let player of scoreList$ | async">
+            <th scope="row">{{player.position}}</th>
+            <td>{{player.username}}</td>
+            <td>{{player.score}}</td>
+            <td><img class="img-fluid" style="height:20px;width: 20px" src="../../assets/images/reward.png"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 <!-- UI Overlay -->
 <div class="custom-container container fixed-top">

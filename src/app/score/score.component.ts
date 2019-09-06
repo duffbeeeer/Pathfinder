@@ -23,6 +23,7 @@ export class ScoreComponent implements OnInit {
   @ViewChild('userScoreValue') userScoreValueRef: ElementRef;
 
   constructor(private scoreService: ScoreService, private renderer: Renderer2) {
+    
     this.scoreList$ = this.scoreService.getHighscoreList();
     this.userStats$ = this.scoreService.getHighscore();
     this.userScore = { username: '', position: 0, score: 0 };

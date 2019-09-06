@@ -38,22 +38,16 @@
   </table>
 </div> -->
 
-<div *ngIf="scoreList" #tablecontainer class="container  custom-container layer-1">
-  <div class="login col-12 text-format ">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h1><strong>WOW! DAS WAR GUT!</strong></h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 text-center">
-        <p>
-          Jetzt dran bleiben und mehr Punkte sammeln, um <strong>1 von 10 Tischtennisschlägern</strong> zu sichern!
-        </p>
-      </div>
-    </div>
+<div *ngIf="scoreList" #tablecontainer class="container custom-container layer-1">
+  <div class="login col-12 text- ">
+    
     <table class="table table-sm" style="margin:0">
-     
+     <thead>
+       <th>#</th>
+       <th>Name</th>
+       <th>Score</th>
+       <th>Prize</th>
+     </thead>
       <tbody>
         <tr (click)="onClick()" *ngFor="let player of scoreList$ | async">
           <th scope="row">{{player.position}}</th>

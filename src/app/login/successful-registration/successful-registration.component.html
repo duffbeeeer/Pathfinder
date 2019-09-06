@@ -1,0 +1,29 @@
+<div class="container  custom-container layer-1" style="top: 25vh;position: absolute">
+    <div class="login col-12 text-format ">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1><strong>IHRE LOGIN DATEN:</strong></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>
+                    USERNAME: {{username}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p>
+                    PASSWORT: {{password}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <button  [routerLink]="['']"
+                routerLinkActive="router-link-active" class="btn btn-primary" style="width: 20vw">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

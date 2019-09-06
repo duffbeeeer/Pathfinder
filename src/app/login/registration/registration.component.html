@@ -59,12 +59,12 @@
       <div class="col-12 text-center testing" style="height: 40vh">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="form-group col-12">
-            <input type="text" formControlName="username" placeholder="Spielername"
+            <input type="text" [(ngModel)]="inputName" formControlName="username" placeholder="Spielername"
               class="form-control text-center login-input"
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
           </div>
           <div class="form-group col-12">
-            <input type="password" formControlName="password" placeholder="Passwort" class="form-control text-center"
+            <input type="password" [(ngModel)]="inputPassword" formControlName="password" placeholder="Passwort" class="form-control text-center"
               [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
           </div>
           <div class="form-group">

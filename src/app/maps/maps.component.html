@@ -3,24 +3,44 @@
   <h5> landscape mode is not supported.</h5>
   <h6>please rotate your device</h6>
 </div>
-<agm-map #agmMap class="fixed-top" [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" [styles]="styles" [zoom]="15" [streetViewControl]="false" [zoomControl]="false"
-  [ngStyle]="dynamicStyling">
-  <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode" [renderOptions]="renderOptions"></agm-direction>
+<agm-map #agmMap class="fixed-top" [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" [styles]="styles" [zoom]="15"
+  [streetViewControl]="false" [zoomControl]="false" [ngStyle]="dynamicStyling">
+  <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"
+    [renderOptions]="renderOptions"></agm-direction>
   <div *ngFor="let poi of markers; trackBy: trackByFn;">
-    <agm-marker *ngIf="poi.active"  [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
+    <agm-marker *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
     <agm-circle #circle *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [radius]="25"></agm-circle>
   </div>
 </agm-map>
 
-<button (click)="onStartGame()" *ngIf="showArButton" class="btn btn-primary overlay text-center col-2 offset-5">Start GAME</button>
 
-<!-- gg well played -->
-<div *ngIf="destinationReached" class="container  custom-container layer-1" (click)="onClick()">
+<div *ngIf="!showArButton" class="container  custom-container-ar layer-1" (click)="onClick()">
+  <div class="login col-12 text-format asjgdj">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img class="img-fluid" style="height:50px;margin-bottom: 15px; " src="../../assets/images/wuerfel.png">
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-12 text-center">
+        <p>
+          Schießen Sie so viele Würfel wie möglich ab!
+        </p>
+      </div>
+      <div class="col-12 text-center">
+        <button (click)="onStartGame()" class="btn btn-primary" style="margin-top: 5px;">AUF GEHT´S!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- destination reached -->
+  <div *ngIf="destinationReached" class="container  custom-container layer-1" (click)="onClick()">
     <div class="login col-12 text-format ">
       <div class="row">
         <div class="col-12 text-center">
-            <img class="img-fluid" style="height:50px;margin-bottom: 15px; "
-            src="../../assets/images/konfetti.png">
+          <img class="img-fluid" style="height:50px;margin-bottom: 15px; " src="../../assets/images/konfetti.png">
           <h1><strong>SIE HABEN DIE HAW ERREICHT!</strong></h1>
         </div>
       </div>
@@ -38,6 +58,6 @@
           </p>
         </div>
       </div>
-      
+
     </div>
   </div>

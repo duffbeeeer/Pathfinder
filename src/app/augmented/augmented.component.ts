@@ -21,6 +21,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @Output()
   activateMaps: EventEmitter<any> = new EventEmitter();
 
+  scoreList$: Observable<Highscore[]>;
   public timer;
   public videoRef;
   public view;
@@ -69,6 +70,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     private scoreService: ScoreService,
     private auth: AuthenticationService,
     private router: Router) {
+    this.scoreList$ = this.scoreService.getHighscoreList();
     // this.positions = [
     //   { x: 0, y: 0, z: 0 },
     //   { x: 0.2, y: 0, z: 0 },
@@ -129,6 +131,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   ngOnInit() {
+
     // alert(this.detectBrowser(navigator.userAgent));
     console.log(this.coinBlock);
     window.addEventListener('devicemotion', (event) => {
@@ -156,7 +159,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
-    this.startTimer(30);
+    this.startTimer(1);
   }
 
   ngAfterViewChecked() {

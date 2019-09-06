@@ -106,17 +106,18 @@ export class MapsComponent implements OnInit, OnChanges {
 
   checkIfDestinationReached() {
     if (this.currentPosition) {
-      const dest = new google.maps.LatLng({ lat: this.destination.lat, lng: this.destination.lng });
+      const currentPos = new google.maps.LatLng({ lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude });
       const circle = new google.maps.Circle({ center: { lat: this.destination.lat, lng: this.destination.lng }, radius: 75 });
-      if (circle.getBounds().contains(dest)) {
+      if (circle.getBounds().contains(currentPos)) {
         this.destinationReached = true;
       }
     }
   }
 
   onClick() {
-    this.destinationReached = !this.destinationReached;
+    this.destinationReached = false;
   }
+
   trackByFn(index, item) {
     return item; // or item.id
   }

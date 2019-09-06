@@ -1,4 +1,123 @@
-<div class="jumbotron color-theme">
+<!-- header -->
+<app-navigation class="layer-1"></app-navigation>
+<!-- maps as background -->
+<app-maps></app-maps>
+<!-- KEYBOARD OVERLAY -->
+<div class="keyboard" *ngIf="landscape">
+  <div class="row">
+    <div class="col-12 text-center testing">
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-8 offset-2">
+          <input type="text" formControlName="username" [(ngModel)]="inputName" placeholder="Spielername"
+            class="form-control text-center login-input" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        </div>
+        <div class="form-group col-8 offset-2">
+          <input type="password" formControlName="password" [(ngModel)]="inputPassword" placeholder="Passwort"
+            class="form-control text-center" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        </div>
+
+        <div class="form-group col-8 offset-2">
+          <div class="row">
+            <div class="col-12 text-center form-btn-parent">
+              <button class="btn btn-primary form-btn"><strong>SUBMIT</strong></button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12  form-btn-parent">
+              <p *ngIf="authFailed" style="color:red">
+                Benutzername wurde bereits vergeben :(
+              </p>
+              <p *ngIf='!authFailed' style="font-size: 4vh; color:white; margin-bottom: 0;margin-top: 15px">
+                schon registriert?
+              </p>
+              <button class="btn btn-primary form-btn" [routerLink]="['/login']"
+                routerLinkActive="router-link-active"><strong>LOGIN</strong></button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- register-prompt -->
+<div class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1><strong>WIE HEISSEN SIE?</strong></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          Bitte wählen Sie ihren Spielernamen. Achten Sie darauf, dass er maximal 8 Zeichen hat und nicht anstößig
+          ist.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 text-center testing" style="height: 40vh">
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <input type="text" formControlName="username" placeholder="Spielername"
+              class="form-control text-center login-input"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          </div>
+          <div class="form-group col-12">
+            <input type="password" formControlName="password" placeholder="Passwort" class="form-control text-center"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 text-center form-btn-parent">
+                <button class="btn btn-primary form-btn"><strong>SUBMIT</strong></button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12  form-btn-parent" style="position: absolute;bottom: 0">
+                <p *ngIf="authFailed" style="color:red">
+                  Benutzername wurde bereits vergeben.
+                </p>
+                <p *ngIf='!authFailed'>
+                  schon registriert?
+                </p>
+                <button class="btn btn-primary form-btn" [routerLink]="['/login']"
+                  routerLinkActive="router-link-active"><strong>LOGIN</strong></button>
+              </div>
+            </div>
+          </div>
+          <!-- <div *ngIf="authFailed" class="alert alert-danger">{{error}}</div> -->
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- footer -->
+<div class="col-12 footer fixed-bottom"></div>
+
+
+
+
+<!-- ########################################################################################OLD################################################################ -->
+
+
+
+
+<!-- <div class="jumbotron color-theme">
   <div class="container-fluid">
     <div class="row">
       <div class="text-center col-6 offset-3">
@@ -59,4 +178,4 @@
       <div *ngIf="error" class="alert alert-danger">{{error}}</div>
     </form>
   </div>
-</div>
+</div> -->

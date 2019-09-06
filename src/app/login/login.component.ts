@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first, catchError, timeout } from 'rxjs/operators';
@@ -14,9 +14,13 @@ import { HttpEvent, HttpErrorResponse } from '@angular/common/http';
 })
 
 export class LoginComponent implements OnInit {
-    login$: Observable<any>;
     @Input()
     username: string;
+    dynamicStyling: {};
+    inputName: string;
+    inputPassword: string;
+    landscape: boolean;
+    login$: Observable<any>;
     showGreetings: boolean;
     loginForm: FormGroup;
     submitted = false;
@@ -33,6 +37,9 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.authFailed = false;
+        this.dynamicStyling = { width: window.innerWidth + 'px', height: window.innerHeight + 'px', top: '60px' }
+        window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+        this.authFailed = false;
         console.log('loginfailed!', this.authFailed);
         this.showGreetings = true;
         this.loginForm = this.formBuilder.group({
@@ -45,6 +52,16 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'home';
+    }
+
+    @HostListener('window:resize', ['$event'])
+    onResize(event) {
+        console.log('resize!');
+        this.dynamicStyling = { width: window.innerWidth + 'px', height: window.innerHeight + 'px', top: '60px' };
+        window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
+        if (window.innerWidth < window.innerHeight) {
+            this.landscape = false;
+        }
     }
 
     // convenience getter for easy access to form fields

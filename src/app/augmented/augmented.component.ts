@@ -159,7 +159,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
-    this.startTimer(1);
+    this.startTimer(30);
   }
 
   ngAfterViewChecked() {

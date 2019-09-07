@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MustMatch } from '../../shared/must-match.validator';
 import { AuthenticationService } from '../../_services';
-import { first, catchError } from 'rxjs/operators';
+import { first, catchError, timeout } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -64,7 +64,6 @@ export class RegistrationComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/success']);
           this.login$ = this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(catchError(this.errorHandler));
           this.login$.forEach(res => {
             if (res.headers.get('Authorization')) {
@@ -90,5 +89,5 @@ export class RegistrationComponent implements OnInit {
   errorHandler(error: HttpErrorResponse) {
     console.error('Authentication Failed =(');
     return throwError(error.message);
-}
+  }
 }

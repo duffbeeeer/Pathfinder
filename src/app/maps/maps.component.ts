@@ -135,6 +135,16 @@ export class MapsComponent implements OnInit, OnChanges {
     this.destinationReached = false;
   }
 
+  whereAmI() {
+    console.log('Origin Lat: ', this.origin.lat);
+    console.log('Origin Lat: ', this.origin.lat);
+    this.mapCentered = false;
+    this.mapCenter = {
+      lat: this.mapCentered ? null : this.origin.lat,
+      lng: this.mapCentered ? null : this.origin.lng
+    };
+    this.mapCentered = true;
+  }
   trackByFn(index, item) {
     return item; // or item.id
   }

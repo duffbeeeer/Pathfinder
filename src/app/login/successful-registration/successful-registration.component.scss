@@ -3,24 +3,103 @@
   background-color: black;
 }
 
-.btn-return {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.btn-register {
+  float: right;
+}
+
+hr{
+  border-color: beige;
+}
+
+.color-theme {
+  color: white;
+  background-color: black;
+}
+
+.form-btn {
   width: 40%;
-  margin-top: 20%;
 }
 
-.return {
-  margin-top: 40%;
+.btn-register {
+  float: right;
 }
 
-.success-text {
+hr {
+  border-color: beige;
+}
+
+.footer {
+  position: absolute;
+  height: 30px;
+  padding: 0;
+  background-color: black;
+}
+
+.layer-1 {
+  z-index: 9999;
+}
+
+.container.custom-container {
+  position: absolute;
+  bottom: 30px;
+  width: 80vw;
+  left: 10vw;
+  right: 10vw;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.login {
+  height: 60vh;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.text-format {
+  color: white;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 4vh;
+  margin: 0;
+}
+p {
+  font-size: 3vh;
+}
+small {
+  font-size: 1.5vh;
+  line-height: 0vh;
+}
+.lets-go-btn {
+  margin-top: 5vh;
+  width: 20vh;
+}
+.login-input {
+  height: 10;
+}
+.form-btn {
+  width:70%;
+}
+.form-btn-parent {
   text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: auto
 }
-p{
-  color: white;
+.fineprint {
+  height: 2vh;
+  margin-bottom: 0;
 }
-h1{
-  color: white;
+.keyboard {
+  height: 100vh;
+  width: 100vw;
+  z-index: 11000;
+  background-color: black;
+  position: absolute;
+  top:60px;
 }
+.keboard-margin {
+  margin-top: 10px;
+}
+

@@ -1,4 +1,4 @@
-<div class="container  custom-container layer-1" style="top: 25vh;position: absolute">
+<!-- <div class="container  custom-container layer-1" style="top: 25vh;position: absolute">
     <div class="login col-12 text-format ">
         <div class="row">
             <div class="col-12 text-center">
@@ -26,4 +26,38 @@
             </div>
         </div>
     </div>
+</div> -->
+<!-- header -->
+<app-navigation class="layer-1"></app-navigation>
+<!-- maps as background -->
+<app-maps></app-maps>
+
+<!-- LOGIN-DATEN -->
+<div class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1><strong>IHRE LOGIN DATEN</strong></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center" style="margin-top:10vh">
+        <p><strong>USERNAME: {{username}}</strong></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p><strong>PASSWORT: {{password}}</strong></p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-12  form-btn-parent">
+          <button class="btn btn-primary form-btn" style="margin-top: 10vh" [routerLink]="['']"
+            routerLinkActive="router-link-active"><strong>OKAY</strong></button>
+        </div>
+      </div>
+  </div>
 </div>
+<!-- footer -->
+<div class="col-12 footer fixed-bottom text-center"><img class="img-fluid img-haw"
+  src="../../assets/images/pathfinder-logo.png" style="height: 30px;" /></div>^

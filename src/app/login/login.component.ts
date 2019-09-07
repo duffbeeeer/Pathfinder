@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
         this.dynamicStyling = { width: window.innerWidth + 'px', height: window.innerHeight + 'px', top: '60px' }
         window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
         this.authFailed = false;
-        console.log('loginfailed!', this.authFailed);
         this.showGreetings = true;
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
@@ -56,7 +55,6 @@ export class LoginComponent implements OnInit {
 
     @HostListener('window:resize', ['$event'])
     onResize(event) {
-        console.log('resize!');
         this.dynamicStyling = { width: window.innerWidth + 'px', height: window.innerHeight + 'px', top: '60px' };
         window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
         if (window.innerWidth < window.innerHeight) {
@@ -78,8 +76,6 @@ export class LoginComponent implements OnInit {
         this.login$ = this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(catchError(this.errorHandler));
         this.login$.forEach(res => {
             if (res.headers.get('Authorization')) {
-                console.log(res.status);
-                console.log(res.headers.get('Authorization'));
                 const userToken = res.headers.get('Authorization');
                 localStorage.setItem('currentUser', userToken);
                 this.router.navigate(['']);
@@ -87,12 +83,10 @@ export class LoginComponent implements OnInit {
         });
         setTimeout(() => {
             this.authFailed = true;
-            console.log(this.authFailed);
         }, 1000);
     }
 
     errorHandler(error: HttpErrorResponse) {
-        console.error('Authentication Failed =(');
         return throwError(error.message);
     }
     onGreetings() {
@@ -100,24 +94,3 @@ export class LoginComponent implements OnInit {
     }
 
 }
-// login(username: string, password: string) {
-    //   return this.http.post<any>(`https://vps723941.ovh.net:9090/login`, { username, password }, { observe: 'response' })
-    //     .pipe(first())
-    //     .subscribe(user => {
-    //       console.log('httpResponse', user.statusText);
-    //       this.userUsername = username;
-    //       // login successful if there's a jwt token in the response
-    //       const userToken = user.headers.get('Authorization');
-    //       if (user && userToken) {
-    //         // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //         console.log('Ligin successful!', 'user token:', userToken, 'user: ', user);
-    //         localStorage.setItem('currentUser', userToken);
-    //         this.router.navigate(['']);
-    //       }
-    //       return user;
-    //     },
-    //       error => {
-    //         this.error = error;
-    //         this.loading = false;
-    //       });
-    // }

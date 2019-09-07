@@ -54,7 +54,6 @@ export class HomeComponent implements OnInit {
 
   onActivateAugmented(event: string) {
     this.poiId = event;
-    console.log(event);
     this.currentView.activeView = this.view.AugmentedComponent;
   }
 

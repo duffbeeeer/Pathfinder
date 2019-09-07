@@ -34,14 +34,7 @@ export class ScoreComponent implements OnInit {
     setInterval(() => {
       this.updateScore();
     }, 5000);
-
     this.updateScore();
-    // setTimeout(() => {
-    //   this.updateScore();
-    //   this.updateScore();
-    //   this.updateScore();
-    //   console.log('TIMEOUT DONE')
-    // }, 500);
   }
 
   updateScore() {

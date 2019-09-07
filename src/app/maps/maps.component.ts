@@ -90,7 +90,6 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    // console.log(this.currentPosition);
     this.destinationReached = false;
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight - 60;
@@ -114,10 +113,8 @@ export class MapsComponent implements OnInit, OnChanges {
     this.showArButton = false;
     const pos = new google.maps.LatLng({ lat: this.currentPosition.coords.latitude, lng: this.currentPosition.coords.longitude });
     for (const poi of this.poiUserList) {
-      // console.log(poi);
       const circle = new google.maps.Circle({ center: { lat: poi.lat, lng: poi.lng }, radius: 50 });
       if (circle.getBounds().contains(pos) && poi.active) {
-        // console.log(circle.getCenter().lat(), pos.lat() );
         this.showArButton = true;
         this.activeMarkerId = poi.id;
       }

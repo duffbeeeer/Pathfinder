@@ -259,7 +259,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   addScore() {
     clearInterval(this.timer);
     console.log(this.poiId);
-    this.scoreService.completePoi('1', this.overallScore + 8568);
+    this.scoreService.completePoi(this.poiId, this.overallScore + 1000000);
     console.log(this.scoreList$.forEach(res => console.log(res)));
     // this.scoreList$ = this.scoreService.getHighscoreList();
     this.scoreList$.forEach(res => {
@@ -272,17 +272,4 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   onCamError(err) {
     console.log('No Webcam found.');
   }
-
-  // updateScore() {
-  //   this.userStats$.forEach(res => {
-  //     // this.userScore.username = res.username;
-  //     // this.userScore.score = res.score;
-  //     console.log(res.score)
-  //     // this.userScore.position = res.position;
-  //   });
-  //   // this.scoreList$ = this.scoreService.getHighscoreList();
-  //   // this.userNameRef.nativeElement.innerText = this.userScore.username;
-  //   // this.userScoreLblRef.nativeElement.innerText = 'SCORE: ';
-  //   // this.userScoreValueRef.nativeElement.innerText = this.userScore.score;
-  // }
 }

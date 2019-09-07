@@ -21,7 +21,9 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @Output()
   activateMaps: EventEmitter<any> = new EventEmitter();
 
+  userStats$: Observable<Highscore>;
   scoreList$: Observable<Highscore[]>;
+  scoreArray: Highscore[];
   public timer;
   public videoRef;
   public view;
@@ -43,7 +45,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   public positions: PositionModel[];
   public newPosition: PositionModel;
   public highscore$: Observable<Highscore>;
-
+  public userScore: Highscore;
   public options = {
     video: {
       advanced: [{
@@ -63,6 +65,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   @ViewChild('timer') timerRef: ElementRef;
   @ViewChild('backToMaps') backBtnRef: ElementRef;
 
+  userPositionRef;
+  userNameRef;
+  userScoreLblRef;
+  userScoreValueRef;
 
 
   constructor(
@@ -71,53 +77,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     private auth: AuthenticationService,
     private router: Router) {
     this.scoreList$ = this.scoreService.getHighscoreList();
-    // this.positions = [
-    //   { x: 0, y: 0, z: 0 },
-    //   { x: 0.2, y: 0, z: 0 },
-    //   { x: 0.4, y: 0, z: 0 },
-    //   { x: 0.6, y: 0, z: 0 },
-    //   { x: 0.8, y: 0, z: 0 },
-    //   { x: 1, y: 0, z: 0 },
-    // ];
-
-    // dist 3
-    // this.positions = [
-    //   { x: 4, y: 3, z: 3 },
-    //   { x: 3, y: -3, z: 3 },
-    //   { x: 2, y: 3, z: 3 },
-    //   { x: 1, y: -3, z: 3 },
-    //   { x: 0., y: 3, z: 3 },
-    //   { x: -1, y: -3, z: 3 },
-    //   { x: -2, y: 3, z: 3 },
-    //   { x: -3, y: -3, z: 3 },
-    //   { x: -4, y: 3, z: 3 },
-    // ];
-
-    // dist 2
-    // this.positions = [
-    //   { x: 4, y: 3, z: 2 },
-    //   { x: 3, y: -3, z: 2 },
-    //   { x: 2, y: 3, z: 2 },
-    //   { x: 1, y: -3, z: 2 },
-    //   { x: 0., y: 3, z: 2 },
-    //   { x: -1, y: -3, z: 2 },
-    //   { x: -2, y: 3, z: 2 },
-    //   { x: -3, y: -3, z: 2 },
-    //   { x: -4, y: 3, z: 2 },
-    // ];
-
-    // dist 1.5
-    // this.positions = [
-    //   { x: 4, y: 0.5, z: 1.5 },
-    //   { x: 3, y: -0.5, z: 1.5 },
-    //   { x: 2, y: 0.5, z: 1.5 },
-    //   { x: 1, y: -0.5, z: 1.5 },
-    //   { x: 0, y: 0.5, z: 1.5 },
-    //   { x: -1, y: -0.5, z: 1.5 },
-    //   { x: -2, y: 0.5, z: 1.5 },
-    //   { x: -3, y: -0.5, z: 1.5 },
-    //   { x: -4, y: 0.5, z: 1.5 },
-    // ];
+    this.userStats$ = this.scoreService.getHighscore();
+    this.scoreList$.forEach(res => {
+      this.scoreArray = res;
+    });
 
     this.positions = [
       {
@@ -131,7 +94,14 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   ngOnInit() {
-
+    this.userPositionRef = document.getElementById('userPositionId');
+    this.userNameRef = document.getElementById('usernameId');
+    this.userScoreLblRef = document.getElementById('userScoreLblId');
+    this.userScoreValueRef = document.getElementById('userScoreValueId');
+    console.log(this.userNameRef);
+    console.log(this.userPositionRef);
+    console.log(this.userScoreLblRef);
+    console.log(this.userScoreValueRef);
     // alert(this.detectBrowser(navigator.userAgent));
     console.log(this.coinBlock);
     window.addEventListener('devicemotion', (event) => {
@@ -159,7 +129,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
-    this.startTimer(30);
+    this.startTimer(1);
   }
 
   ngAfterViewChecked() {
@@ -212,8 +182,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
           this.timerRef.nativeElement.textContent = this.timeLeft.toFixed(2);
           if (this.timeLeft === 0) {
             this.addScore();
+            this.scoreList$ = this.scoreService.getHighscoreList();
             this.isRunning = false;
-            this.isCompleted = true;
           }
         }, 10);
       }
@@ -289,13 +259,30 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   addScore() {
     clearInterval(this.timer);
     console.log(this.poiId);
-    // this.auth.login('kyatar1', 'kyatar1');
-    // this.scoreService.completePoi('5d58e2e64f24ca11280a3e8a#', this.score);
-    this.scoreService.completePoi(this.poiId, this.overallScore);
+    this.scoreService.completePoi('1', this.overallScore + 8568);
+    console.log(this.scoreList$.forEach(res => console.log(res)));
+    // this.scoreList$ = this.scoreService.getHighscoreList();
+    this.scoreList$.forEach(res => {
+      this.scoreArray = res;
+    });
+    console.log(this.scoreList$.forEach(res => console.log(res)));
+    this.isCompleted = true;
   }
 
   onCamError(err) {
     console.log('No Webcam found.');
   }
 
+  // updateScore() {
+  //   this.userStats$.forEach(res => {
+  //     // this.userScore.username = res.username;
+  //     // this.userScore.score = res.score;
+  //     console.log(res.score)
+  //     // this.userScore.position = res.position;
+  //   });
+  //   // this.scoreList$ = this.scoreService.getHighscoreList();
+  //   // this.userNameRef.nativeElement.innerText = this.userScore.username;
+  //   // this.userScoreLblRef.nativeElement.innerText = 'SCORE: ';
+  //   // this.userScoreValueRef.nativeElement.innerText = this.userScore.score;
+  // }
 }

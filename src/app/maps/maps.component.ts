@@ -18,6 +18,27 @@ export class MapsComponent implements OnInit, OnChanges {
   currentPosition: Position;
 
   @Input()
+  markerOptions = {
+    origin: {
+      icon: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
+      draggable: true,
+    },
+    destination: {
+      icon: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
+    },
+  };
+
+  @Input()
+  renderOptions = {
+    suppressMarkers: true,
+    preserveViewport: true
+  };
+  // markerOptions: any = {
+  //   origin: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
+  //   destination: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png'
+  // };
+
+  @Input()
   poiUserList: PointOfInterest[];
 
   @Output()
@@ -37,7 +58,6 @@ export class MapsComponent implements OnInit, OnChanges {
   styles = mapStyles;
   showArButton: boolean;
   activeMarkerId: string;
-  renderOptions = { preserveViewport: true };
   mapCentered = false;
   mapCenter = {
     lat: this.mapCentered ? null : this.origin.lat,
@@ -47,8 +67,8 @@ export class MapsComponent implements OnInit, OnChanges {
   markers: PointOfInterest[];
 
   iconUrl = {
-    url: '../../assets/images/pathfinder-icon.png',
-    // scaledSize: { height: 32, width: 25 }
+    url: '../../assets/images/poi-icon.png',
+    scaledSize: { height: 23.5, width: 16.5 }
   };
 
   constructor(private _mapsAPILoader: MapsAPILoader) {

@@ -3,6 +3,7 @@
   z-index: -100;
   position: absolute;
   top: 60px;
+  bottom:30px;
 }
 
 .container.custom-container {
@@ -22,7 +23,7 @@
   height: 100vh;
   top: 60px;
   vertical-align: middle;
-  z-index: 200;
+  z-index: 998999;
   position: absolute;
 }
 .center {

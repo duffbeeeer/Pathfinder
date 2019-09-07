@@ -26,8 +26,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   scoreArray: Highscore[];
   public timer;
   public videoRef;
+  public videoContainerRef;
   public view;
-
   public currentView: ViewModel;
   public landscape: boolean;
   public isRunning: boolean;
@@ -130,16 +130,24 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
     this.startTimer(30);
+    setTimeout(() => {
+      this.videoRef = document.getElementById('video');
+      this.videoContainerRef = document.getElementById('cam');
+      const testVideoHeight = this.videoRef.height;
+      const testVideoContainerHeight = this.videoContainerRef.clientHeight;
+      const yScale = testVideoHeight / testVideoContainerHeight;
+      console.log('Yscalefactor!: ', yScale);
+      this.videoRef.style.transform = `scaleY(${yScale})`;
+      }, 1000);
   }
 
   ngAfterViewChecked() {
-    this.videoRef = document.getElementById('video');
-    this.videoRef.style.transform = 'scaleY(1.2)';
 
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
+    console.log(window.innerHeight)
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     if (window.innerWidth < window.innerHeight) {
       this.screenWidth = window.innerWidth;
@@ -259,7 +267,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   addScore() {
     clearInterval(this.timer);
     console.log(this.poiId);
-    this.scoreService.completePoi(this.poiId, this.overallScore );
+    this.scoreService.completePoi(this.poiId, this.overallScore);
     console.log(this.scoreList$.forEach(res => console.log(res)));
     // this.scoreList$ = this.scoreService.getHighscoreList();
     this.scoreList$.forEach(res => {

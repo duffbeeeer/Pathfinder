@@ -82,7 +82,6 @@ export class RegistrationComponent implements OnInit {
         });
     setTimeout(() => {
       this.authFailed = true;
-      console.log(this.authFailed);
     }, 1000);
     this.authenticationService.logout();
   }

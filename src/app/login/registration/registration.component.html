@@ -59,7 +59,7 @@
       <div class="col-12 text-center testing" style="height: 40vh">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
           <div class="form-group col-12">
-            <input type="text" [(ngModel)]="inputName" formControlName="username" placeholder="Spielername"
+            <input type="text" maxlength="8" [(ngModel)]="inputName" formControlName="username" placeholder="Spielername"
               class="form-control text-center login-input"
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
           </div>

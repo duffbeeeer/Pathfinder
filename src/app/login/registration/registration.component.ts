@@ -3,7 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MustMatch } from '../../shared/must-match.validator';
 import { AuthenticationService } from '../../_services';
-import { first } from 'rxjs/operators';
+import { first, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +13,7 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-
+  login$: Observable<any>;
   authFailed: boolean;
   inputName: string;
   inputPassword: string;
@@ -63,6 +65,16 @@ export class RegistrationComponent implements OnInit {
       .subscribe(
         data => {
           this.router.navigate(['/success']);
+          this.login$ = this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(catchError(this.errorHandler));
+          this.login$.forEach(res => {
+            if (res.headers.get('Authorization')) {
+              console.log(res.status);
+              console.log(res.headers.get('Authorization'));
+              const userToken = res.headers.get('Authorization');
+              localStorage.setItem('currentUser', userToken);
+              this.router.navigate(['/success']);
+            }
+          });
         },
         error => {
           this.authFailed = true;
@@ -75,4 +87,8 @@ export class RegistrationComponent implements OnInit {
     }, 1000);
     this.authenticationService.logout();
   }
+  errorHandler(error: HttpErrorResponse) {
+    console.error('Authentication Failed =(');
+    return throwError(error.message);
+}
 }

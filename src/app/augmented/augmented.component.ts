@@ -129,7 +129,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('mouseleave', () => {
       this.cursor.nativeElement.setAttribute('material', 'color', '#156EB0');
     });
-    this.startTimer(1);
+    this.startTimer(30);
   }
 
   ngAfterViewChecked() {
@@ -259,7 +259,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   addScore() {
     clearInterval(this.timer);
     console.log(this.poiId);
-    this.scoreService.completePoi(this.poiId, this.overallScore + 1000000);
+    this.scoreService.completePoi(this.poiId, this.overallScore );
     console.log(this.scoreList$.forEach(res => console.log(res)));
     // this.scoreList$ = this.scoreService.getHighscoreList();
     this.scoreList$.forEach(res => {

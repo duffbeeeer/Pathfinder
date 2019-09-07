@@ -29,10 +29,15 @@ export class AuthGuard implements CanActivate {
       }));
   }
   canActivate() {
+    const token = localStorage.getItem('currentUser');
+    console.log('TOKEN!: ', token)
+    if (token == null) {
+      this.router.navigate(['login']);
+    }
     console.log('trying to auth');
     const auth: Observable<boolean> = this.getAuth();
     auth.forEach(res => {
-      console.log(res);
+      console.log('res: ', res);
       res ? this.router.navigate(['']) : this.router.navigate(['login']);
     });
     // if (this.authenticationService.isAuthenticated()) {

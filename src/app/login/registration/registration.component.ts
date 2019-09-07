@@ -37,8 +37,6 @@ export class RegistrationComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
       password: ['', [Validators.required, Validators.minLength(4)]]
     });
-    // console.log(this.registerForm.value + 'value');
-
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || 'success';
   }
 
@@ -55,9 +53,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log('submitted register')
     if (this.registerForm.invalid) {
-      console.log('invalid registrationform')
       return;
     }
     console.log(this.f.username.value + this.f.password.value);
@@ -69,6 +65,7 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['/success']);
         },
         error => {
+          this.authFailed = true;
           this.error = error;
           this.loading = false;
         });

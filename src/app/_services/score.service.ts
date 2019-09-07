@@ -72,17 +72,15 @@ export class ScoreService {
       }));
   }
 
-  completePoi(id: string, value: number): Observable<any> {
-    console.log('POI ID: ' + id + '\nScore: ' + value);
-    return this.http.post<PointOfInterest[]>
-      (`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' }).pipe(first());
-  }
-  // completePoi(id: string, value: number) {
+  // completePoi(id: string, value: number): Observable<any> {
   //   console.log('POI ID: ' + id + '\nScore: ' + value);
-  //   return this.http.post<PointOfInterest[]>(`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
-  //     .pipe(first())
-  //     .subscribe(res => {
-  //       console.log(res);
-  //     });
+  //   return this.http.post<PointOfInterest[]>
+  //     (`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' }).pipe(first());
   // }
+  completePoi(id: string, value: number) {
+    console.log('POI ID: ' + id + '\nScore: ' + value);
+    return this.http.post<PointOfInterest[]>(`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, { observe: 'response' })
+      .pipe(first())
+      .subscribe();
+  }
 }

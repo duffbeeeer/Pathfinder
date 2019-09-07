@@ -6,7 +6,7 @@
 <agm-map #agmMap class="fixed-top" [latitude]="mapCenter.lat" [longitude]="mapCenter.lng" [styles]="styles" [zoom]="15"
   [streetViewControl]="false" [zoomControl]="false" [ngStyle]="dynamicStyling">
   <agm-direction [origin]="origin" [destination]="destination" [travelMode]="travelMode"
-    [renderOptions]="renderOptions" [markerOptions]="markerOptions" [renderOptions]="myRenderOptions"></agm-direction>
+    [renderOptions]="renderOptions" [markerOptions]="markerOptions" ></agm-direction>
   <div *ngFor="let poi of markers; trackBy: trackByFn;">
     <agm-marker *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [iconUrl]="iconUrl"></agm-marker>
     <agm-circle #circle *ngIf="poi.active" [latitude]="poi.lat" [longitude]="poi.lng" [radius]="25"></agm-circle>

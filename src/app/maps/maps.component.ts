@@ -73,6 +73,9 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
+    // console.log('change')
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
     if (this.currentPosition && this.poiUserList) {
       if (!this.mapCentered) {
         this.mapCentered = true;

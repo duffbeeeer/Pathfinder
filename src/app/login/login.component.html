@@ -12,7 +12,7 @@
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group col-8 offset-2">
-          <input type="text" formControlName="username" [(ngModel)]="inputName" placeholder="Spielername"
+          <input type="text" formControlName="username" maxlength="8" [(ngModel)]="inputName" placeholder="Spielername"
             class="form-control text-center login-input" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
         </div>
         <div class="form-group col-8 offset-2">
@@ -124,7 +124,7 @@
       <div class="col-12 text-center testing" style="height: 40vh">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <div class="form-group col-12">
-            <input style="z-index: 12000" type="text" formControlName="username" [(ngModel)]="inputName"
+            <input style="z-index: 12000" maxlength="8" type="text" formControlName="username" [(ngModel)]="inputName"
               placeholder="Spielername" class="form-control text-center login-input"
               [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
           </div>

@@ -20,11 +20,11 @@ export class MapsComponent implements OnInit, OnChanges {
   @Input()
   markerOptions = {
     origin: {
-      icon: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
-      draggable: true,
+      icon: '../../assets/images/player-icon.png',
+      draggable: false,
     },
     destination: {
-      icon: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
+      icon: '../../assets/images/pathfinder-icon.png',
     },
   };
 
@@ -33,10 +33,7 @@ export class MapsComponent implements OnInit, OnChanges {
     suppressMarkers: true,
     preserveViewport: true
   };
-  // markerOptions: any = {
-  //   origin: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png',
-  //   destination: 'https://vps723941.ovh.net/assets/images/pathfinder-icon.png'
-  // };
+  
 
   @Input()
   poiUserList: PointOfInterest[];

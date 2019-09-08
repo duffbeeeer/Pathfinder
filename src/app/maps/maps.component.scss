@@ -9,7 +9,7 @@ agm-map {
 	height: 100vh;
 	top: 60px;
 	vertical-align: middle;
-	z-index: 9999;
+	z-index: 99999;
 }
 
 .overlay{
@@ -20,8 +20,8 @@ agm-map {
 .overlay-gps-button{
   position: absolute;
   z-index: 9999;
-  bottom: 35px;
-  left: 90vw;
+  bottom: 40px;
+  right: 10px;
 }
 
 

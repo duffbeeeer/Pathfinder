@@ -99,10 +99,10 @@ export class MapsComponent implements OnInit, OnChanges {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.dynamicStyling = { width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px' };
     window.innerWidth > window.innerHeight ? this.landscape = true : this.landscape = false;
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
+    this.dynamicStyling = { width: this.screenWidth + 'px', height: this.screenHeight + 'px', top: '60px' };
   }
 
   onStartGame() {

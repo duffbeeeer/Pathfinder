@@ -1,0 +1,84 @@
+.colortheme {
+  background-color: black;
+  color: white;
+}
+.footer {
+  height: 30px;
+  padding: 0;
+}
+
+a:link {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+
+.blue {
+  color: #156eb0;
+}
+.white {
+  color: white;
+}
+.hor-space {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.thick {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.scoreButton {
+  background-color: black;
+  border-color: black;
+}
+.opa {
+  opacity: 1;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.table td,
+th,
+thead,
+tbody {
+  color: white;
+  background-color: transparent;
+  border: 2px solid transparent;
+  text-align: center;
+  opacity: 1;
+  
+}
+table.table-bordered > thead > tr > th,
+td {
+  margin: 15px;
+  color:white;
+  background-color: transparent;
+  border: 2px solid transparent;
+  opacity: 1;
+}
+.no-pad{
+  padding: 0;
+}
+
+.container.custom-container {
+  position: absolute;
+  bottom: 30px;
+  width: 100vw;
+  
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+}
+.text-format {
+  color: white;
+  font-size: 1em;
+}
+h1 {
+  font-size: 4vh;
+  margin: 0;
+}
+p {
+  font-size: 4vw;
+  margin: 0;
+}

@@ -1,0 +1,102 @@
+
+.cam {
+  z-index: -100;
+  position: absolute;
+  top: 60px;
+  bottom:30px;
+}
+
+.container.custom-container {
+  padding: 0;
+  margin: 0;
+  top: 60px;
+  z-index: 100;
+}
+.ascene {
+  z-index: 0;
+}
+
+.orientation {
+  color: beige;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  top: 60px;
+  vertical-align: middle;
+  z-index: 998999;
+  position: absolute;
+}
+.center {
+  z-index: 300;
+  height: 100vh;
+  top: 40vh;
+  max-height: 60vh;
+}
+
+.my-flex-container {
+  background: rgba(0, 0, 0, 0.5);
+  height: 40px;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+.my-flex-item {
+  background-color: transparent;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 1px;
+  
+}
+
+.dynamicFont {
+  color: beige;
+}
+.ui-time {
+  margin-top: 8px;
+  margin-left: 10vw;
+  color: white;
+}
+.ui-score {
+  margin-top: 8px;
+  margin-right: 10vw;
+  color: white;
+}
+.container.custom-container-2 {
+  position: absolute;
+  bottom: 30px;
+  width: 80vw;
+  left: 10vw;
+  right: 10vw;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+}
+.text-format {
+  color: white;
+  font-size: 1em;
+}
+table.table-bordered > thead > tr > th,
+td {
+  margin: 15px;
+  color:white;
+  background-color: transparent;
+  border: 2px solid transparent;
+  opacity: 1;
+}
+.table td,
+th,
+thead,
+tbody {
+  color: white;
+  background-color: transparent;
+  border: 2px solid transparent;
+  text-align: center;
+  opacity: 1;
+  
+}
+h1{
+  font-size: 4vh;
+  margin: 0;
+}

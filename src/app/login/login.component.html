@@ -1,0 +1,179 @@
+﻿<!-- header -->
+<app-navigation class="layer-1"></app-navigation>
+<!-- maps as background -->
+<app-maps [ngStyle]="dynamicStyling"></app-maps>
+
+<!-- KEYBOARD OVERLAY -->
+
+<!-- KEYBOARD OVERLAY -->
+<div class="keyboard" *ngIf="landscape">
+  <div class="row">
+    <div class="col-12 text-center testing">
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group col-8 offset-2">
+          <input type="text" formControlName="username" maxlength="8" [(ngModel)]="inputName" placeholder="Spielername"
+            class="form-control text-center login-input" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+        </div>
+        <div class="form-group col-8 offset-2">
+          <input type="password" formControlName="password" [(ngModel)]="inputPassword" placeholder="Passwort"
+            class="form-control text-center" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        </div>
+
+        <div class="form-group col-8 offset-2">
+          <div class="row">
+            <div class="col-12 text-center form-btn-parent">
+              <button class="btn btn-primary form-btn"><strong>SUBMIT</strong></button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12  form-btn-parent">
+              <p *ngIf="authFailed" style="color:red">
+                Benutzername oder Passwort ist falsch
+              </p>
+              <p *ngIf='!authFailed' style="font-size: 4vh; color:white; margin-bottom: 0;margin-top: 15px">
+                Noch nicht registriert?
+              </p>
+              <button class="btn btn-primary form-btn" [routerLink]="['/register']"
+                routerLinkActive="router-link-active"><strong>REGISTRIEREN</strong></button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+<!-- Greetings -->
+<div *ngIf="showGreetings" class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1><strong>Moin! Moin!</strong></h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          Mit dieser Web-App finden Sie nicht nur den Weg zur HAW, Sie können auch noch spielerisch <strong>1 von 10
+            Tischtennisschlägern</strong> gewinnen!
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          An den markierten Stellen auf der Karte sind AR-Würfel platziert – Diese müssen Sie abschießen um ordentlich
+          Punkte zu sammeln. Folgen Sie einfach den Anweisungen auf dem Screen.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Apple User? Für den vollen Spielspaß nehmen Sie
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            bitte eine kleine Einstellung vor:
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Einstellungen > Safari > Bewegungs- & Ausrichtungszugriff
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Einstellungen > Datenschutz > Ortungsdienste > Safari >
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p class="fineprint">
+          <small>
+            Beim verwenden der App
+          </small>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <button (click)="onGreetings()" class="btn btn-primary text-center lets-go-btn"><strong>LET´S
+            GO!</strong></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- login-prompt -->
+<div *ngIf="!showGreetings" class="container  custom-container layer-1">
+  <div class="login col-12 text-format ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>LOGIN</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>
+          Bitte geben Sie ihren Spielernamen und ihr Passwort ein.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center testing" style="height: 40vh">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <input style="z-index: 12000" maxlength="8" type="text" formControlName="username" [(ngModel)]="inputName"
+              placeholder="Spielername" class="form-control text-center login-input"
+              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          </div>
+          <div class="form-group col-12">
+            <input style="z-index: 12000" type="password" formControlName="password" [(ngModel)]="inputPassword"
+              placeholder="Passwort" class="form-control text-center"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-12 text-center form-btn-parent">
+                <button class="btn btn-primary form-btn"><strong>SUBMIT</strong></button>
+              </div>
+              <div class="col-12  form-btn-parent" style="position: absolute;bottom: 0">
+                <p *ngIf="authFailed" style="color:red">
+                  Benutzername oder Passwort ist falsch
+                </p>
+                <p *ngIf='!authFailed' style="color: white">
+                  Noch nicht registriert?
+                </p>
+                <button class="btn btn-primary form-btn" [routerLink]="['/register']"
+                  routerLinkActive="router-link-active"><strong>REGISTRIEREN</strong></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer -->
+<div class="col-12 footer fixed-bottom text-center"> <img class="img-fluid img-haw"
+    src="../../assets/images/pathfinder-logo.png" style="height: 30px;" /></div>

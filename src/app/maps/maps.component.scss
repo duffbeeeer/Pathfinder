@@ -1,0 +1,134 @@
+agm-map {
+  height: 90vh;
+  width: 100vw
+}
+.orientation{
+	color: beige;
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	top: 60px;
+	vertical-align: middle;
+	z-index: 8000;
+}
+
+.overlay{
+  position: absolute;
+  z-index: 9999;
+  bottom: 40vh;
+}
+.overlay-gps-button{
+  position: absolute;
+  z-index: 9999;
+  bottom: 40px;
+  right: 10px;
+}
+
+
+
+.color-theme {
+	color: white;
+	background-color: black;
+  }
+  
+  .form-btn {
+	width: 40%;
+  }
+  
+  .btn-register {
+	float: right;
+  }
+  
+  hr {
+	border-color: beige;
+  }
+  
+  .footer {
+	position: absolute;
+	height: 30px;
+	padding: 0;
+	background-color: black;
+  }
+  
+  .layer-1 {
+	z-index: 9999;
+  }
+  
+  .container.custom-container {
+	position: absolute;
+	top: 30vh;
+	width: 80vw;
+	height:40vh;
+	left: 10vw;
+	right: 10vw;
+	padding: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.7);
+  }
+  .container.custom-container-ar {
+	position: absolute;
+	top: 40vh;
+	width: 80vw;
+	
+	right: 10vw;
+	padding: 0;
+	margin: 0;
+	background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .login {
+	padding-top: 15px;
+	padding-bottom: 15px;
+  }
+  .text-format {
+	color: white;
+	font-size: 1em;
+  }
+  
+  h1 {
+	font-size: 4vh;
+	margin: 0;
+  }
+  p {
+	font-size: 4vw;
+	margin: 0;
+  }
+  small {
+	font-size: 1.5vh;
+	line-height: 0vh;
+  }
+  .lets-go-btn {
+	margin-top: 5vh;
+	width: 20vh;
+  }
+  .login-input {
+	height: 10;
+  }
+  .form-btn {
+	width: 70%;
+  }
+  .form-btn-parent {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	padding: auto;
+  }
+  .fineprint {
+	height: 2vh;
+	margin-bottom: 0;
+  }
+  .keyboard {
+	height: 100vh;
+	width: 100vw;
+	z-index: 11000;
+	background-color: black;
+	position: absolute;
+	top:60px;
+  }
+  .keboard-margin {
+	margin-top: 10px;
+  }
+  .no-pad{
+	padding: 0;
+  }
+  

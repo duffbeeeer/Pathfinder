@@ -1,2 +1,2 @@
 # Pathfinder
-Projekt C - Wegfindungsapp
+Wegfindungsapp

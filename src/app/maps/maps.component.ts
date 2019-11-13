@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, HostListener, ViewCh
 import { mapStyles } from '../../assets/maps.style';
 import { MyPosition } from '../_services/geolocation.service';
 import { MapsAPILoader } from '@agm/core';
-import { PointOfInterest } from '../_models/score.model';
+import { PointOfInterest } from '../_shared/score.model';
 
 @Component({
   selector: 'app-maps',

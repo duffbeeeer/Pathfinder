@@ -1,9 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { ViewModel, View, initialView } from '../shared/active-view.model';
+import { ViewModel, View, initialView } from '../_shared/active-view.model';
 import { Observable, BehaviorSubject, Subscribable } from 'rxjs';
 import { GeolocationService } from '../_services/geolocation.service';
 import { ScoreService } from '../_services/score.service';
-import { PointOfInterest, Highscore } from '../_models/score.model';
+import { PointOfInterest, Highscore } from '../_shared/score.model';
 
 
 @Component({

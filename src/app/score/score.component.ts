@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { Highscore } from '../_models/score.model';
+import { Highscore } from '../_shared/score.model';
 import { Observable } from 'rxjs';
 import { ScoreService } from '../_services/score.service';
 

@@ -1,0 +1,994 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.8.RELEASE)
+
+2019-10-29 15:49:21.882  INFO 6 --- [           main] de.dlh.dgp.DigitalGuestPassApplication   : Starting DigitalGuestPassApplication v1.05 on dgp-backend-84f7fbd64d-bfm4c with PID 6 (/digital-guest-pass.jar started by root in /)
+2019-10-29 15:49:21.894  INFO 6 --- [           main] de.dlh.dgp.DigitalGuestPassApplication   : The following profiles are active: production
+2019-10-29 15:49:24.971  INFO 6 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-29 15:49:25.475  INFO 6 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 493ms. Found 10 repository interfaces.
+2019-10-29 15:49:25.485  INFO 6 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-10-29 15:49:25.519  INFO 6 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33ms. Found 0 repository interfaces.
+2019-10-29 15:49:26.549  INFO 6 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.ReactiveMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$b753e15b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-29 15:49:26.641  INFO 6 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'methodMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-29 15:49:28.582  INFO 6 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[cdbm-ams-dgpmain-01.documents.azure.com:10255], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-29 15:49:28.800  INFO 6 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[cdbm-ams-dgpmain-01.documents.azure.com:10255], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-10-29 15:49:29.628  INFO 6 --- [azure.com:10255] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:749705074}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:49:29.637  INFO 6 --- [azure.com:10255] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=cdbm-ams-dgpmain-01.documents.azure.com:10255, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 0]}, minWireVersion=0, maxWireVersion=2, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=6105550, setName='globaldb', canonicalAddress=am4prdddc01-docdb-1.documents.azure.com:10255, hosts=[am4prdddc01-docdb-1.documents.azure.com:10255], passives=[], arbiters=[], primary='am4prdddc01-docdb-1.documents.azure.com:10255', tagSet=TagSet{[]}, electionId=null, setVersion=1, lastWriteDate=null, lastUpdateTimeNanos=6348301575583626}
+2019-10-29 15:49:29.639  INFO 6 --- [azure.com:10255] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:-296654800}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:49:29.643  INFO 6 --- [azure.com:10255] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=cdbm-ams-dgpmain-01.documents.azure.com:10255, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 2, 0]}, minWireVersion=0, maxWireVersion=2, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2569721, setName='globaldb', canonicalAddress=am4prdddc01-docdb-1.documents.azure.com:10255, hosts=[am4prdddc01-docdb-1.documents.azure.com:10255], passives=[], arbiters=[], primary='am4prdddc01-docdb-1.documents.azure.com:10255', tagSet=TagSet{[]}, electionId=null, setVersion=1, lastWriteDate=null, lastUpdateTimeNanos=6348301581540375}
+2019-10-29 15:49:33.193  INFO 6 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/api/actuator'
+2019-10-29 15:49:35.001  INFO 6 --- [           main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:1773386773}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:49:35.168  INFO 6 --- [           main] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 8443
+2019-10-29 15:49:35.178  INFO 6 --- [           main] de.dlh.dgp.DigitalGuestPassApplication   : Started DigitalGuestPassApplication in 15.504 seconds (JVM running for 17.089)
+2019-10-29 15:50:07.474  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:1820519262}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:53:24.122  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:5, serverValue:628170383}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:53:24.135  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:6, serverValue:2070518700}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 15:55:31.824  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 15:55:39.635  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 15:55:47.180  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 15:55:59.975  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 15:57:11.573  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 15:57:15.034  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 16:07:04.600  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:07:11.883  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 16:07:38.577  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:07:40.658  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 16:07:50.805  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:08:29.785  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:08:32.940  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 16:11:44.265  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 16:15:28.802  INFO 6 --- [imer-2-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:3, serverValue:1773386773}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 16:15:30.067  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:15:40.752  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:16:53.913  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 16:31:17.142  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 17:02:28.808  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuaWNrLm11ZWxsZXJAZGxoLmRlIiwiaWF0IjoxNTY4MTIzMDUzLCJleHAiOjE1NjgyMzkyMDB9.PsSAu0LDg9bVtUL2iUZet3ZM7sWHzIokDXNvISRvIzw
+2019-10-29 17:09:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:4, serverValue:1820519262}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 17:13:36.827  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkLnBhbnpAd2Vsb2cuZGUiLCJpYXQiOjE1NzE2NTk0MDksImV4cCI6MTU3MjMwMzYwMH0.zIOK3g1npSGpD434e_QVLbMD7mjG4AtgBulXOMpyo6Q
+2019-10-29 17:19:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:6, serverValue:2070518700}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 17:37:47.070  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXJ6aW5rYUBkZS5pYm0uY29tIiwiaWF0IjoxNTcyMDA0NTg2LCJleHAiOjE1NzIzMDM2MDB9.UY7iJSp3zMGWVH_aaWjKoM2Pxv6k0a4X2qDOF-annb4
+2019-10-29 17:37:47.470  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXJ6aW5rYUBkZS5pYm0uY29tIiwiaWF0IjoxNTcyMDA0NTg2LCJleHAiOjE1NzIzMDM2MDB9.UY7iJSp3zMGWVH_aaWjKoM2Pxv6k0a4X2qDOF-annb4
+2019-10-29 17:37:54.980  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXJ6aW5rYUBkZS5pYm0uY29tIiwiaWF0IjoxNTcyMDA0NTg2LCJleHAiOjE1NzIzMDM2MDB9.UY7iJSp3zMGWVH_aaWjKoM2Pxv6k0a4X2qDOF-annb4
+2019-10-29 17:38:18.802  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXJ6aW5rYUBkZS5pYm0uY29tIiwiaWF0IjoxNTcyMDA0NTg2LCJleHAiOjE1NzIzMDM2MDB9.UY7iJSp3zMGWVH_aaWjKoM2Pxv6k0a4X2qDOF-annb4
+2019-10-29 17:48:35.132  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:8, serverValue:1519288234}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 17:48:35.144  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:7, serverValue:-1408914433}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 17:55:35.493  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 17:55:51.223  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 17:55:53.633  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 17:55:54.440  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 17:55:54.850  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 17:55:55.086  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 17:55:55.296  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 18:16:25.937  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUUkVCQklFTkBkZS5pYm0uY29tIiwiaWF0IjoxNTcyMDA0MDI1LCJleHAiOjE1NzIzMDM2MDB9.q7Ds_wy0207agMl5iT-rMaIYGYX0pvhTnCyN-8RVhos
+2019-10-29 18:31:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:5, serverValue:628170383}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 18:31:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:8, serverValue:1519288234}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 18:54:31.481  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:9, serverValue:930819967}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 18:54:31.489  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:10, serverValue:972393957}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 19:28:34.753  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:11, serverValue:-2103558601}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 19:29:32.420  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 19:29:34.379  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 19:29:49.300  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 19:54:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:9, serverValue:930819967}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 19:54:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:11, serverValue:-2103558601}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 20:05:34.933  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:12, serverValue:510052825}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 20:32:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:10, serverValue:972393957}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 20:32:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:12, serverValue:510052825}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 20:38:04.507  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:13, serverValue:-1770521723}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 20:38:04.514  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:14, serverValue:-257618308}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 20:38:48.219  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 20:38:53.274  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 20:38:55.513  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 20:38:57.116  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de
+2019-10-29 20:39:38.122  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 20:39:57.203  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 20:45:54.665  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:15, serverValue:947799721}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 21:11:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:14, serverValue:-257618308}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 21:14:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:15, serverValue:947799721}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 21:14:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:13, serverValue:-1770521723}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 21:32:54.087  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:17, serverValue:432038010}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 21:32:54.100  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:16, serverValue:721758878}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 21:32:54.130  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:18, serverValue:24835223}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 21:34:27.630  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Temporary failure in name resolution
+2019-10-29 21:34:42.133  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 21:35:51.294  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException java.net.UnknownHostException: konzernausweis.ebase.dlh.de: Name or service not known
+2019-10-29 21:58:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:7, serverValue:-1408914433}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 22:01:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:17, serverValue:432038010}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 22:12:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:18, serverValue:24835223}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 22:29:16.377  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:20, serverValue:1520814905}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 22:29:16.389  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:19, serverValue:-1344536818}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 22:54:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:16, serverValue:721758878}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 22:54:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:20, serverValue:1520814905}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 23:15:30.822  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:21, serverValue:967194136}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 23:15:30.831  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:22, serverValue:33336897}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-29 23:41:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:19, serverValue:-1344536818}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-29 23:41:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:21, serverValue:967194136}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 00:13:16.141  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:23, serverValue:931235646}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 00:13:16.155  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:24, serverValue:715034038}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 00:18:10.374  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:25, serverValue:1460130657}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 00:43:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:22, serverValue:33336897}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 00:43:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:23, serverValue:931235646}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 00:43:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:24, serverValue:715034038}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 04:08:43.209  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:27, serverValue:1324933617}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 04:08:43.237  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:26, serverValue:-1995160060}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 04:35:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:25, serverValue:1460130657}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 04:35:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:27, serverValue:1324933617}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 04:45:10.702  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:28, serverValue:-1963648538}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 05:10:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:26, serverValue:-1995160060}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 05:54:20.123  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:29, serverValue:-158468423}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 05:55:01.425  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 05:55:01.427  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 05:55:01.439  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 05:55:01.440  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 05:55:01.475  INFO 6 --- [pool-4-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: f446aadf-090d-4d5c-8de0-66598762feaf] Instance discovery was successful
+2019-10-30 05:55:01.864  INFO 6 --- [pool-4-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 05:55:01.953  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'melanie.gertz@dlh.de'
+2019-10-30 05:55:01.959  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 05:55:02.203  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 05:55:02.204  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 05:55:02.323  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 05:55:29.420  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:30, serverValue:-327670594}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 05:55:42.829  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultLogger
+2019-10-30 05:55:42.829  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultExecutors
+2019-10-30 05:55:42.830  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultSerializer
+2019-10-30 05:55:42.830  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultHttpProvider
+2019-10-30 05:55:42.836  INFO 6 --- [pool-6-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: d09c6df4-63af-4fa7-ba1b-39e3090959d4] Instance discovery was successful
+2019-10-30 05:55:43.026  INFO 6 --- [pool-6-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 05:55:43.027  INFO 6 --- [or-http-epoll-3] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(surname,+'apsel')+or+startswith(givenname,+'apsel')+or+startswith(userPrincipalName,+'apsel')+or+startswith(displayName,+'apsel')
+2019-10-30 05:55:43.027  INFO 6 --- [or-http-epoll-3] global                                   : Request Method GET
+2019-10-30 05:55:43.169  INFO 6 --- [or-http-epoll-3] global                                   : Response code 200, OK
+2019-10-30 05:55:43.169  INFO 6 --- [or-http-epoll-3] global                                   : Response json
+2019-10-30 05:55:43.192  INFO 6 --- [or-http-epoll-3] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 05:55:53.654  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 05:55:53.654  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 05:55:53.655  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 05:55:53.655  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 05:55:53.662  INFO 6 --- [pool-8-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 6ea7ec67-8c4e-4d54-9149-e0bbc9efa2e6] Instance discovery was successful
+2019-10-30 05:55:53.839  INFO 6 --- [pool-8-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 05:55:53.839  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'martin.apsel-vonzurgathen@swiss.com'
+2019-10-30 05:55:53.840  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 05:55:53.939  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 05:55:53.939  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 05:55:53.957  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 06:57:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:28, serverValue:-1963648538}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 06:57:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:29, serverValue:-158468423}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 06:58:09.510  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:31, serverValue:540897720}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:10.041  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:33, serverValue:367748747}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:10.054  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:32, serverValue:-1099428437}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.423  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:35, serverValue:909590240}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.424  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:37, serverValue:144962197}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.425  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:39, serverValue:-1394594458}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.425  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:41, serverValue:2126836012}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.425  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:43, serverValue:-52056343}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.428  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:45, serverValue:-1389937183}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.459  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:36, serverValue:-1661329879}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.464  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:42, serverValue:-275587306}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.472  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:44, serverValue:-1173597471}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.473  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:47, serverValue:-1553398299}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.473  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:49, serverValue:-1464616978}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.547  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:46, serverValue:-425797839}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.548  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:34, serverValue:-464818639}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.550  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:50, serverValue:286119273}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.551  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:48, serverValue:-2038186850}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.572  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:53, serverValue:1207597761}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.581  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:55, serverValue:-1592092226}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.585  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:57, serverValue:1961490294}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.585  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:59, serverValue:1343360705}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.586  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:61, serverValue:-87406523}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.627  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:51, serverValue:-1352699093}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.641  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:38, serverValue:-1278653482}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.641  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:40, serverValue:456528103}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.648  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:54, serverValue:-417204270}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.651  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:56, serverValue:1360992662}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.677  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:58, serverValue:-848726671}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.699  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:60, serverValue:-584434044}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 06:58:59.700  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:52, serverValue:-1376233028}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 07:24:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:31, serverValue:540897720}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 07:48:00.302  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 07:48:18.318  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 07:50:33.360  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 07:50:33.360  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 07:50:33.361  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 07:50:33.361  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 07:50:33.362  INFO 6 --- [ool-10-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: e6253d63-2d10-425d-bc54-f765fa5975b8] Instance discovery was successful
+2019-10-30 07:50:33.551  INFO 6 --- [ool-10-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:50:33.552  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'maral.goudarzi@dlh.de'
+2019-10-30 07:50:33.552  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 07:50:33.711  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 07:50:33.711  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 07:50:33.736  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:53:18.061  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 07:53:18.061  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 07:53:18.062  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 07:53:18.062  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 07:53:18.063  INFO 6 --- [ool-12-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 4ab058e5-b1d0-4c93-9735-34a3377d0121] Instance discovery was successful
+2019-10-30 07:53:18.262  INFO 6 --- [ool-12-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:53:18.262  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'maral.goudarzi@dlh.de'
+2019-10-30 07:53:18.262  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 07:53:18.376  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 07:53:18.377  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 07:53:18.402  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:55:39.792  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 07:55:39.793  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 07:55:39.793  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 07:55:39.794  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 07:55:39.794  INFO 6 --- [ool-14-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: e1ad4014-5bc9-4c4b-81c8-01354cdb23b0] Instance discovery was successful
+2019-10-30 07:55:39.960  INFO 6 --- [ool-14-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:55:39.961  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'simon.dobiasch@dlh.de'
+2019-10-30 07:55:39.961  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 07:55:40.081  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 07:55:40.081  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 07:55:40.094  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:56:07.121  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 07:56:07.122  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 07:56:07.122  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 07:56:07.122  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 07:56:07.129  INFO 6 --- [ool-16-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 790bbc04-625b-4644-a113-808c43b0448f] Instance discovery was successful
+2019-10-30 07:56:07.307  INFO 6 --- [ool-16-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:56:07.308  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'dino.bonvecchi@dlh.de'
+2019-10-30 07:56:07.309  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 07:56:07.411  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 07:56:07.411  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 07:56:07.426  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:56:13.278  INFO 6 --- [or-http-epoll-4] global                                   : Created DefaultLogger
+2019-10-30 07:56:13.279  INFO 6 --- [or-http-epoll-4] global                                   : Created DefaultExecutors
+2019-10-30 07:56:13.279  INFO 6 --- [or-http-epoll-4] global                                   : Created DefaultSerializer
+2019-10-30 07:56:13.279  INFO 6 --- [or-http-epoll-4] global                                   : Created DefaultHttpProvider
+2019-10-30 07:56:13.280  INFO 6 --- [ool-18-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: d84f198e-b951-4f58-9805-96936e60ed07] Instance discovery was successful
+2019-10-30 07:56:13.426  INFO 6 --- [ool-18-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:56:13.428  INFO 6 --- [or-http-epoll-4] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(surname,+'bertram')+or+startswith(givenname,+'bertram')+or+startswith(userPrincipalName,+'bertram')+or+startswith(displayName,+'bertram')
+2019-10-30 07:56:13.428  INFO 6 --- [or-http-epoll-4] global                                   : Request Method GET
+2019-10-30 07:56:13.634  INFO 6 --- [or-http-epoll-4] global                                   : Response code 200, OK
+2019-10-30 07:56:13.635  INFO 6 --- [or-http-epoll-4] global                                   : Response json
+2019-10-30 07:56:13.700  INFO 6 --- [or-http-epoll-4] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:56:16.834  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultLogger
+2019-10-30 07:56:16.835  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultExecutors
+2019-10-30 07:56:16.835  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultSerializer
+2019-10-30 07:56:16.835  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultHttpProvider
+2019-10-30 07:56:16.835  INFO 6 --- [ool-20-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: f8cb8558-19a4-4e97-949c-734f3d911524] Instance discovery was successful
+2019-10-30 07:56:16.981  INFO 6 --- [ool-20-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:56:16.982  INFO 6 --- [or-http-epoll-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(displayName,+'bertram,+joel')+or+startswith(displayName,+'joel,+bertram')
+2019-10-30 07:56:16.982  INFO 6 --- [or-http-epoll-1] global                                   : Request Method GET
+2019-10-30 07:56:17.141  INFO 6 --- [or-http-epoll-1] global                                   : Response code 200, OK
+2019-10-30 07:56:17.141  INFO 6 --- [or-http-epoll-1] global                                   : Response json
+2019-10-30 07:56:17.158  INFO 6 --- [or-http-epoll-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:56:22.153  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 07:56:22.154  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 07:56:22.154  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 07:56:22.154  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 07:56:22.158  INFO 6 --- [ool-22-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: c2df660e-dcc7-40b5-a70e-dd0d72e7ff8d] Instance discovery was successful
+2019-10-30 07:56:22.454  INFO 6 --- [ool-22-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:56:22.454  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'joel.bertram.sp@dlh.de'
+2019-10-30 07:56:22.455  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 07:56:22.558  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 07:56:22.558  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 07:56:22.566  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:56:53.098  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultLogger
+2019-10-30 07:56:53.099  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultExecutors
+2019-10-30 07:56:53.099  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultSerializer
+2019-10-30 07:56:53.099  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultHttpProvider
+2019-10-30 07:56:53.101  INFO 6 --- [ool-24-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 309d3267-b5e4-4a44-bc8b-7fcdc449c559] Instance discovery was successful
+2019-10-30 07:56:53.276  INFO 6 --- [ool-24-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:56:53.276  INFO 6 --- [or-http-epoll-3] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(displayName,+'Benedikt,+Sattler')+or+startswith(displayName,+'Sattler,+Benedikt')
+2019-10-30 07:56:53.277  INFO 6 --- [or-http-epoll-3] global                                   : Request Method GET
+2019-10-30 07:56:53.385  INFO 6 --- [or-http-epoll-3] global                                   : Response code 200, OK
+2019-10-30 07:56:53.385  INFO 6 --- [or-http-epoll-3] global                                   : Response json
+2019-10-30 07:56:53.411  INFO 6 --- [or-http-epoll-3] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:57:04.053  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 07:57:04.053  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 07:57:04.053  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 07:57:04.053  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 07:57:04.054  INFO 6 --- [ool-26-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: b3243eed-856a-42aa-8d32-4a014aa1800a] Instance discovery was successful
+2019-10-30 07:57:04.214  INFO 6 --- [ool-26-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 07:57:04.214  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'benedikt.sattler@dlh.de'
+2019-10-30 07:57:04.214  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 07:57:06.285  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 07:57:06.286  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 07:57:06.295  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 07:59:08.367 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 07:59:08.372 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 07:59:08.373  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 07:59:11.685 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 07:59:11.686 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 07:59:11.686  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 07:59:12.640 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 07:59:12.641 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 07:59:12.643  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 07:59:29.631 ERROR 6 --- [or-http-epoll-4] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 07:59:29.631 ERROR 6 --- [or-http-epoll-4] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 07:59:29.632  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:00:15.753 ERROR 6 --- [or-http-epoll-2] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 08:00:15.754 ERROR 6 --- [or-http-epoll-2] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 08:00:15.755  WARN 6 --- [or-http-epoll-2] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:10:05.912  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:62, serverValue:730527861}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:12:47.199  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.routing.ForbiddenException pass token invalid: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtLnB1c2NoQHZpZGNvc3R1ZGlvcy5kZSIsImlhdCI6MTU3MTkyMDk1MywiZXhwIjoxNTcyMzkwMDAwfQ.ahcNk58WUayE9Gmkggi7elRnfq2p1ITjWLOobPbo3DI
+2019-10-30 08:13:47.688 ERROR 6 --- [or-http-epoll-3] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 08:13:47.689 ERROR 6 --- [or-http-epoll-3] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 08:13:47.690  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:13:50.022 ERROR 6 --- [or-http-epoll-3] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 08:13:50.023 ERROR 6 --- [or-http-epoll-3] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 08:13:50.023  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:25:00.743  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 08:25:00.743  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 08:25:00.743  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 08:25:00.743  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 08:25:00.744  INFO 6 --- [ool-28-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: d6603df1-0821-480f-8b5b-a2616c22f49d] Instance discovery was successful
+2019-10-30 08:25:00.908  INFO 6 --- [ool-28-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 08:25:00.913  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'tobias.geyer@dlh.de'
+2019-10-30 08:25:00.913  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 08:25:01.047  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 08:25:01.048  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 08:25:01.057  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 08:30:15.777  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:63, serverValue:141578662}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:30:15.795  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:67, serverValue:-2011768823}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:30:15.813  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:66, serverValue:722986745}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:30:15.828  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:65, serverValue:-955844606}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:30:15.837  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:68, serverValue:-1162539700}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:30:15.862  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:64, serverValue:-1499218798}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:31:26.403  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:70, serverValue:-1919699315}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:31:26.456  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:69, serverValue:2143572192}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:35:36.561 ERROR 6 --- [or-http-epoll-4] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 08:35:36.562 ERROR 6 --- [or-http-epoll-4] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 08:35:36.562  WARN 6 --- [or-http-epoll-4] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:36:16.642 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit response body: {"status":"failed","message":"Timestamps cannot be in the past and start of visit must be before end of visit. [2019-10-29T12:00:00Z-2019-10-29T23:59:00Z]","pdf":"","payloadCharacterSet":"ASCII"}
+2019-10-30 08:36:16.643 ERROR 6 --- [or-http-epoll-1] d.d.d.s.i.LHvisitAnnouncementServiceImpl : LHvisit request failed
+
+org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+	at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:174) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at org.springframework.web.reactive.function.client.DefaultWebClient$DefaultResponseSpec.lambda$createResponseException$15(DefaultWebClient.java:512) ~[spring-webflux-5.1.9.RELEASE.jar!/:5.1.9.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:100) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:92) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxContextStart$ContextStartSubscriber.onNext(FluxContextStart.java:103) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:287) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:331) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1515) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.MonoCollectList$MonoCollectListSubscriber.onComplete(MonoCollectList.java:121) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:252) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:136) ~[reactor-core-3.2.12.RELEASE.jar!/:3.2.12.RELEASE]
+	at reactor.netty.channel.FluxReceive.terminateReceiver(FluxReceive.java:397) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:197) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:345) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:365) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:414) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:555) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:91) ~[reactor-netty-0.8.11.RELEASE.jar!/:0.8.11.RELEASE]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:438) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:328) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:302) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:253) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1475) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1224) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1271) ~[netty-handler-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:505) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:444) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:283) ~[netty-codec-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:352) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1421) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:374) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:360) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:930) ~[netty-transport-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:794) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:424) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:326) ~[netty-transport-native-epoll-4.1.39.Final-linux-x86_64.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:918) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.39.Final.jar!/:4.1.39.Final]
+	at java.base/java.lang.Thread.run(Unknown Source) ~[na:na]
+
+2019-10-30 08:36:16.643  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:37:09.469  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 08:37:09.470  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 08:37:09.470  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 08:37:09.470  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 08:37:09.471  INFO 6 --- [ool-30-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 991bcacf-53e5-4f85-b788-55960b3447be] Instance discovery was successful
+2019-10-30 08:37:09.636  INFO 6 --- [ool-30-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 08:37:09.636  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'ansgar.siebert@dlh.de'
+2019-10-30 08:37:09.636  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 08:37:09.750  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 08:37:09.750  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 08:37:09.757  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 08:52:22.269  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 08:53:58.177  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 08:53:58.177  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 08:53:58.178  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 08:53:58.178  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 08:53:58.179  INFO 6 --- [ool-32-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 6c47d32f-caf5-42f7-b0d3-9fc35b30969f] Instance discovery was successful
+2019-10-30 08:53:58.382  INFO 6 --- [ool-32-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 08:53:58.383  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'anna.bracht@dlh.de'
+2019-10-30 08:53:58.383  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 08:53:58.555  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 08:53:58.555  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 08:53:58.566  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 08:56:34.182  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 08:56:34.182  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 08:56:34.183  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 08:56:34.183  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 08:56:34.184  INFO 6 --- [ool-34-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 4a263953-90b7-4395-a7ae-4c4327b4d18e] Instance discovery was successful
+2019-10-30 08:56:34.384  INFO 6 --- [ool-34-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 08:56:34.385  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'dennis.weber@dlh.de'
+2019-10-30 08:56:34.385  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 08:56:34.508  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 08:56:34.508  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 08:56:34.517  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 08:57:36.404  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:72, serverValue:1949307587}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:57:36.419  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:73, serverValue:-2096270903}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:57:36.460  INFO 6 --- [ntLoopGroup-2-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:74, serverValue:1438410278}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:57:36.578  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:75, serverValue:-1974851180}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:57:36.841  INFO 6 --- [ntLoopGroup-2-1] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:71, serverValue:372415958}] to cdbm-ams-dgpmain-01.documents.azure.com:10255
+2019-10-30 08:57:53.160  WARN 6 --- [or-http-epoll-1] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 09:17:21.551  WARN 6 --- [or-http-epoll-3] de.dlh.dgp.routing.ErrorRouting          : dealing with request resulted in error: de.dlh.dgp.services.LHvisitException org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request
+2019-10-30 09:23:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:61, serverValue:-87406523}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 09:23:28.619  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:44, serverValue:-1173597471}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 09:23:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:33, serverValue:367748747}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 09:23:28.620  INFO 6 --- [imer-1-thread-1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:55, serverValue:-1592092226}] to cdbm-ams-dgpmain-01.documents.azure.com:10255 because it is past its maximum allowed idle time.
+2019-10-30 09:23:49.861  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultLogger
+2019-10-30 09:23:49.861  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultExecutors
+2019-10-30 09:23:49.862  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultSerializer
+2019-10-30 09:23:49.862  INFO 6 --- [ntLoopGroup-2-1] global                                   : Created DefaultHttpProvider
+2019-10-30 09:23:49.863  INFO 6 --- [ool-36-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: e9f51863-bbf5-4a3f-9964-7d545a24a242] Instance discovery was successful
+2019-10-30 09:23:50.040  INFO 6 --- [ool-36-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:23:50.040  INFO 6 --- [ntLoopGroup-2-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'joachim.kressel@dlh.de'
+2019-10-30 09:23:50.040  INFO 6 --- [ntLoopGroup-2-1] global                                   : Request Method GET
+2019-10-30 09:23:50.189  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response code 200, OK
+2019-10-30 09:23:50.189  INFO 6 --- [ntLoopGroup-2-1] global                                   : Response json
+2019-10-30 09:23:50.196  INFO 6 --- [ntLoopGroup-2-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:28:19.783  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultLogger
+2019-10-30 09:28:19.784  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultExecutors
+2019-10-30 09:28:19.784  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultSerializer
+2019-10-30 09:28:19.784  INFO 6 --- [or-http-epoll-1] global                                   : Created DefaultHttpProvider
+2019-10-30 09:28:19.785  INFO 6 --- [ool-38-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 567f0095-f1d9-4a0f-839a-6d0b2edf520e] Instance discovery was successful
+2019-10-30 09:28:19.997  INFO 6 --- [ool-38-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:28:19.998  INFO 6 --- [or-http-epoll-1] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(surname,+'schulte')+or+startswith(givenname,+'schulte')+or+startswith(userPrincipalName,+'schulte')+or+startswith(displayName,+'schulte')
+2019-10-30 09:28:19.998  INFO 6 --- [or-http-epoll-1] global                                   : Request Method GET
+2019-10-30 09:28:20.339  INFO 6 --- [or-http-epoll-1] global                                   : Response code 200, OK
+2019-10-30 09:28:20.339  INFO 6 --- [or-http-epoll-1] global                                   : Response json
+2019-10-30 09:28:20.399  INFO 6 --- [or-http-epoll-1] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:28:25.318  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultLogger
+2019-10-30 09:28:25.319  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultExecutors
+2019-10-30 09:28:25.319  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultSerializer
+2019-10-30 09:28:25.319  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultHttpProvider
+2019-10-30 09:28:25.320  INFO 6 --- [ool-40-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 71fd5500-f216-4e61-9ab1-89be106bedb8] Instance discovery was successful
+2019-10-30 09:28:25.449  INFO 6 --- [ool-40-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:28:25.449  INFO 6 --- [or-http-epoll-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(displayName,+'schulte,+s')+or+startswith(displayName,+'s,+schulte')
+2019-10-30 09:28:25.450  INFO 6 --- [or-http-epoll-2] global                                   : Request Method GET
+2019-10-30 09:28:25.578  INFO 6 --- [or-http-epoll-2] global                                   : Response code 200, OK
+2019-10-30 09:28:25.578  INFO 6 --- [or-http-epoll-2] global                                   : Response json
+2019-10-30 09:28:25.591  INFO 6 --- [or-http-epoll-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:28:35.232  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 09:28:35.238  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 09:28:35.238  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 09:28:35.238  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 09:28:35.245  INFO 6 --- [ool-42-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 11936987-f642-41f3-93a3-dc1dff3194b1] Instance discovery was successful
+2019-10-30 09:28:35.413  INFO 6 --- [ool-42-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:28:35.414  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'stephan.schulte@dlh.de'
+2019-10-30 09:28:35.414  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 09:28:35.515  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 09:28:35.515  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 09:28:35.521  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:30:21.928  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 09:30:21.928  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 09:30:21.929  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 09:30:21.929  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 09:30:21.929  INFO 6 --- [ool-44-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 8cc1b00f-39ef-4371-8f8e-abefe79680b2] Instance discovery was successful
+2019-10-30 09:30:22.090  INFO 6 --- [ool-44-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:30:22.090  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'anne.schafmeister@dlh.de'
+2019-10-30 09:30:22.090  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 09:30:22.189  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 09:30:22.189  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 09:30:22.200  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:30:56.288  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultLogger
+2019-10-30 09:30:56.288  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultExecutors
+2019-10-30 09:30:56.288  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultSerializer
+2019-10-30 09:30:56.288  INFO 6 --- [or-http-epoll-2] global                                   : Created DefaultHttpProvider
+2019-10-30 09:30:56.289  INFO 6 --- [ool-46-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 92758ccb-905c-44f4-aa40-36cfe0981028] Instance discovery was successful
+2019-10-30 09:30:56.428  INFO 6 --- [ool-46-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:30:56.429  INFO 6 --- [or-http-epoll-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(displayName,+'Jil,+Hammershcmidt')+or+startswith(displayName,+'Hammershcmidt,+Jil')
+2019-10-30 09:30:56.429  INFO 6 --- [or-http-epoll-2] global                                   : Request Method GET
+2019-10-30 09:30:56.528  INFO 6 --- [or-http-epoll-2] global                                   : Response code 200, OK
+2019-10-30 09:30:56.528  INFO 6 --- [or-http-epoll-2] global                                   : Response json
+2019-10-30 09:30:56.532  INFO 6 --- [or-http-epoll-2] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:31:00.740  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultLogger
+2019-10-30 09:31:00.740  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultExecutors
+2019-10-30 09:31:00.740  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultSerializer
+2019-10-30 09:31:00.740  INFO 6 --- [or-http-epoll-3] global                                   : Created DefaultHttpProvider
+2019-10-30 09:31:00.741  INFO 6 --- [ool-48-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: 606b4123-900c-480d-a6b9-acef8ba1538b] Instance discovery was successful
+2019-10-30 09:31:00.854  INFO 6 --- [ool-48-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:31:00.854  INFO 6 --- [or-http-epoll-3] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=startswith(displayName,+'Jil,+Hammerschmidt')+or+startswith(displayName,+'Hammerschmidt,+Jil')
+2019-10-30 09:31:00.854  INFO 6 --- [or-http-epoll-3] global                                   : Request Method GET
+2019-10-30 09:31:00.976  INFO 6 --- [or-http-epoll-3] global                                   : Response code 200, OK
+2019-10-30 09:31:00.976  INFO 6 --- [or-http-epoll-3] global                                   : Response json
+2019-10-30 09:31:00.981  INFO 6 --- [or-http-epoll-3] global                                   : Deserializing type BaseUserCollectionResponse
+2019-10-30 09:31:07.789  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultLogger
+2019-10-30 09:31:07.789  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultExecutors
+2019-10-30 09:31:07.789  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultSerializer
+2019-10-30 09:31:07.789  INFO 6 --- [ntLoopGroup-2-2] global                                   : Created DefaultHttpProvider
+2019-10-30 09:31:07.790  INFO 6 --- [ool-50-thread-1] c.m.aad.adal4j.AuthenticationAuthority   : [Correlation ID: eaa26d3f-8f31-48cd-8e02-b09e79101721] Instance discovery was successful
+2019-10-30 09:31:08.093  INFO 6 --- [ool-50-thread-1] d.d.d.s.i.AzureAuthProvider              : successfully received Bearer token
+2019-10-30 09:31:08.094  INFO 6 --- [ntLoopGroup-2-2] global                                   : Starting to send request, URL https://graph.microsoft.com/beta//users?$filter=userPrincipalName+eq+'jil.hammerschmidt@dlh.de'
+2019-10-30 09:31:08.094  INFO 6 --- [ntLoopGroup-2-2] global                                   : Request Method GET
+2019-10-30 09:31:08.191  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response code 200, OK
+2019-10-30 09:31:08.191  INFO 6 --- [ntLoopGroup-2-2] global                                   : Response json
+2019-10-30 09:31:08.195  INFO 6 --- [ntLoopGroup-2-2] global                                   : Deserializing type BaseUserCollectionResponse

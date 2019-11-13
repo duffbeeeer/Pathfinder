@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MustMatch } from '../../shared/must-match.validator';
+import { MustMatch } from '../../_shared/must-match.validator';
 import { AuthenticationService } from '../../_services';
 import { first, catchError, timeout } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';

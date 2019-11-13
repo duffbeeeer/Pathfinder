@@ -1,11 +1,11 @@
 import { Component, OnInit, ElementRef, ViewContainerRef, ViewChild, AfterViewChecked, HostListener, Input, EventEmitter, Output } from '@angular/core';
-import { PositionModel } from '../shared/ar-view.model';
+import { PositionModel } from '../_shared/ar-view.model';
 import { ScoreService } from '../_services/score.service';
 import { AuthenticationService } from '../_services';
 import { Observable } from 'rxjs';
-import { Highscore, PointOfInterest } from '../_models/score.model';
-import { ViewModel, View, initialView } from '../shared/active-view.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Highscore } from '../_shared/score.model';
+import { ViewModel } from '../_shared/active-view.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-augmented',

@@ -67,8 +67,6 @@ export class RegistrationComponent implements OnInit {
           this.login$ = this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(catchError(this.errorHandler));
           this.login$.forEach(res => {
             if (res.headers.get('Authorization')) {
-              console.log(res.status);
-              console.log(res.headers.get('Authorization'));
               const userToken = res.headers.get('Authorization');
               localStorage.setItem('currentUser', userToken);
               this.router.navigate(['/success']);

@@ -11,7 +11,7 @@ export class ScoreService {
   }
 
   getHighscore(): Observable<Highscore> {
-    return this.http.get<Highscore>('https://vps723941.ovh.net:9090/user/highscore', { observe: 'response' })
+    return this.http.get<Highscore>('http://localhost:8080/user/highscore', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let highScore: Highscore;
@@ -23,7 +23,7 @@ export class ScoreService {
   }
 
   getHighscoreList(): Observable<Highscore[]> {
-    return this.http.get<Highscore[]>(`https://vps723941.ovh.net:9090/highscore/${10}`, { observe: 'response' })
+    return this.http.get<Highscore[]>(`http://localhost:8080/highscore/${10}`, { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let highScore: Highscore[];
@@ -35,7 +35,7 @@ export class ScoreService {
   }
 
   getAchievements(): Observable<Achievement[]> {
-    return this.http.get<Achievement[]>('https://vps723941.ovh.net:9090/user/achievements', { observe: 'response' })
+    return this.http.get<Achievement[]>('http://localhost:8080/user/achievements', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let achievements: Achievement[];
@@ -47,7 +47,7 @@ export class ScoreService {
   }
 
   getPoiList(): Observable<PointOfInterest[]> {
-    return this.http.get<PointOfInterest[]>('https://vps723941.ovh.net:9090/pointsofinterest/all', { observe: 'response' })
+    return this.http.get<PointOfInterest[]>('http://localhost:8080/pointsofinterest/all', { observe: 'response' })
       .pipe(map(response => {
         console.log(response);
         if (response) {
@@ -60,7 +60,7 @@ export class ScoreService {
   }
 
   getUserPoiList(): Observable<PointOfInterest[]> {
-    return this.http.get<PointOfInterest[]>('https://vps723941.ovh.net:9090/user/pointsofinterest', { observe: 'response' })
+    return this.http.get<PointOfInterest[]>('http://localhost:8080/user/pointsofinterest', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           let pointOfInterestList: PointOfInterest[];
@@ -74,7 +74,7 @@ export class ScoreService {
 
   completePoi(id: string, value: number) {
     console.log('POI ID: ' + id + '\nScore: ' + value);
-    return this.http.post<PointOfInterest[]>(`https://vps723941.ovh.net:9090/user/pointsofinterest/${id}/complete/${value}`, {
+    return this.http.post<PointOfInterest[]>(`http://localhost:8080/user/pointsofinterest/${id}/complete/${value}`, {
       observe: 'response'
     })
       .pipe(first())

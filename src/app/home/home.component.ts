@@ -29,11 +29,6 @@ export class HomeComponent implements OnInit {
   ) {
     this.currentPosition$ = this.geolocationService.getCurrentPosition();
     this.poiUserList$ = this.scoreService.getUserPoiList();
-    this.currentPosition$.forEach(res => {
-      console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp);
-    });
-
-    this.poiUserList$.forEach(res => res.map(res => console.log('USER POI.id: ' + res.id + '\nUSER POI.isActive: ' + res.active)));
   }
 
   ngOnInit(): void {
@@ -41,8 +36,6 @@ export class HomeComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(async (pos) => {
         this.currentPosition$ = this.geolocationService.getCurrentPosition();
-        this.currentPosition$.forEach(res =>
-          console.log('Lat: ' + res.coords.latitude + '\nLng: ' + res.coords.longitude + '\nTimestamp: ' + res.timestamp));
       });
     }
   }

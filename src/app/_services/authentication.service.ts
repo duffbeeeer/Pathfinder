@@ -31,13 +31,13 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`https://vps723941.ovh.net:9090/login`, { username, password }, { observe: 'response' })
+    return this.http.post<any>(`http://localhost:8080/login`, { username, password }, { observe: 'response' })
       .pipe(first());
   }
 
 
   register(username: string, password: string) {
-    return this.http.post<any>('https://vps723941.ovh.net:9090/user/sign-up', { username, password })
+    return this.http.post<any>('http://localhost:8080/user/sign-up', { username, password })
       .pipe(map(user => {
         this.userUsername = username;
         this.userPassword = password;

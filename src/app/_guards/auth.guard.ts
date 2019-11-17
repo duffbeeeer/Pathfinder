@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
     this.isAuthenticated = false;
   }
   getAuth(): Observable<boolean> {
-    return this.http.get<boolean>('https://vps723941.ovh.net:9090/user/validate', { observe: 'response' })
+    return this.http.get<boolean>('http://localhost:8080/user/validate', { observe: 'response' })
       .pipe(map(response => {
         if (response) {
           console.log(response);

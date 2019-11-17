@@ -17,12 +17,6 @@ export class NavigationComponent implements OnInit {
   currentView: ViewModel;
   showInfobox: boolean;
 
-  @Output()
-  activateMaps: EventEmitter<any> = new EventEmitter();
-
-  @Output()
-  activateAugmented: EventEmitter<any> = new EventEmitter();
-
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
@@ -33,14 +27,6 @@ export class NavigationComponent implements OnInit {
     this.currentView = initialView;
     this.screenWidth = window.innerWidth;
     this.screenHeight = 60;
-  }
-
-  onActivateMaps() {
-    this.activateMaps.emit();
-  }
-
-  onActivateAugmented() {
-    this.activateAugmented.emit();
   }
 
   onShowInfobox() {

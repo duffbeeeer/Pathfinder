@@ -63,6 +63,12 @@ export class MapsComponent implements OnInit, OnChanges {
 
   markers: PointOfInterest[];
 
+  testMarkers: PointOfInterest[] = [
+    {id: '1',lat: 53.562010, lng: 9.988701, active: true},
+    {id: '2',lat: 53.561020, lng: 9.989974, active: true},
+    {id: '3',lat: 53.559631, lng: 9.989302, active: true},
+  ]
+
   iconUrl = {
     url: '../../assets/images/poi-icon.png',
     scaledSize: { height: 23.5, width: 16.5 }
@@ -73,7 +79,6 @@ export class MapsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    // console.log('change')
     this.screenHeight = window.innerHeight;
     this.screenWidth = window.innerWidth;
     if (this.currentPosition && this.poiUserList) {
@@ -88,7 +93,7 @@ export class MapsComponent implements OnInit, OnChanges {
       });
     }
   }
-
+  
   ngOnInit() {
     this.destinationReached = false;
     this.screenWidth = window.innerWidth;

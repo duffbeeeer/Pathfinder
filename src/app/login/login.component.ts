@@ -66,14 +66,14 @@ export class LoginComponent implements OnInit {
     get f() { return this.loginForm.controls; }
 
     onSubmit() {
-
         this.submitted = true;
         // stop here if form is invalid
         if (this.loginForm.invalid) {
             return;
         }
-
-        this.login$ = this.authenticationService.login(this.f.username.value, this.f.password.value).pipe(catchError(this.errorHandler));
+        this.login$ = this.authenticationService.login(this.f.username.value, 
+                                                       this.f.password.value)
+                                                       .pipe(catchError(this.errorHandler));
         this.login$.forEach(res => {
             if (res.headers.get('Authorization')) {
                 const userToken = res.headers.get('Authorization');

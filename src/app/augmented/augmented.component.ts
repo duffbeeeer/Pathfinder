@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./augmented.component.scss']
 })
 
-export class AugmentedComponent implements OnInit, AfterViewChecked {
+export class AugmentedComponent implements OnInit {
 
   @Input()
   public poiId: string;
@@ -22,6 +22,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   activateMaps: EventEmitter<any> = new EventEmitter();
 
   userStats$: Observable<Highscore>;
+
   scoreList$: Observable<Highscore[]>;
   scoreArray: Highscore[];
   public timer;
@@ -72,10 +73,8 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
 
   constructor(
-    private hostElement: ViewContainerRef,
     private scoreService: ScoreService,
-    private auth: AuthenticationService,
-    private router: Router) {
+    ) {
     this.scoreList$ = this.scoreService.getHighscoreList();
     this.userStats$ = this.scoreService.getHighscore();
     this.scoreList$.forEach(res => {
@@ -98,12 +97,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.userNameRef = document.getElementById('usernameId');
     this.userScoreLblRef = document.getElementById('userScoreLblId');
     this.userScoreValueRef = document.getElementById('userScoreValueId');
-    console.log(this.userNameRef);
-    console.log(this.userPositionRef);
-    console.log(this.userScoreLblRef);
-    console.log(this.userScoreValueRef);
-    // alert(this.detectBrowser(navigator.userAgent));
-    console.log(this.coinBlock);
     window.addEventListener('devicemotion', (event) => {
       if (!event.rotationRate.alpha || !event.rotationRate.beta || !event.rotationRate.gamma) {
         // alert('Please check you safari settings');
@@ -119,7 +112,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
     this.coinBlock.nativeElement.addEventListener('click', (evt) => {
       this.onHit();
       console.log('I was clicked at: ', evt.detail.intersection.point);
-
     });
 
     this.coinBlock.nativeElement.addEventListener('mouseenter', () => {
@@ -139,10 +131,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
       console.log('Yscalefactor!: ', yScale);
       this.videoRef.style.transform = `scaleY(${yScale})`;
       }, 1000);
-  }
-
-  ngAfterViewChecked() {
-
   }
 
   @HostListener('window:resize', ['$event'])
@@ -243,9 +231,7 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
         }
       ];
       this.rngIndex = Math.floor((Math.random() * this.positions.length));
-      console.log('rngindex', this.rngIndex);
       this.newPosition = this.positions[this.rngIndex];
-      console.log('Coinblock at: ', this.newPosition);
       this.coinBlock.nativeElement.object3D.position.set(this.newPosition.x, this.newPosition.y, this.newPosition.z);
       this.overallScore += this.points;
       this.scoreRef.nativeElement.textContent = ' ' + this.overallScore;
@@ -254,9 +240,6 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
 
   back() {
     this.activateMaps.emit();
-    console.log('TODO: BACK TO MAPS');
-    console.log('rng index', Math.floor((Math.random() * this.positions.length)));
-    // console.log(this.rngValue(0, 4));
   }
 
   rngValue(from: number, to: number) {
@@ -266,14 +249,10 @@ export class AugmentedComponent implements OnInit, AfterViewChecked {
   }
   addScore() {
     clearInterval(this.timer);
-    console.log(this.poiId);
     this.scoreService.completePoi(this.poiId, this.overallScore);
-    console.log(this.scoreList$.forEach(res => console.log(res)));
-    // this.scoreList$ = this.scoreService.getHighscoreList();
     this.scoreList$.forEach(res => {
       this.scoreArray = res;
     });
-    console.log(this.scoreList$.forEach(res => console.log(res)));
     this.isCompleted = true;
   }
 
